@@ -9,6 +9,7 @@ import os
 from typing import Optional, Dict, Any
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 # Ensure azia package is accessible
@@ -81,8 +82,8 @@ class AIConfigRequest(BaseModel):
     preferred_provider: Optional[str] = None
 
 
-@app.get("/")
-def root():
+@app.get("/api")
+def api_root():
     return {
         "service": "AZIA Autonomous Design Engine",
         "status": "ONLINE",
@@ -96,7 +97,8 @@ def root():
             "/api/design-system/ingest",
             "/api/ai/status",
             "/api/ai/configure",
-            "/health"
+            "/health",
+            "/docs"
         ]
     }
 
@@ -235,7 +237,15 @@ def ingest_design_system(req: IngestDSRequest):
         raise HTTPException(status_code=500, detail=str(e))
 
 
+# Mount interactive web interface and previews if present
+WEB_DIR = os.path.join(os.path.dirname(__file__), "web")
+if os.path.exists(WEB_DIR):
+    app.mount("/", StaticFiles(directory=WEB_DIR, html=True), name="web")
+
+
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("azia.api_server:app", host="0.0.0.0", port=8000, reload=True)
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("azia.api_server:app", host="0.0.0.0", port=port, reload=False)
+
 

@@ -395,25 +395,55 @@
       }
     }
 
-    function sendChat() {
+    function escapeHtml(str) {
+      return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    }
+
+    async function sendChat() {
       const input = document.getElementById('user-input');
       const text = input.value.trim();
       if (!text) return;
       const box = document.getElementById('chat-box');
-      box.innerHTML += `<div class="chat-bubble chat-user">${text}</div>`;
+      box.innerHTML += `<div class="chat-bubble chat-user">${escapeHtml(text)}</div>`;
       input.value = '';
+      box.scrollTop = box.scrollHeight;
 
-      setTimeout(() => {
-        let reply = "From a cognitive load perspective, every additional screen or control introduces drop-off risk. Let's make sure we ground this choice in verified user motivation!";
-        const t = text.toLowerCase();
-        if (t.includes('simplify') || t.includes('steps')) {
-          reply = "We can eliminate the intermediate review step if default payment and delivery landmark are pre-filled, dropping order time by 35%!";
-        } else if (t.includes('dashboard') || t.includes('assumption')) {
-          reply = "Placing this on the dashboard maximizes day-1 awareness but creates cognitive clutter on day 30. Adopt Progressive Disclosure!";
+      const loadingId = 'ai-loading-' + Date.now();
+      box.innerHTML += `<div class="chat-bubble chat-ai" id="${loadingId}"><strong class="author-name">AZIA:</strong><br><em>Analyzing UX heuristics &amp; trade-offs...</em></div>`;
+      box.scrollTop = box.scrollHeight;
+
+      try {
+        const res = await fetch('/api/spar', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ query: text, context: currentDomain })
+        });
+        if (res.ok) {
+          const data = await res.json();
+          const reply = data.critique || data.message || "Cognitive load verified. Heuristics aligned!";
+          const el = document.getElementById(loadingId);
+          if (el) {
+            el.innerHTML = `<strong class="author-name">AZIA (${data.tone || 'Balanced Critic'}):</strong><br>${escapeHtml(reply)}`;
+          }
+          box.scrollTop = box.scrollHeight;
+          return;
         }
-        box.innerHTML += `<div class="chat-bubble chat-ai"><strong class="author-name">AZIA:</strong><br>${reply}</div>`;
-        box.scrollTop = box.scrollHeight;
-      }, 400);
+      } catch (err) {
+        // Fallback to local heuristic engine if API is not directly reachable
+      }
+
+      let reply = "From a cognitive load perspective, every additional screen or control introduces drop-off risk. Let's make sure we ground this choice in verified user motivation!";
+      const t = text.toLowerCase();
+      if (t.includes('simplify') || t.includes('steps')) {
+        reply = "We can eliminate the intermediate review step if default payment and delivery landmark are pre-filled, dropping order time by 35%!";
+      } else if (t.includes('dashboard') || t.includes('assumption')) {
+        reply = "Placing this on the dashboard maximizes day-1 awareness but creates cognitive clutter on day 30. Adopt Progressive Disclosure!";
+      }
+      const el = document.getElementById(loadingId);
+      if (el) {
+        el.innerHTML = `<strong class="author-name">AZIA:</strong><br>${escapeHtml(reply)}`;
+      }
+      box.scrollTop = box.scrollHeight;
     }
 
     function copyOperations() {

@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: azia-uxui-agent
+    runtime: python
+    rootDir: azia
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn api_server:app --host 0.0.0.0 --port $PORT"
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GROK_API_KEY
+        sync: false

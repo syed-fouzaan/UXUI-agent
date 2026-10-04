@@ -69,6 +69,17 @@ def test_api_server_endpoints():
     assert health_resp.status_code == 200
     assert health_resp.json()["status"] == "ok"
 
+    # API Directory endpoint
+    api_resp = client.get("/api")
+    assert api_resp.status_code == 200
+    assert api_resp.json()["status"] == "ONLINE"
+    assert "/api/design" in api_resp.json()["endpoints"]
+
+    # Web UI served at root
+    root_resp = client.get("/")
+    assert root_resp.status_code == 200
+    assert "AZIA" in root_resp.text
+
     # Spar endpoint
     spar_resp = client.post("/api/spar", json={"query": "Why use progressive disclosure?"})
     assert spar_resp.status_code == 200
@@ -78,3 +89,4 @@ def test_api_server_endpoints():
     code_resp = client.post("/api/code-handoff", json={"framework": "tokens"})
     assert code_resp.status_code == 200
     assert "tokens.json" in code_resp.json()["filename"]
+
