@@ -397,6 +397,19 @@
     .btn-spar-send:hover {
       background: #C2410C;
     }
+    .audit-filter-pill {
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-weight: 600;
+      background: #1E293B;
+      border: 1px solid #334155;
+      color: #94A3B8;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .audit-filter-pill:hover { background: #334155; color: #F8FAFC; }
+    .audit-filter-pill.active { background: #EA580C; border-color: #EA580C; color: white; }
   </style>
 </head>
 <body>
@@ -515,23 +528,58 @@
   <!-- Tab 3: Nielsen UX Audit -->
   <div id="tab-audit" class="content-area">
     <div class="selection-status-box" id="selection-status">
-      Select any layer or frame on the canvas, then click inspect below.
+      Select any layer or frame on the canvas, then click Audit below.
     </div>
 
-    <button type="button" class="btn-primary" onclick="inspectSelectedLayer()">
-      <span>🔎 Audit Selected Screen / Layer</span>
-    </button>
+    <div style="display:flex;gap:8px;margin-bottom:12px">
+      <button type="button" class="btn-primary" id="btn-audit" onclick="inspectSelectedLayer()" style="flex:1">
+        <span>🔎 Audit Selected Screen / Layer</span>
+      </button>
+      <button type="button" class="btn-secondary" onclick="reverseEngineerPRD()" style="flex:1">
+        📄 Reverse-Engineer PRD
+      </button>
+    </div>
+
+    <!-- Score Ring + Summary -->
+    <div id="audit-score-panel" style="display:none;background:#1E293B;border:1px solid #334155;border-radius:12px;padding:14px;margin-bottom:12px">
+      <div style="display:flex;align-items:center;gap:14px">
+        <svg width="64" height="64" viewBox="0 0 64 64">
+          <circle cx="32" cy="32" r="26" fill="none" stroke="#334155" stroke-width="6"/>
+          <circle id="score-ring" cx="32" cy="32" r="26" fill="none" stroke="#EA580C" stroke-width="6"
+                  stroke-dasharray="163" stroke-dashoffset="163"
+                  stroke-linecap="round" transform="rotate(-90 32 32)"
+                  style="transition:stroke-dashoffset 1s ease"/>
+          <text id="score-ring-text" x="32" y="37" text-anchor="middle" fill="#F8FAFC" font-size="13" font-weight="700" font-family="Inter,sans-serif">--</text>
+        </svg>
+        <div style="flex:1">
+          <div id="audit-mentor-summary" style="font-size:12px;color:#94A3B8;line-height:1.5">Run an audit to see AZIA mentor summary.</div>
+          <div id="audit-badges" style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Severity Filter Bar -->
+    <div id="audit-filter-bar" style="display:none;gap:6px;margin-bottom:10px;flex-wrap:wrap">
+      <span class="audit-filter-pill active" data-sev="ALL" onclick="filterFindings('ALL')">All</span>
+      <span class="audit-filter-pill" data-sev="HIGH" onclick="filterFindings('HIGH')">🔴 High</span>
+      <span class="audit-filter-pill" data-sev="MEDIUM" onclick="filterFindings('MEDIUM')">🟠 Medium</span>
+      <span class="audit-filter-pill" data-sev="LOW" onclick="filterFindings('LOW')">🟡 Low</span>
+    </div>
 
     <div class="audit-findings-container" id="audit-findings-list">
-      <div class="finding-card HIGH">
-        <div class="finding-header">
-          <span>Error Prevention Check</span>
-          <span class="badge-high-severity">HIGH SEVERITY</span>
+      <div style="text-align:center;padding:24px;color:#475569;font-size:12px">
+        Select a layer on the Figma canvas and click <strong>Audit</strong> to run the AZIA multi-agent heuristic review.
+      </div>
+    </div>
+
+    <!-- PRD Modal -->
+    <div id="prd-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:999;overflow-y:auto;padding:16px">
+      <div style="background:#1E293B;border:1px solid #334155;border-radius:14px;padding:18px;max-width:440px;margin:auto">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <strong style="font-size:13px;color:#F8FAFC">📄 Reverse-Engineered PRD</strong>
+          <button onclick="document.getElementById('prd-modal').style.display='none'" style="background:none;border:none;color:#94A3B8;font-size:16px;cursor:pointer">✕</button>
         </div>
-        <p class="finding-desc">CTA button executes destructive payment without secondary verification step.</p>
-        <button type="button" class="btn-annotation" onclick="annotateFix('Payment Verification', 'Implement swipe-to-confirm or biometrics prompt')">
-          + Add Canvas Annotation
-        </button>
+        <div id="prd-modal-content" style="font-size:12px;color:#CBD5E1;line-height:1.6"></div>
       </div>
     </div>
   </div>
@@ -774,23 +822,232 @@
       return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
     }
 
-    window.onmessage = (event) => {
+    // ── Audit state ──────────────────────────────────────────────────────────
+    let lastAuditSelection = null;
+    let allFindings = [];
+
+    window.onmessage = async (event) => {
       const msg = event.data.pluginMessage;
       if (!msg) return;
+
       if (msg.type === "SELECTION_INSPECTED") {
         const p = msg.payload;
         const box = document.getElementById('selection-status');
-        if (p.has_selection) {
-          box.innerHTML = `Selected: <strong>${p.name}</strong> (${p.type}) • ${p.width}x${p.height}px`;
-        } else {
+        if (!p.has_selection) {
           box.innerText = p.message || "No layer selected.";
+          return;
         }
+        box.innerHTML = `🔍 Auditing: <strong>${escapeHtml(p.name)}</strong> (${p.type}) • ${Math.round(p.width)}×${Math.round(p.height)}px`;
+        lastAuditSelection = p;
+        await runLiveAudit(p);
+
       } else if (msg.type === "OPERATIONS_COMPLETED") {
         lastGenId = msg.payload.generation_id;
         showBanner('paste-feedback', 'success', '🎉 Successfully rendered ' + msg.payload.rendered_count + ' nodes on canvas!');
         showBanner('live-feedback', 'success', '🎉 Successfully rendered ' + msg.payload.rendered_count + ' nodes on canvas!');
       }
     };
+
+    async function runLiveAudit(selection) {
+      const rawUrl = document.getElementById('server-url') ? document.getElementById('server-url').value : 'https://uxui-agent.onrender.com';
+      const baseUrl = cleanUrl(rawUrl);
+      const btn = document.getElementById('btn-audit');
+      const list = document.getElementById('audit-findings-list');
+
+      btn.disabled = true;
+      btn.querySelector('span').innerText = '⏳ Auditing with Multi-Agent Board...';
+      list.innerHTML = '<div style="text-align:center;padding:24px;color:#64748B;font-size:12px">Running AZIA 4-agent heuristic committee review...</div>';
+
+      try {
+        const res = await fetch(baseUrl + '/api/audit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ selection })
+        });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const report = await res.json();
+        renderAuditReport(report);
+      } catch (e) {
+        renderAuditReport(buildOfflineAuditReport(selection));
+      } finally {
+        btn.disabled = false;
+        btn.querySelector('span').innerText = '🔎 Audit Selected Screen / Layer';
+      }
+    }
+
+    function buildOfflineAuditReport(sel) {
+      const findings = [];
+      const elements = sel.elements || [];
+      const textNodes = sel.text_nodes || [];
+      const allText = [...textNodes.map(t => t.text || ''), ...elements.map(e => e.name || '')].join(' ').toLowerCase();
+
+      if (elements.some(e => (e.width < 44 || e.height < 44))) {
+        findings.push({ id: 'FND-ACC-01', title: 'Touch target under 44×44px minimum', category: 'Accessibility', severity: 'HIGH',
+          ux_principle: 'WCAG 2.5.5 + Fitts\'s Law', confidence_percentage: 96,
+          recommendation: 'Expand touch area to min 44×44px with transparent padding.',
+          affected_element: 'Small interactive element', problem: 'Tap area below minimum guideline.' });
+      }
+      const ctas = ['pay','delete','checkout','submit','place order'];
+      const matched = ctas.find(c => allText.includes(c));
+      if (matched) {
+        findings.push({ id: 'FND-ERR-02', title: '"' + matched + '" CTA needs confirmation buffer', category: 'Error Prevention', severity: 'HIGH',
+          ux_principle: 'Nielsen #5: Error Prevention', confidence_percentage: 91,
+          recommendation: 'Add swipe-to-confirm or 8-second undo snackbar.',
+          affected_element: matched + ' button', problem: 'Irreversible action with no undo affordance.' });
+      }
+      if (elements.length > 8) {
+        findings.push({ id: 'FND-COG-03', title: 'High decision density (' + elements.length + ' options)', category: 'Cognitive Load', severity: 'MEDIUM',
+          ux_principle: 'Miller\'s Law + Hick\'s Law', confidence_percentage: 89,
+          recommendation: 'Group secondary options into an expandable section.',
+          affected_element: elements.length + ' child elements', problem: 'Exceeds 7±2 working memory limit.' });
+      }
+      if (!findings.length) {
+        findings.push({ id: 'FND-GEN-01', title: 'No critical violations detected', category: 'Usability', severity: 'LOW',
+          ux_principle: 'Consistency and Standards', confidence_percentage: 95,
+          recommendation: 'Proceed with interactive user testing.',
+          affected_element: sel.name, problem: 'Clean layout and structure.' });
+      }
+      const high = findings.filter(f => f.severity === 'HIGH').length;
+      const med = findings.filter(f => f.severity === 'MEDIUM').length;
+      const low = findings.filter(f => f.severity === 'LOW').length;
+      const score = Math.max(65, 100 - high * 10 - med * 5 - low * 2);
+      return {
+        overall_usability_score_100: score,
+        cognitive_load_level: elements.length > 8 ? 'High' : 'Optimal',
+        accessibility_rating: 'Offline Estimate',
+        high_count: high, medium_count: med, low_count: low, critical_count: 0,
+        findings,
+        mentor_summary: 'Offline heuristic scan of "' + sel.name + '". Score: ' + score + '/100. ' + high + ' high-priority items found. Connect to AZIA cloud for deeper analysis.'
+      };
+    }
+
+    function renderAuditReport(report) {
+      allFindings = report.findings || [];
+      const score = Math.round(report.overall_usability_score_100 || 0);
+
+      const panel = document.getElementById('audit-score-panel');
+      panel.style.display = 'block';
+      const ring = document.getElementById('score-ring');
+      const ringText = document.getElementById('score-ring-text');
+      const circumference = 163;
+      const offset = circumference - (score / 100) * circumference;
+      ring.style.strokeDashoffset = offset;
+      ring.setAttribute('stroke', score >= 85 ? '#10B981' : score >= 65 ? '#F59E0B' : '#EF4444');
+      ringText.textContent = score;
+
+      document.getElementById('audit-mentor-summary').innerText = report.mentor_summary || '';
+
+      const badgesEl = document.getElementById('audit-badges');
+      badgesEl.innerHTML = [
+        report.critical_count ? '<span style="background:#7F1D1D;color:#FCA5A5;border-radius:9999px;padding:2px 8px;font-size:10px">🔴 ' + report.critical_count + ' Critical</span>' : '',
+        report.high_count ? '<span style="background:#431407;color:#FDBA74;border-radius:9999px;padding:2px 8px;font-size:10px">🟠 ' + report.high_count + ' High</span>' : '',
+        report.medium_count ? '<span style="background:#422006;color:#FCD34D;border-radius:9999px;padding:2px 8px;font-size:10px">🟡 ' + report.medium_count + ' Medium</span>' : '',
+        report.low_count ? '<span style="background:#172554;color:#93C5FD;border-radius:9999px;padding:2px 8px;font-size:10px">🔵 ' + report.low_count + ' Low</span>' : ''
+      ].join('');
+
+      document.getElementById('audit-filter-bar').style.display = 'flex';
+      renderFindingCards(allFindings);
+    }
+
+    function renderFindingCards(findings) {
+      const list = document.getElementById('audit-findings-list');
+      if (!findings.length) {
+        list.innerHTML = '<div style="text-align:center;padding:24px;color:#64748B;font-size:12px">No findings for this filter.</div>';
+        return;
+      }
+      const sevColors = {
+        HIGH:     { bg:'#2D1A0E', border:'#EA580C', badge:'#EA580C', text:'#FDBA74' },
+        MEDIUM:   { bg:'#2D1E00', border:'#D97706', badge:'#D97706', text:'#FDE68A' },
+        LOW:      { bg:'#0F172A', border:'#334155', badge:'#4F46E5', text:'#A5B4FC' },
+        CRITICAL: { bg:'#3B0000', border:'#DC2626', badge:'#DC2626', text:'#FCA5A5' }
+      };
+      list.innerHTML = findings.map(function(f) {
+        const sev = (f.severity || 'LOW').toString().toUpperCase();
+        const c = sevColors[sev] || sevColors.LOW;
+        const titleSafe = escapeHtml(f.title || '');
+        const problemSafe = escapeHtml(f.problem || '');
+        const recSafe = escapeHtml(f.recommendation || '');
+        const princSafe = escapeHtml(f.ux_principle || '');
+        const conf = f.confidence_percentage ? ' • ' + f.confidence_percentage + '% confidence' : '';
+        const titleAttr = (f.title || '').replace(/"/g, '&quot;');
+        const recAttr = (f.recommendation || '').replace(/"/g, '&quot;');
+        return '<div class="finding-card ' + sev + '" data-sev="' + sev + '" style="background:' + c.bg + ';border:1px solid ' + c.border + ';border-radius:10px;padding:12px;margin-bottom:10px">' +
+          '<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">' +
+            '<span style="font-weight:600;font-size:12px;color:#F8FAFC;flex:1;padding-right:8px">' + titleSafe + '</span>' +
+            '<span style="background:' + c.badge + ';color:white;border-radius:4px;padding:1px 6px;font-size:9px;white-space:nowrap;font-weight:700">' + sev + '</span>' +
+          '</div>' +
+          '<p style="font-size:11px;color:' + c.text + ';margin-bottom:6px;line-height:1.5"><strong>Problem:</strong> ' + problemSafe + '</p>' +
+          (recSafe ? '<p style="font-size:11px;color:#94A3B8;margin-bottom:8px;line-height:1.5"><strong>Fix:</strong> ' + recSafe + '</p>' : '') +
+          (princSafe ? '<p style="font-size:10px;color:#64748B;margin-bottom:8px">📐 ' + princSafe + conf + '</p>' : '') +
+          '<button type="button" onclick="annotateFix(\'' + titleAttr + '\', \'' + recAttr + '\')" ' +
+            'style="width:100%;padding:6px;background:#1E293B;border:1px solid #334155;border-radius:6px;color:#CBD5E1;font-size:11px;cursor:pointer;font-weight:500">' +
+            '📌 Pin to Canvas as Annotation' +
+          '</button>' +
+        '</div>';
+      }).join('');
+    }
+
+    function filterFindings(sev) {
+      document.querySelectorAll('.audit-filter-pill').forEach(function(p) { p.classList.remove('active'); });
+      var pill = document.querySelector('.audit-filter-pill[data-sev="' + sev + '"]');
+      if (pill) pill.classList.add('active');
+      var filtered = sev === 'ALL' ? allFindings : allFindings.filter(function(f) {
+        return (f.severity || '').toString().toUpperCase() === sev;
+      });
+      renderFindingCards(filtered);
+    }
+
+    async function reverseEngineerPRD() {
+      if (!lastAuditSelection) {
+        alert('Please audit a layer first — click "Audit Selected Screen" to inspect a Figma layer, then use this button.');
+        return;
+      }
+      const rawUrl = document.getElementById('server-url') ? document.getElementById('server-url').value : 'https://uxui-agent.onrender.com';
+      const baseUrl = cleanUrl(rawUrl);
+      const modal = document.getElementById('prd-modal');
+      const content = document.getElementById('prd-modal-content');
+      modal.style.display = 'flex';
+      content.innerHTML = '<div style="color:#64748B">Reverse engineering PRD from canvas selection...</div>';
+
+      try {
+        const res = await fetch(baseUrl + '/api/reverse-engineer', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ screen_data: lastAuditSelection, name: lastAuditSelection.name })
+        });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const prd = await res.json();
+        renderPRD(prd);
+      } catch(e) {
+        content.innerHTML = '<div style="color:#EF4444">Could not reach AZIA API (' + e.message + '). Make sure the server URL is set in the Live AI API tab and Render is awake.</div>';
+      }
+    }
+
+    function renderPRD(prd) {
+      const c = document.getElementById('prd-modal-content');
+      const stories = (prd.user_stories || []).map(function(s) {
+        return '<li>As a <strong>' + escapeHtml(s.as_a) + '</strong>, I want ' + escapeHtml(s.i_want) + ', so that ' + escapeHtml(s.so_that) + '</li>';
+      }).join('');
+      const criteria = (prd.acceptance_criteria || []).map(function(a) {
+        return '<li><strong>' + escapeHtml(a.scenario) + ':</strong> Given ' + escapeHtml(a.given) + ', when ' + escapeHtml(a.when) + ', then ' + escapeHtml(a.then) + '</li>';
+      }).join('');
+      const edges = (prd.edge_cases || []).map(function(e) { return '<li>' + escapeHtml(e) + '</li>'; }).join('');
+      const events = (prd.analytics_events || []).map(function(e) {
+        return '<code style="background:#0F172A;padding:1px 5px;border-radius:3px;font-family:monospace">' + escapeHtml(e) + '</code>';
+      }).join(' ');
+
+      c.innerHTML =
+        '<h3 style="color:#F8FAFC;font-size:13px;margin-bottom:6px">' + escapeHtml(prd.feature_title || prd.screen_name || '') + '</h3>' +
+        '<p style="margin-bottom:10px"><strong>JTBD:</strong> ' + escapeHtml(prd.job_to_be_done || '') + '</p>' +
+        '<p style="margin-bottom:4px"><strong>User Stories:</strong></p>' +
+        '<ul style="margin-left:14px;margin-bottom:10px">' + stories + '</ul>' +
+        '<p style="margin-bottom:4px"><strong>Acceptance Criteria:</strong></p>' +
+        '<ul style="margin-left:14px;margin-bottom:10px">' + criteria + '</ul>' +
+        '<p style="margin-bottom:4px"><strong>Edge Cases:</strong></p>' +
+        '<ul style="margin-left:14px;margin-bottom:10px">' + edges + '</ul>' +
+        '<p style="margin-bottom:4px"><strong>Analytics Events:</strong></p>' +
+        '<p>' + events + '</p>';
+    }
   </script>
 </body>
 </html>
