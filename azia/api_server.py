@@ -19,12 +19,13 @@ from azia.azia_core.intelligence.mentor_sparring import SparringEngine
 from azia.azia_core.intelligence.simulation_engine import SimulationEngine
 from azia.azia_core.intelligence.code_generator import CodeGenerator
 from azia.azia_core.intelligence.design_system_ingest import DesignSystemIngestEngine
+from azia.azia_core.intelligence.llm_client import LLMClient
 from azia.azia_core.renderer.figma_exporter import FigmaExporter
 
 app = FastAPI(
     title="AZIA • Autonomous AI UX/UI Design API",
-    description="Global REST API for Autonomous Product Design, Nielsen Audits, Socratic Sparring, Synthetic User Simulation, Code Handoff & Design System Ingestion",
-    version="1.1.0"
+    description="Global REST API for Autonomous Product Design, Nielsen Audits, Socratic Sparring, Synthetic User Simulation, Code Handoff, Design System Ingestion, and Gemini/Grok AI Integration",
+    version="1.2.0"
 )
 
 # Enable CORS for Netlify, Figma plugins, and localhost
@@ -36,8 +37,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+llm_client = LLMClient()
 pipeline = AutonomousDesignPipeline()
-sparring_engine = SparringEngine()
+sparring_engine = SparringEngine(llm_client=llm_client)
 figma_exporter = FigmaExporter()
 sim_engine = SimulationEngine()
 code_generator = CodeGenerator()
@@ -73,19 +75,56 @@ class IngestDSRequest(BaseModel):
     data: Any
 
 
+class AIConfigRequest(BaseModel):
+    gemini_api_key: Optional[str] = None
+    grok_api_key: Optional[str] = None
+    preferred_provider: Optional[str] = None
+
+
 @app.get("/")
 def root():
     return {
         "service": "AZIA Autonomous Design Engine",
         "status": "ONLINE",
-        "version": "1.0.0",
-        "endpoints": ["/api/design", "/api/spar", "/health"]
+        "version": "1.2.0",
+        "ai_status": llm_client.get_provider_status(),
+        "endpoints": [
+            "/api/design",
+            "/api/spar",
+            "/api/simulation",
+            "/api/code-handoff",
+            "/api/design-system/ingest",
+            "/api/ai/status",
+            "/api/ai/configure",
+            "/health"
+        ]
     }
 
 
 @app.get("/health")
 def health():
-    return {"status": "ok", "engine": "ready"}
+    return {"status": "ok", "engine": "ready", "ai": llm_client.get_provider_status()}
+
+
+@app.get("/api/ai/status")
+def ai_status():
+    """Returns availability and model info for Google Gemini and xAI Grok APIs."""
+    return llm_client.get_provider_status()
+
+
+@app.post("/api/ai/configure")
+def ai_configure(req: AIConfigRequest):
+    """Dynamically registers or updates Gemini / Grok keys during runtime."""
+    if req.gemini_api_key:
+        llm_client.gemini_api_key = req.gemini_api_key.strip()
+    if req.grok_api_key:
+        llm_client.grok_api_key = req.grok_api_key.strip()
+    return {
+        "status": "SUCCESS",
+        "message": "AI keys updated successfully.",
+        "active_configuration": llm_client.get_provider_status()
+    }
+
 
 
 @app.post("/api/design")

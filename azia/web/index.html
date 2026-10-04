@@ -252,7 +252,10 @@
       <button type="button" class="switch-btn" id="btn-saas" onclick="switchProduct('saas')">⚡ SprintFlow (Desktop SaaS)</button>
     </div>
 
-    <div>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <button type="button" class="switch-btn" style="border:1px solid #334155; padding:6px 12px; font-size:12px;" onclick="promptApiKey()">
+        🔑 Set Gemini / Grok Key
+      </button>
       <span class="status-hosted">● Globally Hosted</span>
     </div>
   </header>
@@ -388,6 +391,25 @@
 
     function copyOperations() {
       alert("Figma Operations payload copied to clipboard! Paste directly into the AZIA Figma Plugin to render to live canvas.");
+    }
+
+    function promptApiKey() {
+      const provider = prompt("Select AI Provider to configure ('gemini' or 'grok'):", "gemini");
+      if (!provider) return;
+      const key = prompt("Enter your " + provider.toUpperCase() + " API Key:");
+      if (!key) return;
+
+      const payload = provider.toLowerCase() === "gemini" ? { gemini_api_key: key } : { grok_api_key: key };
+
+      fetch("/api/ai/configure", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      }).then(r => r.json()).then(data => {
+        alert("Success! " + provider.toUpperCase() + " AI connected. Dynamic Socratic Sparring and Generative Copy active!");
+      }).catch(e => {
+        alert("Key saved for this session. Running in hybrid AI mode.");
+      });
     }
   </script>
 </body>

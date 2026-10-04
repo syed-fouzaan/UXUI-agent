@@ -4,12 +4,58 @@ Generates hyper-realistic, domain-specific copy and interface data.
 Explicitly bans "Lorem Ipsum", generic "Card Title", and dummy placeholders.
 """
 
-from typing import Dict, Any, List
+import json
+import re
+from typing import Dict, Any, List, Optional
 from azia.azia_core.intelligence.requirement_engine import RequirementAnalysis
+from azia.azia_core.intelligence.llm_client import LLMClient
 
 
 class ContentEngine:
     """Generates authentic microcopy, labels, entities, and prices."""
+
+    def __init__(self, llm_client: Optional[LLMClient] = None):
+        self.llm_client = llm_client or LLMClient()
+
+    def _generate_with_llm(self, analysis: RequirementAnalysis) -> Optional[Dict[str, Any]]:
+        """Uses Gemini or Grok to generate authentic content for any custom domain."""
+        system_prompt = (
+            "You are AZIA Content Intelligence Engine. You generate hyper-realistic, domain-specific product copy. "
+            "Never use 'Lorem Ipsum', 'Card Title', or generic placeholders. Use authentic industry terminology, realistic pricing, "
+            "and compelling UX microcopy. Return ONLY a valid JSON object."
+        )
+
+        user_prompt = (
+            f"Generate authentic content for product: '{analysis.product_name}'\n"
+            f"Category: '{analysis.product_category}'\n"
+            f"Purpose: '{analysis.product_purpose}'\n"
+            f"Constraints: {analysis.constraints}\n\n"
+            "Return a JSON object with:\n"
+            "{\n"
+            '  "tagline": "Authentic headline microcopy",\n'
+            '  "quick_filters": [{"label": "Filter 1", "active": true}, ...],\n'
+            '  "sample_tasks": [\n'
+            '    {"key": "ID-01", "title": "Realistic Task/Item", "priority": "High", "points": "3 pts", "status": "In Progress"}\n'
+            "  ]\n"
+            "}"
+        )
+
+        raw_text, _ = self.llm_client.generate(user_prompt, system_prompt=system_prompt)
+        if not raw_text:
+            return None
+
+        try:
+            clean = raw_text.strip()
+            if "```" in clean:
+                m = re.search(r"```(?:json)?\s*([\s\S]*?)\s*```", clean)
+                if m:
+                    clean = m.group(1).strip()
+            data = json.loads(clean)
+            if isinstance(data, dict):
+                return data
+        except Exception:
+            pass
+        return None
 
     def generate_domain_content(self, analysis: RequirementAnalysis) -> Dict[str, Any]:
         category = analysis.product_category.lower()
@@ -83,10 +129,10 @@ class ContentEngine:
             }
 
         else:
-            # SaaS Project Management
-            return {
-                "workspace_title": "SprintFlow • Core Platform Eng Team",
-                "active_sprint": "Sprint 34: Auth v2 & Realtime Webhooks",
+            # Default Enterprise / SaaS / Modern Product Workspace
+            base = {
+                "workspace_title": f"{analysis.product_name} • Core Team Workspace",
+                "active_sprint": "Sprint 34: Core Architecture & Platform",
                 "sprint_status": "Day 6 of 10 • 78% on track",
                 "burndown_summary": "42 of 58 Story Points Completed • 4 Blocked",
                 "columns": [
@@ -99,35 +145,35 @@ class ContentEngine:
                 "sample_tasks": [
                     {
                         "key": "ENG-402",
-                        "title": "Migrate JWT refresh token rotation to Redis cluster",
+                        "title": f"Core component architecture for {analysis.product_name}",
                         "priority": "P0 Urgent",
                         "priority_color": "#EF4444",
                         "assignee": "Elena Rostova",
                         "assignee_initials": "ER",
                         "points": "5 pts",
-                        "branch": "feat/redis-jwt-rotation",
+                        "branch": "feat/core-arch",
                         "pr_status": "PR #128 opened • 2 approvals"
                     },
                     {
                         "key": "ENG-409",
-                        "title": "Implement rate limiting middleware for public GraphQL gateway",
+                        "title": "Implement rate limiting middleware and caching gateway",
                         "priority": "P1 High",
                         "priority_color": "#F59E0B",
                         "assignee": "Marcus Vance",
                         "assignee_initials": "MV",
                         "points": "3 pts",
-                        "branch": "fix/graphql-rate-limiter",
+                        "branch": "fix/rate-limiter",
                         "pr_status": "CI passing • Tests 100%"
                     },
                     {
                         "key": "ENG-415",
-                        "title": "Add telemetry span for Figma Plugin WebSocket handshake latency",
+                        "title": "Add telemetry spans for user interaction latency",
                         "priority": "P2 Normal",
                         "priority_color": "#3B82F6",
                         "assignee": "Samir Patel",
                         "assignee_initials": "SP",
                         "points": "2 pts",
-                        "branch": "chore/mcp-telemetry",
+                        "branch": "chore/telemetry",
                         "pr_status": "Draft PR"
                     }
                 ],
@@ -137,3 +183,13 @@ class ContentEngine:
                     "pr_merge_time": "4.2 hrs"
                 }
             }
+
+            if self.llm_client.get_provider_status()["active_provider"] != "offline":
+                llm_content = self._generate_with_llm(analysis)
+                if llm_content and "sample_tasks" in llm_content and len(llm_content["sample_tasks"]) > 0:
+                    base["sample_tasks"] = llm_content["sample_tasks"]
+                if llm_content and "tagline" in llm_content:
+                    base["workspace_title"] = llm_content["tagline"]
+
+            return base
+

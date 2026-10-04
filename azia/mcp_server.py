@@ -19,13 +19,15 @@ from azia.azia_core.intelligence.preflight_engine import PreFlightEngine
 from azia.azia_core.intelligence.simulation_engine import SimulationEngine
 from azia.azia_core.intelligence.code_generator import CodeGenerator
 from azia.azia_core.intelligence.design_system_ingest import DesignSystemIngestEngine
+from azia.azia_core.intelligence.llm_client import LLMClient
 
 # Initialize FastMCP Server
 mcp = FastMCP("AZIA-Autonomous-Design-MCP")
 
-# Global pipeline instance and generation session registry
+# Global pipeline instance, LLM client, and generation session registry
+llm_client = LLMClient()
 pipeline = AutonomousDesignPipeline()
-sparring_engine = SparringEngine()
+sparring_engine = SparringEngine(llm_client=llm_client)
 preflight_engine = PreFlightEngine()
 sim_engine = SimulationEngine()
 code_generator = CodeGenerator()
@@ -238,6 +240,15 @@ def ingest_design_system(input_type: str, data: str) -> str:
         return res.model_dump_json(indent=2)
     except Exception as e:
         return json.dumps({"error": f"Failed to ingest design system: {str(e)}"})
+
+
+@mcp.tool()
+def get_ai_provider_status() -> str:
+    """
+    Checks the status of Google Gemini and xAI Grok APIs.
+    Reports whether cloud generative intelligence (Gemini/Grok) or offline deterministic heuristics is active.
+    """
+    return json.dumps(llm_client.get_provider_status(), indent=2)
 
 
 @mcp.tool()

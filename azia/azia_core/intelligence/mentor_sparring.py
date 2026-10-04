@@ -4,9 +4,12 @@ Channels the core AZIA personality: Balanced Critic, Adaptive Mentor, with Subtl
 Allows the designer to converse, challenge assumptions, simplify flows, and explore trade-offs.
 """
 
+import json
+import re
 from typing import Dict, Any, List, Optional
 from azia.azia_core.models.taxonomy import ConfidenceLevel, EpistemicStatus
 from azia.azia_core.models.specification import ProductDesignSpecification
+from azia.azia_core.intelligence.llm_client import LLMClient
 
 
 class SparringResponse:
@@ -17,7 +20,8 @@ class SparringResponse:
         trade_offs: List[str],
         alternative_recommendation: str,
         proposed_operation_delta: Optional[Dict[str, Any]] = None,
-        subtle_humor_note: Optional[str] = None
+        subtle_humor_note: Optional[str] = None,
+        ai_provider: str = "offline"
     ):
         self.critique = critique
         self.counterpoint = counterpoint
@@ -25,6 +29,7 @@ class SparringResponse:
         self.alternative_recommendation = alternative_recommendation
         self.proposed_operation_delta = proposed_operation_delta
         self.subtle_humor_note = subtle_humor_note
+        self.ai_provider = ai_provider
 
     def to_dict(self) -> Dict[str, Any]:
         return {
@@ -33,19 +38,80 @@ class SparringResponse:
             "trade_offs": self.trade_offs,
             "alternative_recommendation": self.alternative_recommendation,
             "proposed_operation_delta": self.proposed_operation_delta,
-            "subtle_humor_note": self.subtle_humor_note
+            "subtle_humor_note": self.subtle_humor_note,
+            "ai_provider": self.ai_provider
         }
 
 
 class SparringEngine:
-    """Handles Socratic design sparring, assumption challenging, and flow simplification."""
+    """Handles Socratic design sparring powered by Google Gemini, xAI Grok, or native UX heuristics."""
+
+    def __init__(self, llm_client: Optional[LLMClient] = None):
+        self.llm_client = llm_client or LLMClient()
+
+    def _spar_with_llm(self, user_query: str, spec: ProductDesignSpecification) -> Optional[SparringResponse]:
+        """Calls Gemini or Grok for deep contextual Socratic sparring."""
+        product_name = spec.metadata.product_name if spec else "Active Product"
+        category = spec.metadata.product_category if spec else "Application"
+        screens = [s.screen_name for s in spec.screens] if spec else []
+
+        system_prompt = (
+            "You are AZIA Balanced Critic, an elite autonomous UX Architect & Principal Product Designer. "
+            "You evaluate design decisions with deep rigor, balancing user cognitive load, Jakob Nielsen heuristics, "
+            "and business trade-offs. Provide concise, high-value architectural critiques with subtle wit. "
+            "You MUST respond ONLY with a valid JSON object with the following exact keys:\n"
+            "{\n"
+            '  "critique": "Insightful critique of the premise",\n'
+            '  "counterpoint": "Alternative perspective or defense of the pattern",\n'
+            '  "trade_offs": ["Pro: ...", "Con: ..."],\n'
+            '  "alternative_recommendation": "Concrete actionable alternative layout or interaction",\n'
+            '  "subtle_humor_note": "A short witty sign-off with an emoji"\n'
+            "}"
+        )
+
+        user_prompt = (
+            f"Context: Designing '{product_name}' ({category}). Screens: {', '.join(screens)}.\n"
+            f"Designer Question/Challenge: \"{user_query}\"\n"
+            "Spar with the designer, challenge assumptions, and evaluate UX trade-offs. Return JSON only."
+        )
+
+        raw_text, provider = self.llm_client.generate(user_prompt, system_prompt=system_prompt)
+        if not raw_text:
+            return None
+
+        try:
+            # Extract JSON block if wrapped in markdown
+            json_str = raw_text.strip()
+            if "```" in json_str:
+                m = re.search(r"```(?:json)?\s*([\s\S]*?)\s*```", json_str)
+                if m:
+                    json_str = m.group(1).strip()
+
+            parsed = json.loads(json_str)
+            return SparringResponse(
+                critique=parsed.get("critique", raw_text),
+                counterpoint=parsed.get("counterpoint", "Consider Hick's Law and user cognitive bandwidth."),
+                trade_offs=parsed.get("trade_offs", ["Simplicity vs Customization"]),
+                alternative_recommendation=parsed.get("alternative_recommendation", "Progressive disclosure."),
+                subtle_humor_note=parsed.get("subtle_humor_note", f"Powered by {provider.title()} 💡"),
+                ai_provider=provider
+            )
+        except Exception:
+            return None
 
     def spar(
         self,
         user_query: str,
         spec: ProductDesignSpecification
     ) -> SparringResponse:
+        # 1. Try Gemini / Grok if configured
+        if self.llm_client.get_provider_status()["active_provider"] != "offline":
+            llm_res = self._spar_with_llm(user_query, spec)
+            if llm_res:
+                return llm_res
+
         query_lower = user_query.lower()
+
 
         # Case 1: Flow simplification ("This flow is too long. Can we simplify it?")
         if "simplify" in query_lower or "too long" in query_lower or "too many steps" in query_lower:
