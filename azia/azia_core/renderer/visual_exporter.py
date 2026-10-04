@@ -726,6 +726,12 @@ class VisualExporter:
       flex-direction: column;
       overflow-x: hidden;
     }}
+    body.in-iframe header {{
+      display: none !important;
+    }}
+    body.in-iframe main {{
+      height: 100vh !important;
+    }}
     /* Top Header */
     header {{
       background: rgba(17, 24, 39, 0.95);
@@ -3167,6 +3173,15 @@ class VisualExporter:
     const REACT_FILES = __REACT_FILES__;
     const SWIFT_FILES = __SWIFT_FILES__;
     const TOKENS_CODE = __TOKENS_CODE__;
+
+    if (window.self !== window.top) {
+      document.body.classList.add('in-iframe');
+    }
+    window.addEventListener('message', (e) => {
+      if (e.data && e.data.type === 'SWITCH_TAB') {
+        switchMainTab(e.data.tab);
+      }
+    });
 
     let activeFramework = 'react';
     let activeFileIndex = 0;

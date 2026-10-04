@@ -40,7 +40,7 @@ class LLMClient:
         self,
         gemini_api_key: Optional[str] = None,
         grok_api_key: Optional[str] = None,
-        gemini_model: str = "gemini-2.0-flash",
+        gemini_model: str = "gemini-3.8-flash",
         grok_model: str = "grok-beta",
         timeout_seconds: float = 12.0
     ):
