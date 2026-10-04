@@ -187,6 +187,102 @@
       background: #10B981;
       display: inline-block;
     }
+    .text-muted {
+      color: #94A3B8;
+    }
+    .rollback-container {
+      margin-top: 14px;
+      text-align: center;
+    }
+    .status-msg-box {
+      margin-top: 12px;
+      font-size: 12px;
+      color: #94A3B8;
+      display: none;
+    }
+    .form-row {
+      display: flex;
+      gap: 12px;
+    }
+    .form-col {
+      flex: 1;
+    }
+    .status-box-panel {
+      margin-top: 14px;
+      font-size: 12px;
+      color: #94A3B8;
+      display: none;
+    }
+    .audit-btn-container {
+      margin-bottom: 14px;
+    }
+    .btn-audit {
+      background: #3B82F6;
+    }
+    .btn-audit:hover {
+      background: #2563EB;
+    }
+    .selection-status-text {
+      font-size: 12px;
+      color: #94A3B8;
+      margin-bottom: 12px;
+    }
+    .badge-high-severity {
+      color: #EA580C;
+      font-size: 11px;
+    }
+    .finding-desc {
+      font-size: 12px;
+      color: #CBD5E1;
+      margin: 4px 0 8px;
+    }
+    .btn-annotation {
+      background: #334155;
+      border: none;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      cursor: pointer;
+    }
+    .btn-annotation:hover {
+      background: #475569;
+    }
+    .spar-suggestions {
+      margin-bottom: 12px;
+    }
+    .spar-label {
+      font-size: 11px;
+      color: #94A3B8;
+      margin-bottom: 6px;
+    }
+    .chat-stream-box {
+      max-height: 320px;
+      overflow-y: auto;
+      margin-bottom: 12px;
+    }
+    .author-balanced {
+      color: #38BDF8;
+    }
+    .chat-input-row {
+      display: flex;
+      gap: 8px;
+    }
+    .spar-input-box {
+      margin-bottom: 0;
+    }
+    .btn-spar-send {
+      background: #EA580C;
+      border: none;
+      color: white;
+      padding: 0 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .btn-spar-send:hover {
+      background: #C2410C;
+    }
   </style>
 </head>
 <body>
@@ -213,28 +309,28 @@
   <div id="tab-paste" class="content-area active">
     <label>⚡ Quick Draw Verified Architectures</label>
     <div class="demo-grid">
-      <button class="btn-secondary" onclick="renderDemo('food')">
-        🍔 Draw CraveBite<br><small style="color:#94A3B8;">7 Mobile Screens</small>
+      <button type="button" class="btn-secondary" onclick="renderDemo('food')">
+        🍔 Draw CraveBite<br><small class="text-muted">7 Mobile Screens</small>
       </button>
-      <button class="btn-secondary" onclick="renderDemo('saas')">
-        ⚡ Draw SprintFlow<br><small style="color:#94A3B8;">4 SaaS Screens</small>
+      <button type="button" class="btn-secondary" onclick="renderDemo('saas')">
+        ⚡ Draw SprintFlow<br><small class="text-muted">4 SaaS Screens</small>
       </button>
     </div>
 
     <label>Paste Figma Operations JSON (from Web App or CLI)</label>
     <textarea id="json-input" rows="8" placeholder="Paste the JSON payload copied from AZIA Web Dashboard or azia/output/.../figma_operations.json"></textarea>
 
-    <button class="btn-primary" onclick="renderPastedJson()">
+    <button type="button" class="btn-primary" onclick="renderPastedJson()">
       <span>⚡ Render JSON to Figma Canvas</span>
     </button>
 
-    <div style="margin-top: 14px; text-align: center;">
-      <button class="btn-secondary" onclick="rollbackLast()">
+    <div class="rollback-container">
+      <button type="button" class="btn-secondary" onclick="rollbackLast()">
         ↩️ Rollback Last AZIA Generation
       </button>
     </div>
 
-    <div id="render-status" style="margin-top:12px; font-size:12px; color:#94A3B8; display:none;"></div>
+    <div id="render-status" class="status-msg-box"></div>
   </div>
 
   <!-- Tab 2: Live AI API Generation -->
@@ -245,8 +341,8 @@
     <label>Product Requirement Prompt</label>
     <textarea id="req-prompt" rows="4" placeholder="e.g. Build an AI-native fitness tracking mobile app with workout logging, streak tracker, and diet telemetry."></textarea>
 
-    <div style="display:flex; gap:12px;">
-      <div style="flex:1;">
+    <div class="form-row">
+      <div class="form-col">
         <label>Platform Form Factor</label>
         <select id="platform-select">
           <option value="auto">Auto (Infer)</option>
@@ -254,7 +350,7 @@
           <option value="desktop">Desktop Web / SaaS (1280px)</option>
         </select>
       </div>
-      <div style="flex:1;">
+      <div class="form-col">
         <label>Visual Direction</label>
         <select id="style-select">
           <option value="auto">Auto</option>
@@ -265,24 +361,24 @@
       </div>
     </div>
 
-    <button class="btn-primary" onclick="triggerLiveDesign()">
+    <button type="button" class="btn-primary" onclick="triggerLiveDesign()">
       <span>✨ Generate &amp; Render to Canvas</span>
     </button>
 
-    <div id="status-box" style="margin-top:14px; font-size:12px; color:#94A3B8; display:none;">
+    <div id="status-box" class="status-box-panel">
       <p id="status-msg">Connecting to AZIA API...</p>
     </div>
   </div>
 
   <!-- Tab 3: Nielsen UX Audit -->
   <div id="tab-audit" class="content-area">
-    <div style="margin-bottom:14px;">
-      <button class="btn-primary" style="background:#3B82F6;" onclick="inspectSelectedLayer()">
+    <div class="audit-btn-container">
+      <button type="button" class="btn-primary btn-audit" onclick="inspectSelectedLayer()">
         <span>🔎 Audit Selected Screen / Layer</span>
       </button>
     </div>
 
-    <div id="selection-status" style="font-size:12px; color:#94A3B8; margin-bottom:12px;">
+    <div id="selection-status" class="selection-status-text">
       Select any frame or component on canvas to inspect Nielsen heuristics.
     </div>
 
@@ -290,10 +386,10 @@
       <div class="finding-card HIGH">
         <div class="finding-header">
           <span>Error Prevention Check</span>
-          <span style="color:#EA580C; font-size:11px;">HIGH SEVERITY</span>
+          <span class="badge-high-severity">HIGH SEVERITY</span>
         </div>
-        <p style="font-size:12px; color:#CBD5E1; margin:4px 0 8px;">Checkout CTA allows single tap without order confirmation step.</p>
-        <button onclick="annotateFix('High-Value Confirmation', 'Add swipe-to-pay or double verification')" style="background:#334155; border:none; color:white; padding:4px 8px; border-radius:4px; font-size:11px; cursor:pointer;">
+        <p class="finding-desc">Checkout CTA allows single tap without order confirmation step.</p>
+        <button type="button" class="btn-annotation" onclick="annotateFix('High-Value Confirmation', 'Add swipe-to-pay or double verification')">
           + Add Canvas Annotation
         </button>
       </div>
@@ -302,23 +398,23 @@
 
   <!-- Tab 4: Socratic Sparring Partner -->
   <div id="tab-spar" class="content-area">
-    <div style="margin-bottom:12px;">
-      <div style="font-size:11px; color:#94A3B8; margin-bottom:6px;">Quick Sparring Challenges:</div>
+    <div class="spar-suggestions">
+      <div class="spar-label">Quick Sparring Challenges:</div>
       <span class="chip" onclick="sendQuickSpar('Challenge the assumption that users want this on the dashboard')">Challenge Dashboard Assumption</span>
       <span class="chip" onclick="sendQuickSpar('Can we simplify this flow to 3 steps?')">Simplify to 3 Steps</span>
       <span class="chip" onclick="sendQuickSpar('Show me an alternative master-detail layout')">Alternative Layout</span>
     </div>
 
-    <div id="chat-stream" style="max-height:320px; overflow-y:auto; margin-bottom:12px;">
+    <div id="chat-stream" class="chat-stream-box">
       <div class="chat-bubble ai">
-        <strong style="color:#38BDF8;">AZIA (Balanced Critic):</strong><br>
+        <strong class="author-balanced">AZIA (Balanced Critic):</strong><br>
         "I'm ready to spar. Bring me your assumptions, your friction points, or your flow questions. Let's make this design bulletproof." 💡
       </div>
     </div>
 
-    <div style="display:flex; gap:8px;">
-      <input type="text" id="spar-input" placeholder="Ask AZIA to critique or rethink..." style="margin-bottom:0;" onkeypress="if(event.key==='Enter') sendSpar();">
-      <button onclick="sendSpar()" style="background:#EA580C; border:none; color:white; padding:0 14px; border-radius:8px; cursor:pointer; font-weight:600;">Ask</button>
+    <div class="chat-input-row">
+      <input type="text" id="spar-input" class="spar-input-box" placeholder="Ask AZIA to critique or rethink..." onkeypress="if(event.key==='Enter') sendSpar();">
+      <button type="button" class="btn-spar-send" onclick="sendSpar()">Ask</button>
     </div>
   </div>
 
@@ -464,7 +560,7 @@
         if (res.ok) {
           const data = await res.json();
           const reply = data.critique || data.message;
-          stream.innerHTML += `<div class="chat-bubble ai"><strong style="color:#38BDF8;">AZIA (${data.tone || 'Balanced Critic'}):</strong><br>${escapeHtml(reply)}</div>`;
+          stream.innerHTML += `<div class="chat-bubble ai"><strong class="author-balanced">AZIA (${data.tone || 'Balanced Critic'}):</strong><br>${escapeHtml(reply)}</div>`;
           stream.scrollTop = stream.scrollHeight;
           return;
         }
@@ -477,7 +573,7 @@
       } else if (text.toLowerCase().includes("simplify")) {
         reply = "We can eliminate the intermediate review step if default payment and delivery landmark are pre-filled, saving 35% in order time!";
       }
-      stream.innerHTML += `<div class="chat-bubble ai"><strong style="color:#38BDF8;">AZIA:</strong><br>${escapeHtml(reply)}</div>`;
+      stream.innerHTML += `<div class="chat-bubble ai"><strong class="author-balanced">AZIA:</strong><br>${escapeHtml(reply)}</div>`;
       stream.scrollTop = stream.scrollHeight;
     }
 
