@@ -92,6 +92,41 @@ def run_autonomous_design(
         }
         json.dump(qa_data, f, indent=2)
 
+    # 6. Save Synthetic Usability & Attention Saliency Simulation Report
+    if spec.simulation_report:
+        sim_path = os.path.join(output_dir, "simulation_report.json")
+        with open(sim_path, "w", encoding="utf-8") as f:
+            f.write(spec.simulation_report.model_dump_json(indent=2))
+
+    # 7. Save Production Code Handoff Bundles (React + Tailwind, SwiftUI, DTCG Tokens)
+    code_dir = os.path.join(output_dir, "code")
+    react_dir = os.path.join(code_dir, "react")
+    swift_dir = os.path.join(code_dir, "swift")
+    tokens_dir = os.path.join(code_dir, "tokens")
+    os.makedirs(react_dir, exist_ok=True)
+    os.makedirs(swift_dir, exist_ok=True)
+    os.makedirs(tokens_dir, exist_ok=True)
+
+    react_bundle = summary.get("_react_bundle")
+    if react_bundle:
+        for rf in react_bundle.files:
+            rf_path = os.path.join(react_dir, rf.filename)
+            with open(rf_path, "w", encoding="utf-8") as f:
+                f.write(rf.code_content)
+
+    swift_bundle = summary.get("_swift_bundle")
+    if swift_bundle:
+        for sf in swift_bundle.files:
+            sf_path = os.path.join(swift_dir, sf.filename)
+            with open(sf_path, "w", encoding="utf-8") as f:
+                f.write(sf.code_content)
+
+    dtcg_tokens = summary.get("_dtcg_tokens")
+    if dtcg_tokens:
+        tok_path = os.path.join(tokens_dir, dtcg_tokens.filename)
+        with open(tok_path, "w", encoding="utf-8") as f:
+            f.write(dtcg_tokens.code_content)
+
     print("=" * 70)
     print("✨ GENERATION COMPLETE • DIRECT RESULTS SAVED")
     print(f"Product:            {spec.metadata.product_name}")
@@ -101,6 +136,8 @@ def run_autonomous_design(
     print(f"Figma Operations:   {len(ops)}")
     print(f"QA Score:           {summary['qa_score']}% (100% Requirement Coverage)")
     print(f"Usability Score:    {summary['usability_score']}/100")
+    print(f"Simulated Funnel:   {summary['simulated_conversion_rate']}% End-to-End Retention")
+    print(f"Code Handoff:       React+Tailwind, SwiftUI, W3C DTCG Tokens")
     print(f"Artifacts Folder:   {output_dir}")
     print("=" * 70)
 

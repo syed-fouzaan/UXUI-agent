@@ -16,6 +16,9 @@ from mcp.server.fastmcp import FastMCP
 from azia.azia_core.orchestrator import AutonomousDesignPipeline
 from azia.azia_core.intelligence.mentor_sparring import SparringEngine
 from azia.azia_core.intelligence.preflight_engine import PreFlightEngine
+from azia.azia_core.intelligence.simulation_engine import SimulationEngine
+from azia.azia_core.intelligence.code_generator import CodeGenerator
+from azia.azia_core.intelligence.design_system_ingest import DesignSystemIngestEngine
 
 # Initialize FastMCP Server
 mcp = FastMCP("AZIA-Autonomous-Design-MCP")
@@ -24,6 +27,9 @@ mcp = FastMCP("AZIA-Autonomous-Design-MCP")
 pipeline = AutonomousDesignPipeline()
 sparring_engine = SparringEngine()
 preflight_engine = PreFlightEngine()
+sim_engine = SimulationEngine()
+code_generator = CodeGenerator()
+ds_ingest_engine = DesignSystemIngestEngine()
 
 ACTIVE_SESSIONS: Dict[str, Any] = {}
 LAST_SPEC: Optional[Any] = None
@@ -152,6 +158,86 @@ def rollback_generation(generation_id: str) -> str:
         "status": "NOT_FOUND",
         "message": f"Generation session {generation_id} not active in memory."
     })
+
+
+@mcp.tool()
+def run_usability_simulation(generation_id: Optional[str] = None) -> str:
+    """
+    Simulates autonomous synthetic user cohorts across screens and predicts drop-off points.
+    Computes visual saliency heatmaps (Itti-Koch fixation algorithm), attention hot spots,
+    and cognitive friction scores.
+    """
+    global LAST_SPEC
+    spec = LAST_SPEC
+    if generation_id and generation_id in ACTIVE_SESSIONS:
+        spec = ACTIVE_SESSIONS[generation_id]["spec"]
+
+    if not spec:
+        return json.dumps({"error": "No active design specification found. Run design_product first."})
+
+    report = sim_engine.run_simulation(spec)
+    spec.simulation_report = report
+    return report.model_dump_json(indent=2)
+
+
+@mcp.tool()
+def export_production_code(generation_id: Optional[str] = None, framework: str = "react") -> str:
+    """
+    1-Click production-ready code handoff.
+    Generates clean React 19 + Tailwind CSS, SwiftUI, or W3C DTCG Design Tokens from the active design spec.
+    Supported frameworks: 'react', 'swiftui', 'tokens', 'all'.
+    """
+    global LAST_SPEC
+    spec = LAST_SPEC
+    if generation_id and generation_id in ACTIVE_SESSIONS:
+        spec = ACTIVE_SESSIONS[generation_id]["spec"]
+
+    if not spec:
+        return json.dumps({"error": "No active design specification found. Run design_product first."})
+
+    framework_lower = framework.lower()
+    if framework_lower == "swiftui":
+        bundle = code_generator.generate_swiftui(spec)
+        return bundle.model_dump_json(indent=2)
+    elif framework_lower == "tokens":
+        tokens = code_generator.generate_w3c_tokens(spec)
+        return tokens.model_dump_json(indent=2)
+    elif framework_lower == "all":
+        react_b = code_generator.generate_react_tailwind(spec)
+        swift_b = code_generator.generate_swiftui(spec)
+        tok_b = code_generator.generate_w3c_tokens(spec)
+        return json.dumps({
+            "react_tailwind": react_b.model_dump(),
+            "swiftui": swift_b.model_dump(),
+            "tokens": tok_b.model_dump()
+        }, indent=2)
+    else:
+        bundle = code_generator.generate_react_tailwind(spec)
+        return bundle.model_dump_json(indent=2)
+
+
+@mcp.tool()
+def ingest_design_system(input_type: str, data: str) -> str:
+    """
+    Ingests an existing design system into AZIA.
+    Supported input_type: 'figma_tokens' (Tokens Studio JSON export), 'css' (CSS root variables), 'tailwind' (Tailwind config object).
+    Extracted tokens are normalized to W3C standards and can be used for new product generations.
+    """
+    try:
+        if input_type.lower() == "figma_tokens":
+            parsed_data = json.loads(data) if isinstance(data, str) else data
+            res = ds_ingest_engine.ingest_figma_tokens_studio(parsed_data)
+        elif input_type.lower() == "css":
+            res = ds_ingest_engine.ingest_css_variables(data)
+        elif input_type.lower() == "tailwind":
+            parsed_data = json.loads(data) if isinstance(data, str) else data
+            res = ds_ingest_engine.ingest_tailwind_theme(parsed_data)
+        else:
+            return json.dumps({"error": f"Unsupported input_type: {input_type}. Use 'figma_tokens', 'css', or 'tailwind'."})
+
+        return res.model_dump_json(indent=2)
+    except Exception as e:
+        return json.dumps({"error": f"Failed to ingest design system: {str(e)}"})
 
 
 @mcp.tool()

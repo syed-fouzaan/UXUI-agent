@@ -17,6 +17,9 @@ from azia.azia_core.intelligence.mentor_sparring import SparringEngine, Sparring
 from azia.azia_core.intelligence.audit_engine import AuditEngine
 from azia.azia_core.intelligence.qa_engine import QAEngine
 from azia.azia_core.intelligence.repair_engine import RepairEngine
+from azia.azia_core.intelligence.simulation_engine import SimulationEngine
+from azia.azia_core.intelligence.code_generator import CodeGenerator
+from azia.azia_core.intelligence.design_system_ingest import DesignSystemIngestEngine
 
 __all__ = [
     "PreFlightEngine",
@@ -36,4 +39,7 @@ __all__ = [
     "AuditEngine",
     "QAEngine",
     "RepairEngine",
+    "SimulationEngine",
+    "CodeGenerator",
+    "DesignSystemIngestEngine",
 ]

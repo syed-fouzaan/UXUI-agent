@@ -50,3 +50,4 @@ class ProductDesignSpecification(BaseModel):
     non_disruptive_strategy: NonDisruptiveStrategy
     audit_report: Optional[UXAuditReport] = Field(default=None)
     qa_report: Optional[ComprehensiveQAReport] = Field(default=None)
+    simulation_report: Optional[Any] = Field(default=None)

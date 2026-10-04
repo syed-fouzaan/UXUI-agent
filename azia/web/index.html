@@ -282,13 +282,33 @@
             <div class="stat-lbl">QA Requirement Match</div>
           </div>
           <div class="stat-card">
-            <div class="stat-val stat-val-info" id="metric-audit">88/100</div>
-            <div class="stat-lbl">Nielsen Usability Score</div>
+            <div class="stat-val stat-val-info" id="metric-funnel">68%</div>
+            <div class="stat-lbl">Predicted Retention</div>
           </div>
         </div>
       </div>
 
-      <!-- Panel 2: Live Sparring -->
+      <!-- Panel 2: 3 World-Class Capabilities Quick Switcher -->
+      <div class="panel-box">
+        <div class="panel-heading">⚡ Active Design Architecture</div>
+        <p class="panel-desc">Switch preview mode directly across autonomous design modules:</p>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <button type="button" class="btn-action" style="padding:10px; text-align:left; background:#1E293B; border:1px solid #334155;" onclick="triggerIframeView('sim')">
+            🔬 Synthetic Simulation &amp; Heatmaps
+          </button>
+          <button type="button" class="btn-action" style="padding:10px; text-align:left; background:#1E293B; border:1px solid #334155;" onclick="triggerIframeView('code')">
+            💻 1-Click React &amp; SwiftUI Handoff
+          </button>
+          <button type="button" class="btn-action" style="padding:10px; text-align:left; background:#1E293B; border:1px solid #334155;" onclick="triggerIframeView('ingest')">
+            📥 Figma Design System Ingestion
+          </button>
+          <button type="button" class="btn-action" style="padding:10px; text-align:left; background:#1E293B; border:1px solid #334155;" onclick="triggerIframeView('screens')">
+            📱 Interactive Screen Canvas
+          </button>
+        </div>
+      </div>
+
+      <!-- Panel 3: Live Sparring -->
       <div class="panel-box">
         <div class="panel-heading">💬 Socratic Sparring Partner</div>
         <div class="chat-container" id="chat-box">
@@ -303,14 +323,14 @@
         </div>
       </div>
 
-      <!-- Panel 3: Figma Plugin Sync -->
+      <!-- Panel 4: Figma Plugin Sync -->
       <div class="panel-box">
         <div class="panel-heading">🎨 Figma Live Sync</div>
         <p class="panel-desc">
           Directly load this design into your active Figma or FigJam canvas using the AZIA plugin.
         </p>
         <button type="button" class="btn-action btn-full" onclick="copyOperations()">
-          📋 Copy 80 Figma Operations JSON
+          📋 Copy Figma Operations JSON
         </button>
       </div>
     </div>
@@ -329,10 +349,19 @@
         frame.src = './previews/food_delivery/preview.html';
         document.getElementById('metric-screens').innerText = '7';
         document.getElementById('metric-ops').innerText = '80';
+        document.getElementById('metric-funnel').innerText = '68%';
       } else {
         frame.src = './previews/saas_pm/preview.html';
         document.getElementById('metric-screens').innerText = '4';
         document.getElementById('metric-ops').innerText = '47';
+        document.getElementById('metric-funnel').innerText = '85%';
+      }
+    }
+
+    function triggerIframeView(viewName) {
+      const frame = document.getElementById('preview-frame');
+      if (frame && frame.contentWindow && frame.contentWindow.switchMainTab) {
+        frame.contentWindow.switchMainTab(viewName);
       }
     }
 

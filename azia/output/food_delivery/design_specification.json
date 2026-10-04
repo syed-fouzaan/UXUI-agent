@@ -1,22 +1,37 @@
 {
   "metadata": {
-    "product_id": "prd_ea6a71fa",
+    "product_id": "prd_a1f4da9e",
     "product_name": "CraveBite Campus",
     "product_category": "Campus Food Delivery & Discovery",
-    "requirement_prompt": "Build a modern food delivery app for college students. Students should discover nearby restaurants, search food, order food, pay, and track delivery. The experience should be fast, affordable and simple.",
+    "requirement_prompt": "Design a complete mobile food delivery app CraveBite with dorm delivery landmark notes, late-night combo offers, live driver tracking, cart checkout, and accessible high contrast UI.",
     "platform": "mobile",
     "style_direction": "playful",
-    "generation_id": "b78accce-56a2-424e-8bed-0ff8ef706144",
+    "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e",
     "managed_by": "autonomous-design-mcp",
-    "created_at": "2026-10-04T09:08:00.390354"
+    "created_at": "2026-10-04T09:33:54.578193"
   },
   "preflight": {
     "is_sufficient": true,
-    "context_score": 1.0,
-    "summary": "Context sufficiency score: 100%. Sufficient context to proceed with autonomous synthesis.",
+    "context_score": 0.75,
+    "summary": "Context sufficiency score: 75%. Sufficient context to proceed with autonomous synthesis.",
     "identified_intent": "On-demand food discovery, ordering, and delivery experience",
-    "missing_critical_dimensions": [],
-    "clarification_questions": [],
+    "missing_critical_dimensions": [
+      "target_user"
+    ],
+    "clarification_questions": [
+      {
+        "id": "Q-USER",
+        "dimension": "target_user",
+        "question": "Who is the primary target persona (e.g. students, enterprise admins, consumers)?",
+        "rationale": "Persona dictates interaction density, terminology, and visual hierarchy.",
+        "suggested_answers": [
+          "College students on mobile",
+          "Engineering teams on desktop",
+          "General consumers"
+        ],
+        "is_blocking": false
+      }
+    ],
     "can_proceed_with_assumptions": true
   },
   "epistemic_register": {
@@ -24,7 +39,7 @@
       {
         "id": "EVID-REQ-01",
         "source": "User Prompt",
-        "snippet": "Build a modern food delivery app for college students. Students should discover nearby restaurants, search food, order food, pay, and track delivery. The experience should be fast, affordable and simple.",
+        "snippet": "Design a complete mobile food delivery app CraveBite with dorm delivery landmark notes, late-night combo offers, live driver tracking, cart checkout, and accessible high contrast UI.",
         "category": "user_requirement",
         "confidence": "HIGH"
       }
@@ -2243,5 +2258,344 @@
     ],
     "unresolved_issues": [],
     "is_ready_for_production": true
+  },
+  "simulation_report": {
+    "simulation_run_id": "sim_b59d1eac",
+    "total_simulated_sessions": 1000,
+    "overall_funnel_conversion_rate": 68.0,
+    "avg_time_to_completion_seconds": 142.0,
+    "highest_dropoff_screen_id": "scr_cart",
+    "highest_dropoff_reason": "Address and delivery fee surprise check",
+    "funnel_steps": [
+      {
+        "step_number": 1,
+        "screen_id": "scr_home",
+        "screen_name": "Campus Discovery & Feed",
+        "retained_percentage": 96.0,
+        "drop_off_percentage": 4.0,
+        "avg_dwell_time_seconds": 12.0,
+        "primary_friction_cause": "Initial scan of budget deals",
+        "psychological_state": "Curious"
+      },
+      {
+        "step_number": 2,
+        "screen_id": "scr_search",
+        "screen_name": "Dietary Search & Query Results",
+        "retained_percentage": 88.3,
+        "drop_off_percentage": 7.7,
+        "avg_dwell_time_seconds": 18.0,
+        "primary_friction_cause": "Filter selection latency",
+        "psychological_state": "Focused"
+      },
+      {
+        "step_number": 3,
+        "screen_id": "scr_restaurant_detail",
+        "screen_name": "Restaurant Menu & Customizer",
+        "retained_percentage": 82.1,
+        "drop_off_percentage": 6.2,
+        "avg_dwell_time_seconds": 24.0,
+        "primary_friction_cause": "Customization decision friction",
+        "psychological_state": "Deliberate"
+      },
+      {
+        "step_number": 4,
+        "screen_id": "scr_cart",
+        "screen_name": "Cart & Student Discount Review",
+        "retained_percentage": 73.1,
+        "drop_off_percentage": 9.0,
+        "avg_dwell_time_seconds": 15.0,
+        "primary_friction_cause": "Address and delivery fee surprise check",
+        "psychological_state": "Hesitant"
+      },
+      {
+        "step_number": 5,
+        "screen_id": "scr_checkout",
+        "screen_name": "Frictionless Payment & Confirmation",
+        "retained_percentage": 68.7,
+        "drop_off_percentage": 4.4,
+        "avg_dwell_time_seconds": 20.0,
+        "primary_friction_cause": "Payment method authorization step",
+        "psychological_state": "Cautious"
+      },
+      {
+        "step_number": 6,
+        "screen_id": "scr_order_confirmation",
+        "screen_name": "Order Confirmed & Kitchen Ticket",
+        "retained_percentage": 68.0,
+        "drop_off_percentage": 0.7,
+        "avg_dwell_time_seconds": 8.0,
+        "primary_friction_cause": "Zero drop-off; order ticket issued",
+        "psychological_state": "Relieved"
+      },
+      {
+        "step_number": 7,
+        "screen_id": "scr_order_tracking",
+        "screen_name": "Live Campus Delivery Map & PIN",
+        "retained_percentage": 68.0,
+        "drop_off_percentage": 0.0,
+        "avg_dwell_time_seconds": 45.0,
+        "primary_friction_cause": "Live delivery tracking active",
+        "psychological_state": "Satisfied"
+      }
+    ],
+    "screen_heatmaps": [
+      {
+        "screen_id": "scr_home",
+        "screen_name": "Campus Discovery & Feed",
+        "primary_focal_element": "Explore Student Deals",
+        "fixations": [
+          {
+            "element_id": "scr_home_hdr",
+            "element_name": "Header & Landmark Context",
+            "x_percent": 15.0,
+            "y_percent": 6.0,
+            "saliency_score": 0.88,
+            "scanpath_order": 1,
+            "noticeability_percentage": 94
+          },
+          {
+            "element_id": "scr_home_main_card",
+            "element_name": "Primary Content Focus",
+            "x_percent": 50.0,
+            "y_percent": 32.0,
+            "saliency_score": 0.95,
+            "scanpath_order": 2,
+            "noticeability_percentage": 98
+          },
+          {
+            "element_id": "scr_home_cta",
+            "element_name": "Primary CTA: Explore Student Deals",
+            "x_percent": 50.0,
+            "y_percent": 88.0,
+            "saliency_score": 0.98,
+            "scanpath_order": 3,
+            "noticeability_percentage": 96
+          }
+        ],
+        "visual_balance_score": 92,
+        "distraction_risk": "Low"
+      },
+      {
+        "screen_id": "scr_search",
+        "screen_name": "Dietary Search & Query Results",
+        "primary_focal_element": "Apply 2 Filters",
+        "fixations": [
+          {
+            "element_id": "scr_search_hdr",
+            "element_name": "Header & Landmark Context",
+            "x_percent": 15.0,
+            "y_percent": 6.0,
+            "saliency_score": 0.88,
+            "scanpath_order": 1,
+            "noticeability_percentage": 94
+          },
+          {
+            "element_id": "scr_search_main_card",
+            "element_name": "Primary Content Focus",
+            "x_percent": 50.0,
+            "y_percent": 32.0,
+            "saliency_score": 0.95,
+            "scanpath_order": 2,
+            "noticeability_percentage": 98
+          },
+          {
+            "element_id": "scr_search_cta",
+            "element_name": "Primary CTA: Apply 2 Filters",
+            "x_percent": 50.0,
+            "y_percent": 88.0,
+            "saliency_score": 0.98,
+            "scanpath_order": 3,
+            "noticeability_percentage": 96
+          }
+        ],
+        "visual_balance_score": 92,
+        "distraction_risk": "Low"
+      },
+      {
+        "screen_id": "scr_restaurant_detail",
+        "screen_name": "Restaurant Menu & Customizer",
+        "primary_focal_element": "Add to Order • $8.49",
+        "fixations": [
+          {
+            "element_id": "scr_restaurant_detail_hdr",
+            "element_name": "Header & Landmark Context",
+            "x_percent": 15.0,
+            "y_percent": 6.0,
+            "saliency_score": 0.88,
+            "scanpath_order": 1,
+            "noticeability_percentage": 94
+          },
+          {
+            "element_id": "scr_restaurant_detail_main_card",
+            "element_name": "Primary Content Focus",
+            "x_percent": 50.0,
+            "y_percent": 32.0,
+            "saliency_score": 0.95,
+            "scanpath_order": 2,
+            "noticeability_percentage": 98
+          },
+          {
+            "element_id": "scr_restaurant_detail_cta",
+            "element_name": "Primary CTA: Add to Order • $8.49",
+            "x_percent": 50.0,
+            "y_percent": 88.0,
+            "saliency_score": 0.98,
+            "scanpath_order": 3,
+            "noticeability_percentage": 96
+          }
+        ],
+        "visual_balance_score": 92,
+        "distraction_risk": "Low"
+      },
+      {
+        "screen_id": "scr_cart",
+        "screen_name": "Cart & Student Discount Review",
+        "primary_focal_element": "Proceed to Checkout • $10.34",
+        "fixations": [
+          {
+            "element_id": "scr_cart_hdr",
+            "element_name": "Header & Landmark Context",
+            "x_percent": 15.0,
+            "y_percent": 6.0,
+            "saliency_score": 0.88,
+            "scanpath_order": 1,
+            "noticeability_percentage": 94
+          },
+          {
+            "element_id": "scr_cart_main_card",
+            "element_name": "Primary Content Focus",
+            "x_percent": 50.0,
+            "y_percent": 32.0,
+            "saliency_score": 0.95,
+            "scanpath_order": 2,
+            "noticeability_percentage": 98
+          },
+          {
+            "element_id": "scr_cart_cta",
+            "element_name": "Primary CTA: Proceed to Checkout • $10.34",
+            "x_percent": 50.0,
+            "y_percent": 88.0,
+            "saliency_score": 0.98,
+            "scanpath_order": 3,
+            "noticeability_percentage": 96
+          }
+        ],
+        "visual_balance_score": 92,
+        "distraction_risk": "Low"
+      },
+      {
+        "screen_id": "scr_checkout",
+        "screen_name": "Frictionless Payment & Confirmation",
+        "primary_focal_element": "Slide to Pay • $10.34",
+        "fixations": [
+          {
+            "element_id": "scr_checkout_hdr",
+            "element_name": "Header & Landmark Context",
+            "x_percent": 15.0,
+            "y_percent": 6.0,
+            "saliency_score": 0.88,
+            "scanpath_order": 1,
+            "noticeability_percentage": 94
+          },
+          {
+            "element_id": "scr_checkout_main_card",
+            "element_name": "Primary Content Focus",
+            "x_percent": 50.0,
+            "y_percent": 32.0,
+            "saliency_score": 0.95,
+            "scanpath_order": 2,
+            "noticeability_percentage": 98
+          },
+          {
+            "element_id": "scr_checkout_cta",
+            "element_name": "Primary CTA: Slide to Pay • $10.34",
+            "x_percent": 50.0,
+            "y_percent": 88.0,
+            "saliency_score": 0.98,
+            "scanpath_order": 3,
+            "noticeability_percentage": 96
+          }
+        ],
+        "visual_balance_score": 92,
+        "distraction_risk": "Low"
+      },
+      {
+        "screen_id": "scr_order_confirmation",
+        "screen_name": "Order Confirmed & Kitchen Ticket",
+        "primary_focal_element": "Live Track Delivery",
+        "fixations": [
+          {
+            "element_id": "scr_order_confirmation_hdr",
+            "element_name": "Header & Landmark Context",
+            "x_percent": 15.0,
+            "y_percent": 6.0,
+            "saliency_score": 0.88,
+            "scanpath_order": 1,
+            "noticeability_percentage": 94
+          },
+          {
+            "element_id": "scr_order_confirmation_main_card",
+            "element_name": "Primary Content Focus",
+            "x_percent": 50.0,
+            "y_percent": 32.0,
+            "saliency_score": 0.95,
+            "scanpath_order": 2,
+            "noticeability_percentage": 98
+          },
+          {
+            "element_id": "scr_order_confirmation_cta",
+            "element_name": "Primary CTA: Live Track Delivery",
+            "x_percent": 50.0,
+            "y_percent": 88.0,
+            "saliency_score": 0.98,
+            "scanpath_order": 3,
+            "noticeability_percentage": 96
+          }
+        ],
+        "visual_balance_score": 92,
+        "distraction_risk": "Low"
+      },
+      {
+        "screen_id": "scr_order_tracking",
+        "screen_name": "Live Campus Delivery Map & PIN",
+        "primary_focal_element": "Message Courier",
+        "fixations": [
+          {
+            "element_id": "scr_order_tracking_hdr",
+            "element_name": "Header & Landmark Context",
+            "x_percent": 15.0,
+            "y_percent": 6.0,
+            "saliency_score": 0.88,
+            "scanpath_order": 1,
+            "noticeability_percentage": 94
+          },
+          {
+            "element_id": "scr_order_tracking_main_card",
+            "element_name": "Primary Content Focus",
+            "x_percent": 50.0,
+            "y_percent": 32.0,
+            "saliency_score": 0.95,
+            "scanpath_order": 2,
+            "noticeability_percentage": 98
+          },
+          {
+            "element_id": "scr_order_tracking_cta",
+            "element_name": "Primary CTA: Message Courier",
+            "x_percent": 50.0,
+            "y_percent": 88.0,
+            "saliency_score": 0.98,
+            "scanpath_order": 3,
+            "noticeability_percentage": 96
+          }
+        ],
+        "visual_balance_score": 92,
+        "distraction_risk": "Low"
+      }
+    ],
+    "mitigation_recommendations": [
+      "Pre-fill dorm pickup landmarks on 'Cart & Student Discount Review' to recover 9.0% drop-off.",
+      "Maintain high visual contrast on primary CTA to guide eye fixations under 400ms.",
+      "Display transparent pricing breakdown before final checkout to eliminate fee anxiety."
+    ]
   }
 }

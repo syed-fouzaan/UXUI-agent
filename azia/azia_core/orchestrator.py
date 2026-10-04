@@ -31,6 +31,9 @@ from azia.azia_core.intelligence import (
     AuditEngine,
     QAEngine,
     RepairEngine,
+    SimulationEngine,
+    CodeGenerator,
+    DesignSystemIngestEngine,
 )
 from azia.azia_core.renderer import (
     OperationPlanner,
@@ -57,6 +60,9 @@ class AutonomousDesignPipeline:
         self.audit_engine = AuditEngine()
         self.qa_engine = QAEngine()
         self.repair_engine = RepairEngine()
+        self.sim_engine = SimulationEngine()
+        self.code_gen = CodeGenerator()
+        self.ds_ingest = DesignSystemIngestEngine()
         self.op_planner = OperationPlanner()
         self.visual_exporter = VisualExporter()
         self.figma_exporter = FigmaExporter()
@@ -151,6 +157,15 @@ class AutonomousDesignPipeline:
         canvas = VirtualFigmaCanvas()
         canvas.execute_operations(operations)
 
+        # Step 16: Multi-Agent Synthetic Usability Simulation & Visual Saliency Heatmaps
+        sim_report = self.sim_engine.run_simulation(spec)
+        spec.simulation_report = sim_report
+
+        # Step 17: Production Code Handoff Generation (React + Tailwind, SwiftUI, DTCG Tokens)
+        react_bundle = self.code_gen.generate_react_tailwind(spec)
+        swift_bundle = self.code_gen.generate_swiftui(spec)
+        dtcg_tokens = self.code_gen.generate_w3c_tokens(spec)
+
         duration = round(time.time() - start_time, 2)
 
         summary = {
@@ -164,9 +179,22 @@ class AutonomousDesignPipeline:
             "operations_count": len(operations),
             "qa_score": qa_report.overall_qa_score_100,
             "usability_score": audit_report.overall_usability_score_100,
+            "simulated_conversion_rate": sim_report.overall_funnel_conversion_rate,
+            "avg_completion_time_sec": sim_report.avg_time_to_completion_seconds,
+            "highest_dropoff_screen": sim_report.highest_dropoff_screen_id,
+            "code_bundles": {
+                "react_files_count": len(react_bundle.files),
+                "swift_files_count": len(swift_bundle.files),
+                "dtcg_tokens_generated": True
+            },
             "repair_iterations": qa_report.repair_iterations_applied,
             "execution_duration_sec": duration,
             "status": "SUCCESS_PRODUCTION_READY"
         }
+
+        # Attach code bundles to summary for exporters
+        summary["_react_bundle"] = react_bundle
+        summary["_swift_bundle"] = swift_bundle
+        summary["_dtcg_tokens"] = dtcg_tokens
 
         return spec, operations, canvas, summary

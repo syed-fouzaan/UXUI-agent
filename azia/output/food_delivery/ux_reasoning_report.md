@@ -2,7 +2,7 @@
 ## Product: CraveBite Campus
 **Category:** Campus Food Delivery & Discovery  
 **Platform:** MOBILE  
-**Generation ID:** `b78accce-56a2-424e-8bed-0ff8ef706144`  
+**Generation ID:** `e372f4e5-4dab-4e97-8750-b77315729c2e`  
 **Managed By:** `autonomous-design-mcp`  
 **QA Quality Score:** 100% | **Usability Score:** 88/100  
 
@@ -20,7 +20,7 @@ Every decision in this design is grounded in explicit user motivation, task mode
 AZIA adheres to the fundamental trust principle: **never pretend to have facts when making design hypotheses**.
 
 #### Confirmed Facts (1)
-- **[User Prompt]:** Build a modern food delivery app for college students. Students should discover nearby restaurants, search food, order food, pay, and track delivery. The experience should be fast, affordable and simple.
+- **[User Prompt]:** Design a complete mobile food delivery app CraveBite with dorm delivery landmark notes, late-night combo offers, live driver tracking, cart checkout, and accessible high contrast UI.
 
 #### Documented Design Assumptions (2)
 - **ASM-FOOD-01 (HIGH Confidence):**  

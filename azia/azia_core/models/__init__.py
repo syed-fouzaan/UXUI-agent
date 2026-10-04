@@ -86,6 +86,25 @@ from azia.azia_core.models.operations import (
     FigmaOperationType,
     FigmaOperation,
 )
+from azia.azia_core.models.simulation import (
+    CognitiveBandwidth,
+    SyntheticUserAgent,
+    VisualFixationPoint,
+    ScreenAttentionHeatmap,
+    FunnelStepMetric,
+    UsabilitySimulationReport,
+)
+from azia.azia_core.models.code_handoff import (
+    FrameworkType,
+    GeneratedSourceFile,
+    GeneratedCodeBundle,
+)
+from azia.azia_core.models.ds_ingest import (
+    DesignSystemSourceFormat,
+    IngestedToken,
+    ComponentMappingRule,
+    DesignSystemImportResult,
+)
 
 __all__ = [
     "EpistemicStatus",
