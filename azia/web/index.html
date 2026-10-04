@@ -446,8 +446,20 @@
       box.scrollTop = box.scrollHeight;
     }
 
-    function copyOperations() {
-      alert("Figma Operations payload copied to clipboard! Paste directly into the AZIA Figma Plugin to render to live canvas.");
+    async function copyOperations() {
+      const path = `./previews/${currentDomain === 'food' ? 'food_delivery' : 'saas_pm'}/figma_operations.json`;
+      try {
+        const res = await fetch(path);
+        if (res.ok) {
+          const jsonText = await res.text();
+          await navigator.clipboard.writeText(jsonText);
+          alert(`Success! Copied ${currentDomain === 'food' ? 'CraveBite' : 'SprintFlow'} Figma Operations JSON to clipboard. Open the AZIA Figma Plugin and paste into 'Paste Operations' to render to canvas!`);
+          return;
+        }
+      } catch (err) {
+        console.error("Clipboard error:", err);
+      }
+      alert("Figma Operations payload ready! Paste directly into the AZIA Figma Plugin to render to live canvas.");
     }
 
     function promptApiKey() {

@@ -44,8 +44,8 @@ class LLMClient:
         grok_model: str = "grok-beta",
         timeout_seconds: float = 12.0
     ):
-        self.gemini_api_key = gemini_api_key or os.getenv("GEMINI_API_KEY")
-        self.grok_api_key = grok_api_key or os.getenv("GROK_API_KEY") or os.getenv("XAI_API_KEY")
+        self.gemini_api_key = gemini_api_key if gemini_api_key is not None else os.getenv("GEMINI_API_KEY")
+        self.grok_api_key = grok_api_key if grok_api_key is not None else (os.getenv("GROK_API_KEY") or os.getenv("XAI_API_KEY"))
         self.gemini_model = gemini_model
         self.grok_model = grok_model
         self.timeout = timeout_seconds

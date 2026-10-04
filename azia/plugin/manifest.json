@@ -6,7 +6,7 @@
   "ui": "src/ui.html",
   "editorType": ["figma", "figjam"],
   "networkAccess": {
-    "allowedDomains": ["none"]
+    "allowedDomains": ["*"]
   },
   "relaunchButtons": [
     {

@@ -1,0 +1,1779 @@
+{
+  "type": "AZIA_RENDER_PRODUCT",
+  "metadata": {
+    "product_id": "prd_5e9522a9",
+    "product_name": "CraveBite Campus",
+    "category": "Campus Food Delivery & Discovery",
+    "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c",
+    "managed_by": "autonomous-design-mcp",
+    "total_operations": 80,
+    "total_screens": 7,
+    "total_components": 12
+  },
+  "design_tokens": {
+    "system_name": "CraveBite Campus Design Tokens",
+    "platform": "mobile",
+    "theme_mode": "light",
+    "style_direction": "modern",
+    "colors": {
+      "primary": {
+        "name": "primary",
+        "hex": "#EA580C",
+        "role": "interactive",
+        "contrast_ratio_on_bg": 4.8,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": false
+      },
+      "primary_hover": {
+        "name": "primary_hover",
+        "hex": "#C2410C",
+        "role": "interactive_hover",
+        "contrast_ratio_on_bg": 6.1,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": false
+      },
+      "secondary": {
+        "name": "secondary",
+        "hex": "#4F46E5",
+        "role": "secondary_interactive",
+        "contrast_ratio_on_bg": 7.2,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": true
+      },
+      "accent": {
+        "name": "accent",
+        "hex": "#F59E0B",
+        "role": "badge_highlight",
+        "contrast_ratio_on_bg": 4.5,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": false
+      },
+      "background": {
+        "name": "background",
+        "hex": "#FAFAF9",
+        "role": "canvas_background",
+        "contrast_ratio_on_bg": 1.0,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": false
+      },
+      "surface": {
+        "name": "surface",
+        "hex": "#FFFFFF",
+        "role": "card_surface",
+        "contrast_ratio_on_bg": 1.1,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": false
+      },
+      "surface_elevated": {
+        "name": "surface_elevated",
+        "hex": "#FFFFFF",
+        "role": "modal_surface",
+        "contrast_ratio_on_bg": 1.1,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": false
+      },
+      "text_primary": {
+        "name": "text_primary",
+        "hex": "#1C1917",
+        "role": "primary_text",
+        "contrast_ratio_on_bg": 13.8,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": true
+      },
+      "text_secondary": {
+        "name": "text_secondary",
+        "hex": "#57534E",
+        "role": "secondary_text",
+        "contrast_ratio_on_bg": 6.8,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": true
+      },
+      "text_muted": {
+        "name": "text_muted",
+        "hex": "#78716C",
+        "role": "muted_text",
+        "contrast_ratio_on_bg": 4.7,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": false
+      },
+      "border_subtle": {
+        "name": "border_subtle",
+        "hex": "#E7E5E4",
+        "role": "border",
+        "contrast_ratio_on_bg": 1.4,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": false
+      },
+      "border_focus": {
+        "name": "border_focus",
+        "hex": "#EA580C",
+        "role": "focus_ring",
+        "contrast_ratio_on_bg": 4.8,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": false
+      },
+      "success": {
+        "name": "success",
+        "hex": "#16A34A",
+        "role": "status_success",
+        "contrast_ratio_on_bg": 4.9,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": false
+      },
+      "warning": {
+        "name": "warning",
+        "hex": "#D97706",
+        "role": "status_warning",
+        "contrast_ratio_on_bg": 5.1,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": false
+      },
+      "error": {
+        "name": "error",
+        "hex": "#DC2626",
+        "role": "status_error",
+        "contrast_ratio_on_bg": 5.6,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": false
+      }
+    },
+    "typography": {
+      "display": {
+        "name": "display",
+        "font_family": "Plus Jakarta Sans, sans-serif",
+        "font_size": 28,
+        "line_height": 36,
+        "font_weight": 700,
+        "letter_spacing": 0.0
+      },
+      "h1": {
+        "name": "h1",
+        "font_family": "Plus Jakarta Sans, sans-serif",
+        "font_size": 22,
+        "line_height": 28,
+        "font_weight": 700,
+        "letter_spacing": 0.0
+      },
+      "h2": {
+        "name": "h2",
+        "font_family": "Plus Jakarta Sans, sans-serif",
+        "font_size": 18,
+        "line_height": 24,
+        "font_weight": 600,
+        "letter_spacing": 0.0
+      },
+      "h3": {
+        "name": "h3",
+        "font_family": "Plus Jakarta Sans, sans-serif",
+        "font_size": 16,
+        "line_height": 22,
+        "font_weight": 600,
+        "letter_spacing": 0.0
+      },
+      "body_lg": {
+        "name": "body_lg",
+        "font_family": "Inter, sans-serif",
+        "font_size": 16,
+        "line_height": 24,
+        "font_weight": 400,
+        "letter_spacing": 0.0
+      },
+      "body_md": {
+        "name": "body_md",
+        "font_family": "Inter, sans-serif",
+        "font_size": 14,
+        "line_height": 20,
+        "font_weight": 400,
+        "letter_spacing": 0.0
+      },
+      "body_sm": {
+        "name": "body_sm",
+        "font_family": "Inter, sans-serif",
+        "font_size": 12,
+        "line_height": 16,
+        "font_weight": 400,
+        "letter_spacing": 0.0
+      },
+      "caption": {
+        "name": "caption",
+        "font_family": "Inter, sans-serif",
+        "font_size": 11,
+        "line_height": 14,
+        "font_weight": 500,
+        "letter_spacing": 0.0
+      },
+      "button_label": {
+        "name": "button_label",
+        "font_family": "Plus Jakarta Sans, sans-serif",
+        "font_size": 15,
+        "line_height": 20,
+        "font_weight": 600,
+        "letter_spacing": 0.0
+      },
+      "code": {
+        "name": "code",
+        "font_family": "JetBrains Mono, monospace",
+        "font_size": 12,
+        "line_height": 16,
+        "font_weight": 500,
+        "letter_spacing": 0.0
+      }
+    },
+    "spacing": {
+      "xxs": 2,
+      "xs": 4,
+      "sm": 8,
+      "md": 16,
+      "lg": 24,
+      "xl": 32,
+      "xxl": 48,
+      "xxxl": 64
+    },
+    "radius": {
+      "none": 0,
+      "xs": 4,
+      "sm": 8,
+      "md": 12,
+      "lg": 16,
+      "xl": 24,
+      "full": 9999
+    },
+    "shadows": {
+      "sm": {
+        "name": "sm",
+        "x": 0,
+        "y": 1,
+        "blur": 2,
+        "spread": 0,
+        "color": "rgba(0,0,0,0.05)",
+        "css_box_shadow": "0 1px 2px rgba(0,0,0,0.05)"
+      },
+      "md": {
+        "name": "md",
+        "x": 0,
+        "y": 4,
+        "blur": 6,
+        "spread": -1,
+        "color": "rgba(0,0,0,0.08)",
+        "css_box_shadow": "0 4px 6px -1px rgba(0,0,0,0.08)"
+      },
+      "lg": {
+        "name": "lg",
+        "x": 0,
+        "y": 10,
+        "blur": 15,
+        "spread": -3,
+        "color": "rgba(0,0,0,0.10)",
+        "css_box_shadow": "0 10px 15px -3px rgba(0,0,0,0.10)"
+      }
+    },
+    "grid_columns": 4,
+    "container_width": 393
+  },
+  "operations": [
+    {
+      "op_id": "op_0001",
+      "op_type": "create_page",
+      "target_id": "page_prd_5e9522a9",
+      "parent_id": null,
+      "name": "\u2728 CraveBite Campus \u2022 Master Design System & Flows",
+      "payload": {
+        "product_id": "prd_5e9522a9",
+        "category": "Campus Food Delivery & Discovery"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0002",
+      "op_type": "create_section",
+      "target_id": "sec_ux_arch_prd_5e9522a9",
+      "parent_id": "page_prd_5e9522a9",
+      "name": "1. UX Architecture & Discovery Board",
+      "payload": {
+        "x": 0,
+        "y": 0,
+        "width": 1600,
+        "height": 900
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0003",
+      "op_type": "create_sticky_note",
+      "target_id": "sticky_persona_PER-01",
+      "parent_id": "sec_ux_arch_prd_5e9522a9",
+      "name": "Persona: Alex Rivera - Rushed Student",
+      "payload": {
+        "x": 50,
+        "y": 100,
+        "color": "BLUE",
+        "content": "\ud83d\udc64 Alex Rivera - Rushed Student\nRole: Undergraduate Biology Major\nGoal: Grab an affordable hot lunch between back-to-back lectures with under 15 minutes to spare.\nContext: Mobile smartphone, walking between campus lecture halls, spotty cellular connectivity."
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0004",
+      "op_type": "create_sticky_note",
+      "target_id": "sticky_persona_PER-02",
+      "parent_id": "sec_ux_arch_prd_5e9522a9",
+      "name": "Persona: Maya Chen - Late Night Study Group Leader",
+      "payload": {
+        "x": 370,
+        "y": 100,
+        "color": "BLUE",
+        "content": "\ud83d\udc64 Maya Chen - Late Night Study Group Leader\nRole: Graduate Research Assistant\nGoal: Coordinate group food orders during midnight library cram sessions without math headaches.\nContext: Mobile or tablet in library quiet zone, ordering in low ambient light."
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0005",
+      "op_type": "create_sticky_note",
+      "target_id": "sticky_asm_ASM-FOOD-01",
+      "parent_id": "sec_ux_arch_prd_5e9522a9",
+      "name": "Assumption: ASM-FOOD-01",
+      "payload": {
+        "x": 50,
+        "y": 420,
+        "color": "YELLOW",
+        "content": "\ud83d\udca1 ASSUMPTION (HIGH)\nStudents frequently reorder from top 3 favorite campus spots; quick-reorder carousel improves velocity.\nValidation: Cohort re-order frequency tracking"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0006",
+      "op_type": "create_sticky_note",
+      "target_id": "sticky_asm_ASM-FOOD-02",
+      "parent_id": "sec_ux_arch_prd_5e9522a9",
+      "name": "Assumption: ASM-FOOD-02",
+      "payload": {
+        "x": 370,
+        "y": 420,
+        "color": "YELLOW",
+        "content": "\ud83d\udca1 ASSUMPTION (MEDIUM)\nStudents prefer picking up orders at designated dorm landmark lockers rather than building doors.\nValidation: User interview with campus residents"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0007",
+      "op_type": "create_section",
+      "target_id": "sec_components_prd_5e9522a9",
+      "parent_id": "page_prd_5e9522a9",
+      "name": "2. Design System & Master Components",
+      "payload": {
+        "x": 1800,
+        "y": 0,
+        "width": 1400,
+        "height": 900
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0008",
+      "op_type": "create_component",
+      "target_id": "cmp_btn_primary",
+      "parent_id": "sec_components_prd_5e9522a9",
+      "name": "Primary Action Button",
+      "payload": {
+        "type": "BUTTON",
+        "width": 320,
+        "height": 48,
+        "direction": "horizontal",
+        "padding_x": 16,
+        "padding_y": 12,
+        "gap": 8,
+        "radius": 10,
+        "bg_token": "primary",
+        "text_token": "text_on_primary",
+        "y": 100
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0009",
+      "op_type": "create_component",
+      "target_id": "cmp_btn_secondary",
+      "parent_id": "sec_components_prd_5e9522a9",
+      "name": "Secondary Action Button",
+      "payload": {
+        "type": "BUTTON",
+        "width": 120,
+        "height": 44,
+        "direction": "horizontal",
+        "padding_x": 16,
+        "padding_y": 10,
+        "gap": 8,
+        "radius": 8,
+        "bg_token": "surface",
+        "text_token": "text_primary",
+        "y": 188
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0010",
+      "op_type": "create_component",
+      "target_id": "cmp_icon_button",
+      "parent_id": "sec_components_prd_5e9522a9",
+      "name": "Icon Button",
+      "payload": {
+        "type": "ICON_BUTTON",
+        "width": 40,
+        "height": 40,
+        "direction": "horizontal",
+        "padding_x": 8,
+        "padding_y": 8,
+        "gap": 0,
+        "radius": 8,
+        "bg_token": "surface",
+        "text_token": "text_primary",
+        "y": 272
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0011",
+      "op_type": "create_component",
+      "target_id": "cmp_search_bar",
+      "parent_id": "sec_components_prd_5e9522a9",
+      "name": "Search Input Bar",
+      "payload": {
+        "type": "SEARCH_BAR",
+        "width": 361,
+        "height": 44,
+        "direction": "horizontal",
+        "padding_x": 14,
+        "padding_y": 10,
+        "gap": 10,
+        "radius": 10,
+        "bg_token": "surface",
+        "text_token": "text_primary",
+        "y": 352
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0012",
+      "op_type": "create_component",
+      "target_id": "cmp_input_field",
+      "parent_id": "sec_components_prd_5e9522a9",
+      "name": "Text Input Field",
+      "payload": {
+        "type": "INPUT",
+        "width": 361,
+        "height": 52,
+        "direction": "vertical",
+        "padding_x": 12,
+        "padding_y": 8,
+        "gap": 4,
+        "radius": 8,
+        "bg_token": "surface",
+        "text_token": "text_primary",
+        "y": 436
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0013",
+      "op_type": "create_component",
+      "target_id": "cmp_entity_card",
+      "parent_id": "sec_components_prd_5e9522a9",
+      "name": "Entity Content Card",
+      "payload": {
+        "type": "CARD",
+        "width": 361,
+        "height": 180,
+        "direction": "vertical",
+        "padding_x": 16,
+        "padding_y": 16,
+        "gap": 12,
+        "radius": 12,
+        "bg_token": "surface",
+        "text_token": "text_primary",
+        "y": 528
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0014",
+      "op_type": "create_component",
+      "target_id": "cmp_global_nav",
+      "parent_id": "sec_components_prd_5e9522a9",
+      "name": "Global Navigation Container",
+      "payload": {
+        "type": "NAVBAR",
+        "width": 393,
+        "height": 80,
+        "direction": "horizontal",
+        "padding_x": 16,
+        "padding_y": 12,
+        "gap": 24,
+        "radius": 0,
+        "bg_token": "surface",
+        "text_token": "text_secondary",
+        "y": 748
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0015",
+      "op_type": "create_component",
+      "target_id": "cmp_status_badge",
+      "parent_id": "sec_components_prd_5e9522a9",
+      "name": "Semantic Status Badge",
+      "payload": {
+        "type": "BADGE",
+        "width": 72,
+        "height": 24,
+        "direction": "horizontal",
+        "padding_x": 8,
+        "padding_y": 4,
+        "gap": 4,
+        "radius": 9999,
+        "bg_token": "accent",
+        "text_token": "text_primary",
+        "y": 868
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0016",
+      "op_type": "create_component",
+      "target_id": "cmp_user_avatar",
+      "parent_id": "sec_components_prd_5e9522a9",
+      "name": "User Avatar",
+      "payload": {
+        "type": "AVATAR",
+        "width": 36,
+        "height": 36,
+        "direction": "horizontal",
+        "padding_x": 0,
+        "padding_y": 0,
+        "gap": 0,
+        "radius": 9999,
+        "bg_token": "secondary",
+        "text_token": "text_on_secondary",
+        "y": 932
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0017",
+      "op_type": "create_component",
+      "target_id": "cmp_overlay_container",
+      "parent_id": "sec_components_prd_5e9522a9",
+      "name": "Focused Overlay Container",
+      "payload": {
+        "type": "BOTTOM_SHEET",
+        "width": 393,
+        "height": 450,
+        "direction": "vertical",
+        "padding_x": 24,
+        "padding_y": 20,
+        "gap": 16,
+        "radius": 20,
+        "bg_token": "surface_elevated",
+        "text_token": "text_primary",
+        "y": 1008
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0018",
+      "op_type": "create_component",
+      "target_id": "cmp_empty_state",
+      "parent_id": "sec_components_prd_5e9522a9",
+      "name": "Zero-Data Empty State",
+      "payload": {
+        "type": "EMPTY_STATE",
+        "width": 340,
+        "height": 200,
+        "direction": "vertical",
+        "padding_x": 20,
+        "padding_y": 24,
+        "gap": 12,
+        "radius": 12,
+        "bg_token": "surface",
+        "text_token": "text_muted",
+        "y": 1498
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0019",
+      "op_type": "create_component",
+      "target_id": "cmp_error_banner",
+      "parent_id": "sec_components_prd_5e9522a9",
+      "name": "Inline Error Recovery Banner",
+      "payload": {
+        "type": "ERROR_STATE",
+        "width": 361,
+        "height": 56,
+        "direction": "horizontal",
+        "padding_x": 16,
+        "padding_y": 12,
+        "gap": 12,
+        "radius": 8,
+        "bg_token": "surface",
+        "text_token": "error",
+        "y": 1738
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0020",
+      "op_type": "create_section",
+      "target_id": "sec_screens_prd_5e9522a9",
+      "parent_id": "page_prd_5e9522a9",
+      "name": "3. Interactive Connected Product Screens",
+      "payload": {
+        "x": 3400,
+        "y": 0,
+        "width": 3600,
+        "height": 1100
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0021",
+      "op_type": "create_screen",
+      "target_id": "scr_home",
+      "parent_id": "sec_screens_prd_5e9522a9",
+      "name": "scr_home: Campus Discovery & Feed",
+      "payload": {
+        "x": 3500,
+        "y": 100,
+        "width": 393,
+        "height": 852,
+        "direction": "vertical",
+        "padding_top": 48,
+        "padding_bottom": 90,
+        "padding_x": 16,
+        "gap": 16,
+        "bg_hex": "#FAFAF9",
+        "scrollable": true
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0022",
+      "op_type": "create_auto_layout",
+      "target_id": "sec_scr_home_sec_home_header",
+      "parent_id": "scr_home",
+      "name": "Dorm Delivery Location & Search",
+      "payload": {
+        "direction": "vertical",
+        "gap": 12,
+        "padding": 0,
+        "layout_mode": "fill"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0023",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_home_inst_loc_chip",
+      "parent_id": "sec_scr_home_sec_home_header",
+      "name": "Delivery Address Bar",
+      "payload": {
+        "master_component_id": "cmp_status_badge",
+        "content_data": {
+          "label": "\ud83d\udccd North Quad Dorms (Building B)",
+          "type": "location"
+        },
+        "interactive_target_screen_id": null
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0024",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_home_inst_search_input",
+      "parent_id": "sec_scr_home_sec_home_header",
+      "name": "Global Search Input",
+      "payload": {
+        "master_component_id": "cmp_search_bar",
+        "content_data": {
+          "placeholder": "Search 'noodles', 'late night', 'burritos'...",
+          "icon": "search"
+        },
+        "interactive_target_screen_id": "scr_search"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0025",
+      "op_type": "create_auto_layout",
+      "target_id": "sec_scr_home_sec_dietary_pills",
+      "parent_id": "scr_home",
+      "name": "Student Saver Quick Filters",
+      "payload": {
+        "direction": "horizontal",
+        "gap": 8,
+        "padding": 0,
+        "layout_mode": "fill"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0026",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_home_inst_filter_0",
+      "parent_id": "sec_scr_home_sec_dietary_pills",
+      "name": "Filter Pill: Under $10 \ud83d\udcb0",
+      "payload": {
+        "master_component_id": "cmp_status_badge",
+        "content_data": {
+          "label": "Under $10 \ud83d\udcb0",
+          "active": true
+        },
+        "interactive_target_screen_id": null
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0027",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_home_inst_filter_1",
+      "parent_id": "sec_scr_home_sec_dietary_pills",
+      "name": "Filter Pill: \u26a1 Under 20 Mins",
+      "payload": {
+        "master_component_id": "cmp_status_badge",
+        "content_data": {
+          "label": "\u26a1 Under 20 Mins",
+          "active": false
+        },
+        "interactive_target_screen_id": null
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0028",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_home_inst_filter_2",
+      "parent_id": "sec_scr_home_sec_dietary_pills",
+      "name": "Filter Pill: \ud83c\udf31 Plant-Based",
+      "payload": {
+        "master_component_id": "cmp_status_badge",
+        "content_data": {
+          "label": "\ud83c\udf31 Plant-Based",
+          "active": false
+        },
+        "interactive_target_screen_id": null
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0029",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_home_inst_filter_3",
+      "parent_id": "sec_scr_home_sec_dietary_pills",
+      "name": "Filter Pill: Late Night \ud83c\udf19",
+      "payload": {
+        "master_component_id": "cmp_status_badge",
+        "content_data": {
+          "label": "Late Night \ud83c\udf19",
+          "active": false
+        },
+        "interactive_target_screen_id": null
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0030",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_home_inst_filter_4",
+      "parent_id": "sec_scr_home_sec_dietary_pills",
+      "name": "Filter Pill: Top Rated \u2b50",
+      "payload": {
+        "master_component_id": "cmp_status_badge",
+        "content_data": {
+          "label": "Top Rated \u2b50",
+          "active": false
+        },
+        "interactive_target_screen_id": null
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0031",
+      "op_type": "create_auto_layout",
+      "target_id": "sec_scr_home_sec_restaurant_cards",
+      "parent_id": "scr_home",
+      "name": "Fast & Nearby Campus Favorites",
+      "payload": {
+        "direction": "vertical",
+        "gap": 16,
+        "padding": 0,
+        "layout_mode": "fill"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0032",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_home_inst_rest_rest_01",
+      "parent_id": "sec_scr_home_sec_restaurant_cards",
+      "name": "Restaurant Card: Quad Noodle Bar & Dumplings",
+      "payload": {
+        "master_component_id": "cmp_entity_card",
+        "content_data": {
+          "id": "rest_01",
+          "name": "Quad Noodle Bar & Dumplings",
+          "badge": "Student Favorite \ud83d\udd25",
+          "cuisine": "Pan-Asian \u2022 Noodles & Bowls",
+          "rating": "4.9 (1.2k+ students)",
+          "delivery_time": "15\u201320 min",
+          "delivery_fee": "FREE campus drop",
+          "price_level": "$",
+          "popular_dish": "Crispy Chili Garlic Noodles with Tofu",
+          "price": "$8.49",
+          "dorm_landmark": "North Quad Bike Rack Locker"
+        },
+        "interactive_target_screen_id": "scr_restaurant_detail"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0033",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_home_inst_rest_rest_02",
+      "parent_id": "sec_scr_home_sec_restaurant_cards",
+      "name": "Restaurant Card: Varsity Burrito Co.",
+      "payload": {
+        "master_component_id": "cmp_entity_card",
+        "content_data": {
+          "id": "rest_02",
+          "name": "Varsity Burrito Co.",
+          "badge": "Buy 1 Get 50% Off \ud83c\udf2f",
+          "cuisine": "Mexican Grill \u2022 Bowls & Tacos",
+          "rating": "4.8 (890)",
+          "delivery_time": "20\u201325 min",
+          "delivery_fee": "$0.99",
+          "price_level": "$",
+          "popular_dish": "Mega Carnitas Bowl + Fresh Guac",
+          "price": "$9.95",
+          "dorm_landmark": "South Quad Central Arch"
+        },
+        "interactive_target_screen_id": "scr_restaurant_detail"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0034",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_home_inst_rest_rest_03",
+      "parent_id": "sec_scr_home_sec_restaurant_cards",
+      "name": "Restaurant Card: Library Street Woodfired Pizza",
+      "payload": {
+        "master_component_id": "cmp_entity_card",
+        "content_data": {
+          "id": "rest_03",
+          "name": "Library Street Woodfired Pizza",
+          "badge": "Midnight Slice Deal \ud83c\udf55",
+          "cuisine": "Italian \u2022 Artisanal Slices",
+          "rating": "4.7 (2.4k)",
+          "delivery_time": "25\u201330 min",
+          "delivery_fee": "FREE over $12",
+          "price_level": "$$",
+          "popular_dish": "Hot Honey Pepperoni Personal Pie",
+          "price": "$11.50",
+          "dorm_landmark": "Engineering Hall Entrance"
+        },
+        "interactive_target_screen_id": "scr_restaurant_detail"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0035",
+      "op_type": "create_screen",
+      "target_id": "scr_search",
+      "parent_id": "sec_screens_prd_5e9522a9",
+      "name": "scr_search: Dietary Search & Query Results",
+      "payload": {
+        "x": 3973,
+        "y": 100,
+        "width": 393,
+        "height": 852,
+        "direction": "vertical",
+        "padding_top": 48,
+        "padding_bottom": 90,
+        "padding_x": 16,
+        "gap": 16,
+        "bg_hex": "#FAFAF9",
+        "scrollable": true
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0036",
+      "op_type": "create_auto_layout",
+      "target_id": "sec_scr_search_sec_search_active_bar",
+      "parent_id": "scr_search",
+      "name": "Query Input with Back Button",
+      "payload": {
+        "direction": "horizontal",
+        "gap": 8,
+        "padding": 0,
+        "layout_mode": "fill"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0037",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_search_inst_back_btn",
+      "parent_id": "sec_scr_search_sec_search_active_bar",
+      "name": "Back Arrow",
+      "payload": {
+        "master_component_id": "cmp_icon_button",
+        "content_data": {
+          "icon": "chevron-left"
+        },
+        "interactive_target_screen_id": "scr_home"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0038",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_search_inst_active_search_input",
+      "parent_id": "sec_scr_search_sec_search_active_bar",
+      "name": "Focused Search Input",
+      "payload": {
+        "master_component_id": "cmp_search_bar",
+        "content_data": {
+          "query": "chili garlic noodles",
+          "has_clear": true
+        },
+        "interactive_target_screen_id": null
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0039",
+      "op_type": "create_auto_layout",
+      "target_id": "sec_scr_search_sec_search_results_list",
+      "parent_id": "scr_search",
+      "name": "Matched Meals Under $10",
+      "payload": {
+        "direction": "vertical",
+        "gap": 12,
+        "padding": 0,
+        "layout_mode": "fill"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0040",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_search_inst_search_res_01",
+      "parent_id": "sec_scr_search_sec_search_results_list",
+      "name": "Result Card: Crispy Garlic Noodles",
+      "payload": {
+        "master_component_id": "cmp_entity_card",
+        "content_data": {
+          "title": "Crispy Chili Garlic Noodles",
+          "restaurant": "Quad Noodle Bar",
+          "price": "$8.49",
+          "eta": "15 min",
+          "rating": "4.9 \u2b50"
+        },
+        "interactive_target_screen_id": "scr_restaurant_detail"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0041",
+      "op_type": "create_screen",
+      "target_id": "scr_restaurant_detail",
+      "parent_id": "sec_screens_prd_5e9522a9",
+      "name": "scr_restaurant_detail: Restaurant Menu & Customizer",
+      "payload": {
+        "x": 4446,
+        "y": 100,
+        "width": 393,
+        "height": 852,
+        "direction": "vertical",
+        "padding_top": 0,
+        "padding_bottom": 90,
+        "padding_x": 16,
+        "gap": 16,
+        "bg_hex": "#FAFAF9",
+        "scrollable": true
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0042",
+      "op_type": "create_auto_layout",
+      "target_id": "sec_scr_restaurant_detail_sec_detail_header",
+      "parent_id": "scr_restaurant_detail",
+      "name": "Restaurant Hero & Info",
+      "payload": {
+        "direction": "vertical",
+        "gap": 8,
+        "padding": 0,
+        "layout_mode": "fill"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0043",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_restaurant_detail_inst_rest_hero_info",
+      "parent_id": "sec_scr_restaurant_detail_sec_detail_header",
+      "name": "Restaurant Metadata Box",
+      "payload": {
+        "master_component_id": "cmp_entity_card",
+        "content_data": {
+          "name": "Quad Noodle Bar & Dumplings",
+          "rating": "4.9 (1,240 reviews)",
+          "badge": "Student Special: Free Delivery",
+          "hours": "Open until 1:00 AM"
+        },
+        "interactive_target_screen_id": null
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0044",
+      "op_type": "create_auto_layout",
+      "target_id": "sec_scr_restaurant_detail_sec_menu_items",
+      "parent_id": "scr_restaurant_detail",
+      "name": "Popular Student Combos",
+      "payload": {
+        "direction": "vertical",
+        "gap": 12,
+        "padding": 0,
+        "layout_mode": "fill"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0045",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_restaurant_detail_inst_dish_01",
+      "parent_id": "sec_scr_restaurant_detail_sec_menu_items",
+      "name": "Dish Item: Garlic Noodles",
+      "payload": {
+        "master_component_id": "cmp_entity_card",
+        "content_data": {
+          "name": "Crispy Chili Garlic Noodles",
+          "desc": "Hand-pulled noodles with savory chili crunch, scallions & toasted peanuts",
+          "price": "$8.49",
+          "badge": "Bestseller \ud83d\udd25"
+        },
+        "interactive_target_screen_id": null
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0046",
+      "op_type": "create_auto_layout",
+      "target_id": "sec_scr_restaurant_detail_sec_sticky_cart_bar",
+      "parent_id": "scr_restaurant_detail",
+      "name": "Floating Cart Summary Bar",
+      "payload": {
+        "direction": "horizontal",
+        "gap": 12,
+        "padding": 0,
+        "layout_mode": "fill"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0047",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_restaurant_detail_inst_btn_view_cart",
+      "parent_id": "sec_scr_restaurant_detail_sec_sticky_cart_bar",
+      "name": "View Cart (2 Items) \u2022 $11.99",
+      "payload": {
+        "master_component_id": "cmp_btn_primary",
+        "content_data": {
+          "label": "View Cart \u2022 $11.99",
+          "badge": "2"
+        },
+        "interactive_target_screen_id": "scr_cart"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0048",
+      "op_type": "create_screen",
+      "target_id": "scr_cart",
+      "parent_id": "sec_screens_prd_5e9522a9",
+      "name": "scr_cart: Cart & Student Discount Review",
+      "payload": {
+        "x": 4919,
+        "y": 100,
+        "width": 393,
+        "height": 852,
+        "direction": "vertical",
+        "padding_top": 48,
+        "padding_bottom": 40,
+        "padding_x": 16,
+        "gap": 16,
+        "bg_hex": "#FAFAF9",
+        "scrollable": true
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0049",
+      "op_type": "create_auto_layout",
+      "target_id": "sec_scr_cart_sec_cart_items_list",
+      "parent_id": "scr_cart",
+      "name": "Your Order from Quad Noodle Bar",
+      "payload": {
+        "direction": "vertical",
+        "gap": 8,
+        "padding": 0,
+        "layout_mode": "fill"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0050",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_cart_inst_cart_item_0",
+      "parent_id": "sec_scr_cart_sec_cart_items_list",
+      "name": "Cart Item: Crispy Chili Garlic Noodles",
+      "payload": {
+        "master_component_id": "cmp_entity_card",
+        "content_data": {
+          "name": "Crispy Chili Garlic Noodles",
+          "qty": 1,
+          "customization": "Spicy Level 3, Extra Scallions",
+          "price": "$8.49"
+        },
+        "interactive_target_screen_id": null
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0051",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_cart_inst_cart_item_1",
+      "parent_id": "sec_scr_cart_sec_cart_items_list",
+      "name": "Cart Item: Pan-Fried Gyoza (4 pcs)",
+      "payload": {
+        "master_component_id": "cmp_entity_card",
+        "content_data": {
+          "name": "Pan-Fried Gyoza (4 pcs)",
+          "qty": 1,
+          "customization": "Sweet Soy Dip",
+          "price": "$3.50"
+        },
+        "interactive_target_screen_id": null
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0052",
+      "op_type": "create_auto_layout",
+      "target_id": "sec_scr_cart_sec_drop_spot",
+      "parent_id": "scr_cart",
+      "name": "Campus Pickup Landmark",
+      "payload": {
+        "direction": "vertical",
+        "gap": 8,
+        "padding": 0,
+        "layout_mode": "fill"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0053",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_cart_inst_drop_selector",
+      "parent_id": "sec_scr_cart_sec_drop_spot",
+      "name": "Dorm Drop Point",
+      "payload": {
+        "master_component_id": "cmp_input_field",
+        "content_data": {
+          "label": "Drop Location",
+          "value": "Prentice Dorm Tower B - Ground Lobby"
+        },
+        "interactive_target_screen_id": null
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0054",
+      "op_type": "create_auto_layout",
+      "target_id": "sec_scr_cart_sec_bill_summary",
+      "parent_id": "scr_cart",
+      "name": "Student Pricing Breakdown",
+      "payload": {
+        "direction": "vertical",
+        "gap": 8,
+        "padding": 0,
+        "layout_mode": "fill"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0055",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_cart_inst_bill_card",
+      "parent_id": "sec_scr_cart_sec_bill_summary",
+      "name": "Bill Summary Box",
+      "payload": {
+        "master_component_id": "cmp_entity_card",
+        "content_data": {
+          "Subtotal": "$11.99",
+          "Student Discount": "-$2.50 (CampusPromo2026)",
+          "Delivery Fee": "$0.00",
+          "Total": "$10.34"
+        },
+        "interactive_target_screen_id": null
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0056",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_cart_inst_btn_to_checkout",
+      "parent_id": "sec_scr_cart_sec_bill_summary",
+      "name": "Checkout Button",
+      "payload": {
+        "master_component_id": "cmp_btn_primary",
+        "content_data": {
+          "label": "Go to Checkout \u2022 $10.34"
+        },
+        "interactive_target_screen_id": "scr_checkout"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0057",
+      "op_type": "create_screen",
+      "target_id": "scr_checkout",
+      "parent_id": "sec_screens_prd_5e9522a9",
+      "name": "scr_checkout: Frictionless Payment & Confirmation",
+      "payload": {
+        "x": 5392,
+        "y": 100,
+        "width": 393,
+        "height": 852,
+        "direction": "vertical",
+        "padding_top": 48,
+        "padding_bottom": 40,
+        "padding_x": 16,
+        "gap": 16,
+        "bg_hex": "#FAFAF9",
+        "scrollable": true
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0058",
+      "op_type": "create_auto_layout",
+      "target_id": "sec_scr_checkout_sec_payment_methods",
+      "parent_id": "scr_checkout",
+      "name": "Payment Method",
+      "payload": {
+        "direction": "vertical",
+        "gap": 8,
+        "padding": 0,
+        "layout_mode": "fill"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0059",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_checkout_inst_apple_pay",
+      "parent_id": "sec_scr_checkout_sec_payment_methods",
+      "name": "Apple Pay Option",
+      "payload": {
+        "master_component_id": "cmp_btn_secondary",
+        "content_data": {
+          "label": "\uf8ffPay (Default)",
+          "badge": "Fast"
+        },
+        "interactive_target_screen_id": null
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0060",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_checkout_inst_campus_card",
+      "parent_id": "sec_scr_checkout_sec_payment_methods",
+      "name": "Campus ID Cash Option",
+      "payload": {
+        "master_component_id": "cmp_btn_secondary",
+        "content_data": {
+          "label": "Campus Card Cash ($42.50 Balance)"
+        },
+        "interactive_target_screen_id": null
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0061",
+      "op_type": "create_auto_layout",
+      "target_id": "sec_scr_checkout_sec_checkout_confirm_action",
+      "parent_id": "scr_checkout",
+      "name": "Final Authorize Order",
+      "payload": {
+        "direction": "vertical",
+        "gap": 12,
+        "padding": 0,
+        "layout_mode": "fill"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0062",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_checkout_inst_btn_pay_confirm",
+      "parent_id": "sec_scr_checkout_sec_checkout_confirm_action",
+      "name": "Confirm and Pay Button",
+      "payload": {
+        "master_component_id": "cmp_btn_primary",
+        "content_data": {
+          "label": "Confirm & Place Order \u2022 $10.34"
+        },
+        "interactive_target_screen_id": "scr_order_confirmation"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0063",
+      "op_type": "create_screen",
+      "target_id": "scr_order_confirmation",
+      "parent_id": "sec_screens_prd_5e9522a9",
+      "name": "scr_order_confirmation: Order Confirmed & Kitchen Ticket",
+      "payload": {
+        "x": 5865,
+        "y": 100,
+        "width": 393,
+        "height": 852,
+        "direction": "vertical",
+        "padding_top": 64,
+        "padding_bottom": 40,
+        "padding_x": 16,
+        "gap": 20,
+        "bg_hex": "#FAFAF9",
+        "scrollable": true
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0064",
+      "op_type": "create_auto_layout",
+      "target_id": "sec_scr_order_confirmation_sec_conf_banner",
+      "parent_id": "scr_order_confirmation",
+      "name": "Success Confirmation",
+      "payload": {
+        "direction": "vertical",
+        "gap": 16,
+        "padding": 0,
+        "layout_mode": "fill"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0065",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_order_confirmation_inst_badge_success",
+      "parent_id": "sec_scr_order_confirmation_sec_conf_banner",
+      "name": "Order Placed Badge",
+      "payload": {
+        "master_component_id": "cmp_status_badge",
+        "content_data": {
+          "label": "\u2705 Order #402 Placed Successfully",
+          "color": "success"
+        },
+        "interactive_target_screen_id": null
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0066",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_order_confirmation_inst_conf_card",
+      "parent_id": "sec_scr_order_confirmation_sec_conf_banner",
+      "name": "Prep Time Summary",
+      "payload": {
+        "master_component_id": "cmp_entity_card",
+        "content_data": {
+          "title": "Kitchen is preparing your meal \ud83c\udf5c",
+          "Estimated Delivery": "15-20 minutes",
+          "Pickup PIN": "4821",
+          "Destination": "Prentice Dorm Tower B - Ground Lobby"
+        },
+        "interactive_target_screen_id": null
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0067",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_order_confirmation_inst_btn_track_live",
+      "parent_id": "sec_scr_order_confirmation_sec_conf_banner",
+      "name": "Live Track Delivery Button",
+      "payload": {
+        "master_component_id": "cmp_btn_primary",
+        "content_data": {
+          "label": "Track Delivery Live \ud83d\udeb4"
+        },
+        "interactive_target_screen_id": "scr_order_tracking"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0068",
+      "op_type": "create_screen",
+      "target_id": "scr_order_tracking",
+      "parent_id": "sec_screens_prd_5e9522a9",
+      "name": "scr_order_tracking: Live Campus Delivery Map & PIN",
+      "payload": {
+        "x": 6338,
+        "y": 100,
+        "width": 393,
+        "height": 852,
+        "direction": "vertical",
+        "padding_top": 48,
+        "padding_bottom": 40,
+        "padding_x": 16,
+        "gap": 16,
+        "bg_hex": "#FAFAF9",
+        "scrollable": true
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0069",
+      "op_type": "create_auto_layout",
+      "target_id": "sec_scr_order_tracking_sec_tracking_map",
+      "parent_id": "scr_order_tracking",
+      "name": "Campus Courier Map View",
+      "payload": {
+        "direction": "vertical",
+        "gap": 12,
+        "padding": 0,
+        "layout_mode": "fill"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0070",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_order_tracking_inst_map_card",
+      "parent_id": "sec_scr_order_tracking_sec_tracking_map",
+      "name": "Live Campus Map Simulator",
+      "payload": {
+        "master_component_id": "cmp_entity_card",
+        "content_data": {
+          "map_status": "Courier approaching North Quad Dorm Gate",
+          "courier_name": "Jordan P. (Bicycle)",
+          "eta": "4 mins away",
+          "pickup_pin": "PIN: 4821"
+        },
+        "interactive_target_screen_id": null
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0071",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_order_tracking_inst_btn_msg_courier",
+      "parent_id": "sec_scr_order_tracking_sec_tracking_map",
+      "name": "Contact Courier Button",
+      "payload": {
+        "master_component_id": "cmp_btn_secondary",
+        "content_data": {
+          "label": "\ud83d\udcac Message Courier: 'I am at the main door'"
+        },
+        "interactive_target_screen_id": null
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0072",
+      "op_type": "connect_prototype",
+      "target_id": "proto_conn_001",
+      "parent_id": null,
+      "name": "Link: scr_home -> scr_search",
+      "payload": {
+        "source_screen_id": "scr_home",
+        "target_screen_id": "scr_search",
+        "source_element_id": "inst_search_input",
+        "trigger": "ON_CLICK",
+        "animation": "SLIDE_IN_RIGHT",
+        "duration_ms": 300
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0073",
+      "op_type": "connect_prototype",
+      "target_id": "proto_conn_002",
+      "parent_id": null,
+      "name": "Link: scr_home -> scr_restaurant_detail",
+      "payload": {
+        "source_screen_id": "scr_home",
+        "target_screen_id": "scr_restaurant_detail",
+        "source_element_id": "inst_rest_rest_01",
+        "trigger": "ON_CLICK",
+        "animation": "SLIDE_IN_RIGHT",
+        "duration_ms": 300
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0074",
+      "op_type": "connect_prototype",
+      "target_id": "proto_conn_003",
+      "parent_id": null,
+      "name": "Link: scr_search -> scr_home",
+      "payload": {
+        "source_screen_id": "scr_search",
+        "target_screen_id": "scr_home",
+        "source_element_id": "inst_back_btn",
+        "trigger": "ON_CLICK",
+        "animation": "SLIDE_IN_RIGHT",
+        "duration_ms": 300
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0075",
+      "op_type": "connect_prototype",
+      "target_id": "proto_conn_004",
+      "parent_id": null,
+      "name": "Link: scr_search -> scr_restaurant_detail",
+      "payload": {
+        "source_screen_id": "scr_search",
+        "target_screen_id": "scr_restaurant_detail",
+        "source_element_id": "inst_search_res_01",
+        "trigger": "ON_CLICK",
+        "animation": "SLIDE_IN_RIGHT",
+        "duration_ms": 300
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0076",
+      "op_type": "connect_prototype",
+      "target_id": "proto_conn_005",
+      "parent_id": null,
+      "name": "Link: scr_restaurant_detail -> scr_cart",
+      "payload": {
+        "source_screen_id": "scr_restaurant_detail",
+        "target_screen_id": "scr_cart",
+        "source_element_id": "inst_btn_view_cart",
+        "trigger": "ON_CLICK",
+        "animation": "SLIDE_IN_RIGHT",
+        "duration_ms": 300
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0077",
+      "op_type": "connect_prototype",
+      "target_id": "proto_conn_006",
+      "parent_id": null,
+      "name": "Link: scr_cart -> scr_checkout",
+      "payload": {
+        "source_screen_id": "scr_cart",
+        "target_screen_id": "scr_checkout",
+        "source_element_id": "inst_btn_to_checkout",
+        "trigger": "ON_CLICK",
+        "animation": "SLIDE_IN_RIGHT",
+        "duration_ms": 300
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0078",
+      "op_type": "connect_prototype",
+      "target_id": "proto_conn_007",
+      "parent_id": null,
+      "name": "Link: scr_checkout -> scr_order_confirmation",
+      "payload": {
+        "source_screen_id": "scr_checkout",
+        "target_screen_id": "scr_order_confirmation",
+        "source_element_id": "inst_btn_pay_confirm",
+        "trigger": "ON_CLICK",
+        "animation": "SLIDE_IN_RIGHT",
+        "duration_ms": 300
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0079",
+      "op_type": "connect_prototype",
+      "target_id": "proto_conn_008",
+      "parent_id": null,
+      "name": "Link: scr_order_confirmation -> scr_order_tracking",
+      "payload": {
+        "source_screen_id": "scr_order_confirmation",
+        "target_screen_id": "scr_order_tracking",
+        "source_element_id": "inst_btn_track_live",
+        "trigger": "ON_CLICK",
+        "animation": "SLIDE_IN_RIGHT",
+        "duration_ms": 300
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    },
+    {
+      "op_id": "op_0080",
+      "op_type": "connect_prototype",
+      "target_id": "proto_conn_009",
+      "parent_id": null,
+      "name": "Link: scr_order_tracking -> scr_home",
+      "payload": {
+        "source_screen_id": "scr_order_tracking",
+        "target_screen_id": "scr_home",
+        "source_element_id": "inst_map_card",
+        "trigger": "ON_CLICK",
+        "animation": "SLIDE_IN_RIGHT",
+        "duration_ms": 300
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
+    }
+  ],
+  "audit_findings": [
+    {
+      "id": "FND-01",
+      "title": "Explicit verification required before high-value action",
+      "category": "Error Prevention",
+      "severity": "HIGH",
+      "heuristic": "Error Prevention",
+      "screen_id": "scr_checkout",
+      "affected_element": "Payment / Task Submission CTA",
+      "problem": "User might tap confirmation accidentally when moving quickly.",
+      "why_it_matters": "Accidental submissions cause immediate user panic, refund requests, or phantom tickets.",
+      "evidence": "Screen interaction flow review.",
+      "ux_principle": "Nielsen Heuristic #5: Error Prevention (Slips and Mistakes)",
+      "confidence_percentage": 92,
+      "recommendation": "Use explicit swipe-to-confirm affordance or 8-second undo snackbar.",
+      "impact": "High",
+      "effort": "Low",
+      "risk": "Low",
+      "validation_test": "5-second usability testing with rushed participants."
+    },
+    {
+      "id": "FND-02",
+      "title": "Preserve previous search filters and recent location memory",
+      "category": "Cognitive Load",
+      "severity": "MEDIUM",
+      "heuristic": "Recognition Rather Than Recall",
+      "screen_id": "scr_search",
+      "affected_element": "Filter Pills / Active Search Query",
+      "problem": "Users frequently re-enter the exact same dietary filter or sprint squad view.",
+      "why_it_matters": "Forcing recall rather than recognition increases cognitive friction.",
+      "evidence": "Observed default filter reset on screen revisit.",
+      "ux_principle": "Nielsen Heuristic #6: Recognition Rather Than Recall",
+      "confidence_percentage": 88,
+      "recommendation": "Store top 3 recent selections in local cache with 1-tap re-activation.",
+      "impact": "Medium",
+      "effort": "Low",
+      "risk": "Low",
+      "validation_test": "Track filter click frequency in product analytics."
+    },
+    {
+      "id": "FND-03",
+      "title": "Real-time ETA and courier milestone synchronization",
+      "category": "Usability",
+      "severity": "LOW",
+      "heuristic": "Visibility of System Status",
+      "screen_id": "scr_order_tracking",
+      "affected_element": "Live Progress Stepper",
+      "problem": "Static progress bars create anxiety if status doesn't refresh within 30 seconds.",
+      "why_it_matters": "Users wonder if the system stalled or network disconnected.",
+      "evidence": "Tracking screen state review.",
+      "ux_principle": "Nielsen Heuristic #1: Visibility of System Status",
+      "confidence_percentage": 94,
+      "recommendation": "Include subtle pulsing live indicator and 'Updated 5s ago' timestamp.",
+      "impact": "Medium",
+      "effort": "Low",
+      "risk": "Low",
+      "validation_test": "User anxiety feedback survey during active orders."
+    }
+  ]
+}

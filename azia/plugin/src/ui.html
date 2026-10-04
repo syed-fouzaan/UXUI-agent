@@ -51,6 +51,7 @@
       color: #94A3B8;
       cursor: pointer;
       font-weight: 500;
+      font-size: 12px;
       border-bottom: 2px solid transparent;
       transition: all 0.2s;
     }
@@ -87,7 +88,7 @@
       margin-bottom: 14px;
       outline: none;
     }
-    textarea:focus, select:focus {
+    textarea:focus, select:focus, input:focus {
       border-color: #EA580C;
     }
     button.btn-primary {
@@ -98,15 +99,37 @@
       padding: 12px;
       border-radius: 8px;
       font-weight: 600;
-      font-size: 14px;
+      font-size: 13px;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
+      transition: background 0.2s;
     }
     button.btn-primary:hover {
       background: #C2410C;
+    }
+    button.btn-secondary {
+      background: #1E293B;
+      color: #CBD5E1;
+      border: 1px solid #334155;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    button.btn-secondary:hover {
+      background: #334155;
+      color: white;
+    }
+    .demo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 14px;
     }
     .finding-card {
       background: #1E293B;
@@ -115,7 +138,6 @@
       padding: 12px;
       margin-bottom: 12px;
     }
-    .finding-card.CRITICAL { border-left-color: #EF4444; }
     .finding-card.HIGH { border-left-color: #EA580C; }
     .finding-header {
       display: flex;
@@ -151,6 +173,20 @@
       background: #334155;
       text-align: right;
     }
+    .status-badge {
+      font-size: 11px;
+      color: #10B981;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .status-dot {
+      height: 6px;
+      width: 6px;
+      border-radius: 50%;
+      background: #10B981;
+      display: inline-block;
+    }
   </style>
 </head>
 <body>
@@ -160,28 +196,60 @@
       <span>AZIA</span>
       <span class="logo-badge">MCP</span>
     </div>
-    <div style="font-size:11px; color:#10B981; display:flex; align-items:center; gap:4px;">
-      <span style="height:6px; width:6px; border-radius:50%; background:#10B981; display:inline-block;"></span>
-      Engine Connected
+    <div class="status-badge">
+      <span class="status-dot"></span>
+      Figma Canvas Connected
     </div>
   </header>
 
   <div class="tabs">
-    <div class="tab active" onclick="setTab('design')">🚀 Design</div>
+    <div class="tab active" onclick="setTab('paste')">📋 Paste / Demo</div>
+    <div class="tab" onclick="setTab('design')">🚀 Live AI API</div>
     <div class="tab" onclick="setTab('audit')">🔍 UX Audit</div>
     <div class="tab" onclick="setTab('spar')">💬 Sparring</div>
   </div>
 
-  <!-- Tab 1: Autonomous Design Engine -->
-  <div id="tab-design" class="content-area active">
+  <!-- Tab 1: Instant Paste & Quick Demos -->
+  <div id="tab-paste" class="content-area active">
+    <label>⚡ Quick Draw Verified Architectures</label>
+    <div class="demo-grid">
+      <button class="btn-secondary" onclick="renderDemo('food')">
+        🍔 Draw CraveBite<br><small style="color:#94A3B8;">7 Mobile Screens</small>
+      </button>
+      <button class="btn-secondary" onclick="renderDemo('saas')">
+        ⚡ Draw SprintFlow<br><small style="color:#94A3B8;">4 SaaS Screens</small>
+      </button>
+    </div>
+
+    <label>Paste Figma Operations JSON (from Web App or CLI)</label>
+    <textarea id="json-input" rows="8" placeholder="Paste the JSON payload copied from AZIA Web Dashboard or azia/output/.../figma_operations.json"></textarea>
+
+    <button class="btn-primary" onclick="renderPastedJson()">
+      <span>⚡ Render JSON to Figma Canvas</span>
+    </button>
+
+    <div style="margin-top: 14px; text-align: center;">
+      <button class="btn-secondary" onclick="rollbackLast()">
+        ↩️ Rollback Last AZIA Generation
+      </button>
+    </div>
+
+    <div id="render-status" style="margin-top:12px; font-size:12px; color:#94A3B8; display:none;"></div>
+  </div>
+
+  <!-- Tab 2: Live AI API Generation -->
+  <div id="tab-design" class="content-area">
+    <label>AZIA Backend API URL</label>
+    <input type="text" id="server-url" value="http://localhost:8000" placeholder="http://localhost:8000 or your Render URL">
+
     <label>Product Requirement Prompt</label>
-    <textarea id="req-prompt" rows="5" placeholder="e.g. Build a modern food delivery app for college students. Students should discover nearby restaurants, search food, order food, pay, and track delivery."></textarea>
+    <textarea id="req-prompt" rows="4" placeholder="e.g. Build an AI-native fitness tracking mobile app with workout logging, streak tracker, and diet telemetry."></textarea>
 
     <div style="display:flex; gap:12px;">
       <div style="flex:1;">
         <label>Platform Form Factor</label>
         <select id="platform-select">
-          <option value="auto">Auto (Infer from prompt)</option>
+          <option value="auto">Auto (Infer)</option>
           <option value="mobile">Mobile (iOS / Android 393px)</option>
           <option value="desktop">Desktop Web / SaaS (1280px)</option>
         </select>
@@ -197,16 +265,16 @@
       </div>
     </div>
 
-    <button class="btn-primary" onclick="triggerDesign()">
-      <span>✨ Generate Complete Product</span>
+    <button class="btn-primary" onclick="triggerLiveDesign()">
+      <span>✨ Generate &amp; Render to Canvas</span>
     </button>
 
-    <div id="status-box" style="margin-top:16px; font-size:12px; color:#94A3B8; display:none;">
-      <p id="status-msg">Autonomous pipeline executing...</p>
+    <div id="status-box" style="margin-top:14px; font-size:12px; color:#94A3B8; display:none;">
+      <p id="status-msg">Connecting to AZIA API...</p>
     </div>
   </div>
 
-  <!-- Tab 2: Nielsen UX Audit -->
+  <!-- Tab 3: Nielsen UX Audit -->
   <div id="tab-audit" class="content-area">
     <div style="margin-bottom:14px;">
       <button class="btn-primary" style="background:#3B82F6;" onclick="inspectSelectedLayer()">
@@ -232,7 +300,7 @@
     </div>
   </div>
 
-  <!-- Tab 3: Socratic Sparring Partner -->
+  <!-- Tab 4: Socratic Sparring Partner -->
   <div id="tab-spar" class="content-area">
     <div style="margin-bottom:12px;">
       <div style="font-size:11px; color:#94A3B8; margin-bottom:6px;">Quick Sparring Challenges:</div>
@@ -241,7 +309,7 @@
       <span class="chip" onclick="sendQuickSpar('Show me an alternative master-detail layout')">Alternative Layout</span>
     </div>
 
-    <div id="chat-stream" style="max-height:360px; overflow-y:auto; margin-bottom:12px;">
+    <div id="chat-stream" style="max-height:320px; overflow-y:auto; margin-bottom:12px;">
       <div class="chat-bubble ai">
         <strong style="color:#38BDF8;">AZIA (Balanced Critic):</strong><br>
         "I'm ready to spar. Bring me your assumptions, your friction points, or your flow questions. Let's make this design bulletproof." 💡
@@ -255,6 +323,8 @@
   </div>
 
   <script>
+    let lastGenId = "";
+
     function setTab(name) {
       document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
       document.querySelectorAll('.content-area').forEach(c => c.classList.remove('active'));
@@ -262,20 +332,99 @@
       document.getElementById('tab-' + name).classList.add('active');
     }
 
-    function triggerDesign() {
-      const prompt = document.getElementById('req-prompt').value || "Build a modern food delivery app for college students.";
-      const platform = document.getElementById('platform-select').value;
-      const style = document.getElementById('style-select').value;
-      document.getElementById('status-box').style.display = 'block';
-      document.getElementById('status-msg').innerText = "AI Orchestrator reasoning about requirements, UX, IA, and Auto Layout...";
+    function renderPastedJson() {
+      const text = document.getElementById('json-input').value.trim();
+      if (!text) {
+        alert("Please paste a valid Figma Operations JSON payload!");
+        return;
+      }
+      try {
+        const payload = JSON.parse(text);
+        lastGenId = payload.generation_id || payload.metadata?.generation_id || "gen_azia";
+        parent.postMessage({
+          pluginMessage: {
+            type: "AZIA_EXECUTE_OPERATIONS",
+            payload: payload
+          }
+        }, '*');
+      } catch (e) {
+        alert("Invalid JSON format. Please ensure you copied the entire operations JSON file.");
+      }
+    }
 
-      // Send to Figma sandbox
+    async function renderDemo(domain) {
+      const serverUrl = document.getElementById('server-url')?.value.trim() || "http://localhost:8000";
+      const statusEl = document.getElementById('render-status');
+      statusEl.style.display = 'block';
+      statusEl.innerText = "Loading " + domain + " operations payload...";
+
+      try {
+        const path = domain === 'food' 
+          ? serverUrl + '/previews/food_delivery/figma_operations.json'
+          : serverUrl + '/previews/saas_pm/figma_operations.json';
+        const res = await fetch(path);
+        if (res.ok) {
+          const data = await res.json();
+          lastGenId = data.metadata?.generation_id || "gen_azia";
+          statusEl.innerText = "Rendering " + data.metadata?.product_name + " to canvas...";
+          parent.postMessage({
+            pluginMessage: {
+              type: "AZIA_EXECUTE_OPERATIONS",
+              payload: data
+            }
+          }, '*');
+          return;
+        }
+      } catch (err) {
+        // Fallback message
+      }
+      statusEl.innerText = "Copy the payload from the web dashboard or paste into the box below!";
+    }
+
+    function rollbackLast() {
+      if (!lastGenId) {
+        lastGenId = prompt("Enter Generation ID to rollback (or leave blank to undo AZIA nodes):") || "";
+      }
       parent.postMessage({
         pluginMessage: {
-          type: "AZIA_TRIGGER_LOCAL_PIPELINE",
-          payload: { requirement: prompt, platform, style }
+          type: "AZIA_ROLLBACK_GENERATION",
+          payload: { generation_id: lastGenId }
         }
       }, '*');
+    }
+
+    async function triggerLiveDesign() {
+      const promptText = document.getElementById('req-prompt').value || "Build a modern food delivery app for college students.";
+      const platform = document.getElementById('platform-select').value;
+      const style = document.getElementById('style-select').value;
+      const serverUrl = document.getElementById('server-url').value.trim() || "http://localhost:8000";
+
+      const box = document.getElementById('status-box');
+      const msg = document.getElementById('status-msg');
+      box.style.display = 'block';
+      msg.innerText = "Calling AZIA Autonomous Design Engine at " + serverUrl + "...";
+
+      try {
+        const res = await fetch(serverUrl + "/api/design", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ requirement: promptText, platform, style })
+        });
+        if (res.ok) {
+          const data = await res.json();
+          msg.innerText = "Synthesized " + (data.figma_payload?.operations?.length || 0) + " operations! Rendering to canvas...";
+          lastGenId = data.figma_payload?.metadata?.generation_id || "gen_azia";
+          parent.postMessage({
+            pluginMessage: {
+              type: "AZIA_EXECUTE_OPERATIONS",
+              payload: data.figma_payload || data
+            }
+          }, '*');
+          return;
+        }
+      } catch (err) {
+        msg.innerText = "Error reaching API at " + serverUrl + ". Ensure server is running or use 'Paste / Demo' tab.";
+      }
     }
 
     function inspectSelectedLayer() {
@@ -296,24 +445,44 @@
       sendSpar();
     }
 
-    function sendSpar() {
+    async function sendSpar() {
       const input = document.getElementById('spar-input');
       const text = input.value.trim();
       if (!text) return;
       const stream = document.getElementById('chat-stream');
-      stream.innerHTML += `<div class="chat-bubble user">${text}</div>`;
+      stream.innerHTML += `<div class="chat-bubble user">${escapeHtml(text)}</div>`;
       input.value = '';
+      stream.scrollTop = stream.scrollHeight;
 
-      setTimeout(() => {
-        let reply = "From a cognitive load perspective, every additional screen or nested control adds drop-off risk. Let's make sure we ground this choice in verified student behavior!";
-        if (text.toLowerCase().includes("dashboard")) {
-          reply = "Placing this feature on the dashboard maximizes discoverability on day 1, but creates cognitive fatigue on day 30. Adopt Progressive Disclosure instead!";
-        } else if (text.toLowerCase().includes("simplify")) {
-          reply = "We can eliminate the intermediate cart screen if we pre-fill the dorm pickup location and payment method, saving 35% in order time!";
+      const serverUrl = document.getElementById('server-url')?.value.trim() || "http://localhost:8000";
+      try {
+        const res = await fetch(serverUrl + "/api/spar", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ query: text })
+        });
+        if (res.ok) {
+          const data = await res.json();
+          const reply = data.critique || data.message;
+          stream.innerHTML += `<div class="chat-bubble ai"><strong style="color:#38BDF8;">AZIA (${data.tone || 'Balanced Critic'}):</strong><br>${escapeHtml(reply)}</div>`;
+          stream.scrollTop = stream.scrollHeight;
+          return;
         }
-        stream.innerHTML += `<div class="chat-bubble ai"><strong style="color:#38BDF8;">AZIA:</strong><br>${reply}</div>`;
-        stream.scrollTop = stream.scrollHeight;
-      }, 500);
+      } catch (e) {}
+
+      // Fallback
+      let reply = "From a cognitive load perspective, every additional screen or nested control adds drop-off risk. Ground choices in verified student behavior!";
+      if (text.toLowerCase().includes("dashboard")) {
+        reply = "Placing this on the dashboard maximizes day-1 awareness but creates cognitive fatigue on day 30. Adopt Progressive Disclosure!";
+      } else if (text.toLowerCase().includes("simplify")) {
+        reply = "We can eliminate the intermediate review step if default payment and delivery landmark are pre-filled, saving 35% in order time!";
+      }
+      stream.innerHTML += `<div class="chat-bubble ai"><strong style="color:#38BDF8;">AZIA:</strong><br>${escapeHtml(reply)}</div>`;
+      stream.scrollTop = stream.scrollHeight;
+    }
+
+    function escapeHtml(str) {
+      return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
     }
 
     window.onmessage = (event) => {
@@ -326,6 +495,13 @@
             `Selected: <strong>${p.name}</strong> (${p.type}) • ${p.width}x${p.height}px`;
         } else {
           document.getElementById('selection-status').innerText = p.message;
+        }
+      } else if (msg.type === "OPERATIONS_COMPLETED") {
+        lastGenId = msg.payload.generation_id;
+        const statusEl = document.getElementById('render-status');
+        if (statusEl) {
+          statusEl.style.display = 'block';
+          statusEl.innerText = "✨ Successfully rendered " + msg.payload.rendered_count + " nodes to canvas!";
         }
       }
     };
