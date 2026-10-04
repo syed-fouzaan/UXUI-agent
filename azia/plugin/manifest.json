@@ -6,7 +6,17 @@
   "ui": "src/ui.html",
   "editorType": ["figma", "figjam"],
   "networkAccess": {
-    "allowedDomains": ["*"]
+    "allowedDomains": [
+      "https://uxui-agent.onrender.com",
+      "https://*.onrender.com",
+      "https://fonts.googleapis.com",
+      "https://fonts.gstatic.com"
+    ],
+    "devAllowedDomains": [
+      "http://localhost:8000",
+      "http://127.0.0.1:8000"
+    ],
+    "reasoning": "Connects to AZIA Cloud backend on Render for autonomous design generation, Socratic sparring, and font loading."
   },
   "relaunchButtons": [
     {
