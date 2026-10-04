@@ -6,5 +6,6 @@ __pycache__/
 .knox/
 node_modules/
 dist/
+!azia/plugin/dist/code.js
 .DS_Store
 Thumbs.db
