@@ -1,0 +1,1715 @@
+{
+  "metadata": {
+    "product_id": "prd_fa509270",
+    "product_name": "SprintFlow Workspace",
+    "product_category": "Developer-Centric Project Management SaaS",
+    "requirement_prompt": "Build a project management SaaS for small engineering teams. Teams should create projects, manage tasks, assign work, track progress, and see project status.",
+    "platform": "desktop",
+    "style_direction": "enterprise",
+    "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780",
+    "managed_by": "autonomous-design-mcp",
+    "created_at": "2026-10-04T09:08:01.128393"
+  },
+  "preflight": {
+    "is_sufficient": true,
+    "context_score": 1.0,
+    "summary": "Context sufficiency score: 100%. Sufficient context to proceed with autonomous synthesis.",
+    "identified_intent": "Collaborative team project and task management workspace",
+    "missing_critical_dimensions": [],
+    "clarification_questions": [],
+    "can_proceed_with_assumptions": true
+  },
+  "epistemic_register": {
+    "confirmed_facts": [
+      {
+        "id": "EVID-REQ-01",
+        "source": "User Prompt",
+        "snippet": "Build a project management SaaS for small engineering teams. Teams should create projects, manage tasks, assign work, track progress, and see project status.",
+        "category": "user_requirement",
+        "confidence": "HIGH"
+      }
+    ],
+    "inferred_insights": [],
+    "explicit_assumptions": [
+      {
+        "id": "ASM-SAAS-01",
+        "statement": "Developers prefer a dual Kanban/List toggle rather than forced board views.",
+        "basis": "Engineers scanning backlog prefer dense lists; standup reviews prefer board columns.",
+        "affected_components": [],
+        "confidence": "HIGH",
+        "validation_status": "PENDING_TESTING",
+        "recommended_validation_method": "View usage telemetry analytics"
+      },
+      {
+        "id": "ASM-SAAS-02",
+        "statement": "A collapsible contextual sidebar preserves screen real-estate on 13-inch laptop displays.",
+        "basis": "Minimizes cognitive friction when viewing wide 6-column kanban boards.",
+        "affected_components": [],
+        "confidence": "MEDIUM",
+        "validation_status": "PENDING_TESTING",
+        "recommended_validation_method": "Responsive usability testing"
+      }
+    ],
+    "critical_unknowns": []
+  },
+  "ux_architecture": {
+    "product_purpose": "Empower agile engineering teams to plan sprints, track pull-requests and task progress, assign work without cognitive overhead, and maintain clear velocity.",
+    "target_audiences": [
+      "Engineering Leads & Scrum Masters",
+      "Software Engineers & Contributors"
+    ],
+    "personas": [
+      {
+        "id": "PER-01",
+        "name": "Marcus Vance - Lead Staff Engineer",
+        "role": "Technical Tech Lead / Scrum Master",
+        "primary_goal": "Keep a 10-person distributed backend team unblocked and track sprint commitments without spending hours updating Jira.",
+        "core_needs": [
+          "Instant visibility into pull-request status and blocked dependencies",
+          "Keyboard-first task creation and status changes",
+          "Automated sprint burndown telemetry without manual ticket grooming"
+        ],
+        "pain_points": [
+          "Bloated enterprise project tools requiring 15 clicks just to create a subtask",
+          "Out-of-sync task states because engineers hate updating slow tools",
+          "Fragmented context between Slack, GitHub, and task boards"
+        ],
+        "context_of_use": "Dual 4K desktop workstation, Chrome and terminal windows open side-by-side.",
+        "mental_model": "Linear, GitHub Projects, or Raycast: speed, keyboard navigation, clean aesthetics.",
+        "tech_savviness": "Expert Engineer",
+        "supporting_evidence_ids": [
+          "EVID-REQ-01"
+        ],
+        "epistemic_status": "CONFIRMED",
+        "confidence": "HIGH"
+      },
+      {
+        "id": "PER-02",
+        "name": "Elena Rostova - Full-Stack Developer",
+        "role": "Senior Software Engineer",
+        "primary_goal": "Pick up assigned sprint tickets, understand requirements immediately, and link Git PRs with zero friction.",
+        "core_needs": [
+          "Clean markdown descriptions with code snippet highlighting",
+          "Clear priority labels and acceptance criteria checklists",
+          "Fast filter to 'My Tasks' in 1 click"
+        ],
+        "pain_points": [
+          "Ambiguous ticket descriptions with no clear definition of done",
+          "Losing focus due to clunky UI lag during sprint planning meetings"
+        ],
+        "context_of_use": "MacBook Pro 14-inch, IDE active, prefers Dark Mode.",
+        "mental_model": "Task board as an extension of the developer Git workflow.",
+        "tech_savviness": "Expert",
+        "supporting_evidence_ids": [
+          "EVID-REQ-01"
+        ],
+        "epistemic_status": "INFERRED",
+        "confidence": "HIGH"
+      }
+    ],
+    "jtbd_list": [
+      {
+        "id": "JTBD-01",
+        "persona_id": "PER-01",
+        "situation": "When conducting Monday morning sprint planning with my team",
+        "motivation": "I want to quickly assign unestimated backlog items and visualize team capacity",
+        "expected_outcome": "So the sprint is committed in 20 minutes without lingering ambiguity",
+        "success_metric": "Sprint setup completed in under 15 minutes; story point allocation verified",
+        "priority": "Core",
+        "supporting_evidence_ids": [
+          "EVID-REQ-01"
+        ],
+        "confidence": "HIGH"
+      },
+      {
+        "id": "JTBD-02",
+        "persona_id": "PER-02",
+        "situation": "When finishing a feature branch commit in my terminal",
+        "motivation": "I want the task status to automatically flip from 'In Progress' to 'In Review'",
+        "expected_outcome": "So I don't have to manually context-switch into another browser tab",
+        "success_metric": "Zero manual status updates required for linked PRs",
+        "priority": "High",
+        "supporting_evidence_ids": [
+          "EVID-REQ-01"
+        ],
+        "confidence": "HIGH"
+      }
+    ],
+    "primary_journey": {
+      "id": "JRN-01",
+      "title": "Sprint Execution & Task Lifecycle",
+      "persona_id": "PER-01",
+      "phases": [
+        {
+          "phase_name": "Project Overview & Triage",
+          "user_thought": "'What's blocking the current sprint release?'",
+          "touchpoints": [
+            "scr_dashboard",
+            "scr_kanban_board"
+          ],
+          "friction_risk": "Drowning in hundreds of stale tickets across unorganized columns",
+          "mitigation_strategy": "High-contrast 'Blocked Items' summary badge and instant search filter"
+        },
+        {
+          "phase_name": "Task Creation & Assignment",
+          "user_thought": "'Need to file an urgent bug fix for auth token expiration.'",
+          "touchpoints": [
+            "cmp_modal_create_task",
+            "scr_task_list"
+          ],
+          "friction_risk": "Lengthy modal form with 20 compulsory enterprise fields",
+          "mitigation_strategy": "Streamlined modal: Title, Priority, Assignee, Markdown Body; 'Cmd+Enter' to save"
+        },
+        {
+          "phase_name": "Progress Tracking & Status Transition",
+          "user_thought": "'Moving this to Done now that CI checks passed.'",
+          "touchpoints": [
+            "scr_kanban_board",
+            "scr_task_detail"
+          ],
+          "friction_risk": "Laggy drag-and-drop or lost status updates",
+          "mitigation_strategy": "Fluid drag feedback with optimistic UI update and keyboard shortcut 'M' to move"
+        },
+        {
+          "phase_name": "Sprint Retrospective & Velocity Review",
+          "user_thought": "'Did we hit our velocity target this fortnight?'",
+          "touchpoints": [
+            "scr_sprint_analytics"
+          ],
+          "friction_risk": "Convoluted data tables with no actionable burnup trend line",
+          "mitigation_strategy": "Clear visual burnup chart with completed vs scope-creep delta indicators"
+        }
+      ],
+      "entry_point": "Open browser dashboard at morning standup",
+      "success_state": "Team completes sprint on schedule with full PR traceability"
+    },
+    "secondary_journeys": [],
+    "key_mental_models": [
+      "Keyboard mastery: Engineers expect 'Cmd+K' command palettes and hotkeys over mouse navigation.",
+      "Dense scannability: Prefer compact 32px table rows and column chips over airy consumer whitespace."
+    ]
+  },
+  "information_architecture": {
+    "navigation_model": {
+      "pattern": "left_sidebar",
+      "primary_items": [
+        {
+          "id": "nav_dashboard",
+          "label": "Dashboard",
+          "icon_name": "layout-dashboard",
+          "target_screen_id": "scr_dashboard",
+          "badge": null,
+          "is_primary": true
+        },
+        {
+          "id": "nav_board",
+          "label": "Sprint Board",
+          "icon_name": "trello",
+          "target_screen_id": "scr_kanban_board",
+          "badge": null,
+          "is_primary": true
+        },
+        {
+          "id": "nav_backlog",
+          "label": "Backlog",
+          "icon_name": "list-todo",
+          "target_screen_id": "scr_task_list",
+          "badge": null,
+          "is_primary": true
+        },
+        {
+          "id": "nav_analytics",
+          "label": "Analytics",
+          "icon_name": "bar-chart-2",
+          "target_screen_id": "scr_analytics",
+          "badge": null,
+          "is_primary": true
+        }
+      ],
+      "secondary_items": [
+        {
+          "id": "nav_team",
+          "label": "Team & Members",
+          "icon_name": "users",
+          "target_screen_id": "scr_team",
+          "badge": null,
+          "is_primary": true
+        },
+        {
+          "id": "nav_integrations",
+          "label": "Git Integrations",
+          "icon_name": "git-branch",
+          "target_screen_id": "scr_integrations",
+          "badge": null,
+          "is_primary": true
+        }
+      ],
+      "utility_items": [
+        {
+          "id": "nav_settings",
+          "label": "Settings",
+          "icon_name": "settings",
+          "target_screen_id": "scr_settings",
+          "badge": null,
+          "is_primary": true
+        }
+      ]
+    },
+    "screen_groups": [
+      {
+        "group_id": "grp_workspace",
+        "group_name": "Workspace Overview",
+        "screen_ids": [
+          "scr_dashboard",
+          "scr_analytics"
+        ],
+        "parent_group_id": null
+      },
+      {
+        "group_id": "grp_tasks",
+        "group_name": "Task & Sprint Management",
+        "screen_ids": [
+          "scr_kanban_board",
+          "scr_task_list",
+          "scr_task_detail",
+          "scr_create_task_modal"
+        ],
+        "parent_group_id": null
+      },
+      {
+        "group_id": "grp_settings",
+        "group_name": "Team & Configuration",
+        "screen_ids": [
+          "scr_team",
+          "scr_settings"
+        ],
+        "parent_group_id": null
+      }
+    ],
+    "entity_relationships": [
+      {
+        "entity_name": "Project",
+        "cardinality": "1:N (has many Sprints & Tasks)",
+        "primary_attributes": [
+          "id",
+          "name",
+          "key",
+          "lead_engineer",
+          "status",
+          "deadline"
+        ],
+        "screens_displayed": [
+          "scr_dashboard",
+          "scr_settings"
+        ]
+      },
+      {
+        "entity_name": "Task",
+        "cardinality": "N:1 (belongs to Sprint & Project)",
+        "primary_attributes": [
+          "id",
+          "title",
+          "description",
+          "priority",
+          "status",
+          "assignee",
+          "story_points",
+          "github_pr_url"
+        ],
+        "screens_displayed": [
+          "scr_kanban_board",
+          "scr_task_list",
+          "scr_task_detail"
+        ]
+      },
+      {
+        "entity_name": "Sprint",
+        "cardinality": "1:N (contains Tasks)",
+        "primary_attributes": [
+          "sprint_id",
+          "name",
+          "goal",
+          "start_date",
+          "end_date",
+          "velocity",
+          "status"
+        ],
+        "screens_displayed": [
+          "scr_dashboard",
+          "scr_kanban_board",
+          "scr_analytics"
+        ]
+      }
+    ],
+    "depth_limit": 3,
+    "breadcrumbs_required": true
+  },
+  "user_flows": [
+    {
+      "flow_id": "flow_saas_sprint_management",
+      "title": "Agile Task Lifecycle & Sprint Execution",
+      "description": "Complete cycle from task definition and assignment through board progression to velocity tracking",
+      "entry_point_id": "node_entry",
+      "exit_point_ids": [
+        "node_review_analytics"
+      ],
+      "nodes": [
+        {
+          "id": "node_entry",
+          "label": "Access Sprint Dashboard",
+          "type": "ENTRY",
+          "screen_id": "scr_dashboard",
+          "user_action": "Opens workspace URL",
+          "system_response": "Renders active sprint burndown, high-priority blocked tasks, and quick actions",
+          "state_description": "Authenticated engineer",
+          "required_inputs": [],
+          "potential_failures": []
+        },
+        {
+          "id": "node_view_board",
+          "label": "Switch to Kanban Sprint Board",
+          "type": "SCREEN",
+          "screen_id": "scr_kanban_board",
+          "user_action": "Clicks 'Sprint Board' in sidebar",
+          "system_response": "Loads 5-column board: Backlog, Ready, In Progress, In Review, Done",
+          "state_description": null,
+          "required_inputs": [],
+          "potential_failures": []
+        },
+        {
+          "id": "node_quick_create",
+          "label": "Quick-Create Engineering Task",
+          "type": "USER_ACTION",
+          "screen_id": "scr_kanban_board",
+          "user_action": "Presses 'C' hotkey or clicks '+ New Task'",
+          "system_response": "Opens streamlined modal overlay focused on title field",
+          "state_description": null,
+          "required_inputs": [
+            "task_title"
+          ],
+          "potential_failures": []
+        },
+        {
+          "id": "node_configure_task",
+          "label": "Assign Engineer & Story Points",
+          "type": "DECISION",
+          "screen_id": "scr_task_detail",
+          "user_action": "Sets assignee to @elena, points=5, priority=Urgent",
+          "system_response": "Appends task card to 'Ready' column; emits webhook to linked Slack channel",
+          "state_description": null,
+          "required_inputs": [],
+          "potential_failures": []
+        },
+        {
+          "id": "node_transition_status",
+          "label": "Move Task to 'In Review'",
+          "type": "USER_ACTION",
+          "screen_id": "scr_kanban_board",
+          "user_action": "Drags card to 'In Review' column or inputs PR link",
+          "system_response": "Updates burndown velocity metrics in background",
+          "state_description": null,
+          "required_inputs": [],
+          "potential_failures": []
+        },
+        {
+          "id": "node_review_analytics",
+          "label": "Inspect Sprint Velocity & Health",
+          "type": "SCREEN",
+          "screen_id": "scr_analytics",
+          "user_action": "Navigates to Analytics tab",
+          "system_response": "Displays completed points vs committed points with velocity trend graph",
+          "state_description": null,
+          "required_inputs": [],
+          "potential_failures": []
+        }
+      ],
+      "edges": [
+        {
+          "source_id": "node_entry",
+          "target_id": "node_view_board",
+          "trigger": "click_sidebar_nav",
+          "condition": null
+        },
+        {
+          "source_id": "node_view_board",
+          "target_id": "node_quick_create",
+          "trigger": "press_c_key",
+          "condition": null
+        },
+        {
+          "source_id": "node_quick_create",
+          "target_id": "node_configure_task",
+          "trigger": "submit_modal",
+          "condition": null
+        },
+        {
+          "source_id": "node_configure_task",
+          "target_id": "node_transition_status",
+          "trigger": "drag_card",
+          "condition": null
+        },
+        {
+          "source_id": "node_transition_status",
+          "target_id": "node_review_analytics",
+          "trigger": "click_analytics_tab",
+          "condition": null
+        }
+      ],
+      "is_happy_path": true
+    }
+  ],
+  "design_system": {
+    "system_name": "SprintFlow Workspace Design Tokens",
+    "platform": "desktop",
+    "theme_mode": "light",
+    "style_direction": "enterprise",
+    "colors": {
+      "primary": {
+        "name": "primary",
+        "hex": "#2563EB",
+        "role": "interactive",
+        "contrast_ratio_on_bg": 7.1,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": true
+      },
+      "primary_hover": {
+        "name": "primary_hover",
+        "hex": "#1D4ED8",
+        "role": "interactive_hover",
+        "contrast_ratio_on_bg": 8.8,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": true
+      },
+      "secondary": {
+        "name": "secondary",
+        "hex": "#0F172A",
+        "role": "secondary_interactive",
+        "contrast_ratio_on_bg": 14.5,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": true
+      },
+      "accent": {
+        "name": "accent",
+        "hex": "#06B6D4",
+        "role": "badge_highlight",
+        "contrast_ratio_on_bg": 4.6,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": false
+      },
+      "background": {
+        "name": "background",
+        "hex": "#F8FAFC",
+        "role": "canvas_background",
+        "contrast_ratio_on_bg": 1.0,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": false
+      },
+      "surface": {
+        "name": "surface",
+        "hex": "#FFFFFF",
+        "role": "card_surface",
+        "contrast_ratio_on_bg": 1.1,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": false
+      },
+      "surface_elevated": {
+        "name": "surface_elevated",
+        "hex": "#FFFFFF",
+        "role": "modal_surface",
+        "contrast_ratio_on_bg": 1.2,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": false
+      },
+      "text_primary": {
+        "name": "text_primary",
+        "hex": "#0F172A",
+        "role": "primary_text",
+        "contrast_ratio_on_bg": 14.2,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": true
+      },
+      "text_secondary": {
+        "name": "text_secondary",
+        "hex": "#475569",
+        "role": "secondary_text",
+        "contrast_ratio_on_bg": 7.1,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": true
+      },
+      "text_muted": {
+        "name": "text_muted",
+        "hex": "#64748B",
+        "role": "muted_text",
+        "contrast_ratio_on_bg": 4.6,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": false
+      },
+      "border_subtle": {
+        "name": "border_subtle",
+        "hex": "#E2E8F0",
+        "role": "border",
+        "contrast_ratio_on_bg": 1.5,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": false
+      },
+      "border_focus": {
+        "name": "border_focus",
+        "hex": "#38BDF8",
+        "role": "focus_ring",
+        "contrast_ratio_on_bg": 6.2,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": false
+      },
+      "success": {
+        "name": "success",
+        "hex": "#10B981",
+        "role": "status_success",
+        "contrast_ratio_on_bg": 4.8,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": false
+      },
+      "warning": {
+        "name": "warning",
+        "hex": "#F59E0B",
+        "role": "status_warning",
+        "contrast_ratio_on_bg": 5.0,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": false
+      },
+      "error": {
+        "name": "error",
+        "hex": "#EF4444",
+        "role": "status_error",
+        "contrast_ratio_on_bg": 5.2,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": false
+      }
+    },
+    "typography": {
+      "display": {
+        "name": "display",
+        "font_family": "Inter, -apple-system, sans-serif",
+        "font_size": 32,
+        "line_height": 40,
+        "font_weight": 700,
+        "letter_spacing": 0.0
+      },
+      "h1": {
+        "name": "h1",
+        "font_family": "Inter, -apple-system, sans-serif",
+        "font_size": 24,
+        "line_height": 32,
+        "font_weight": 600,
+        "letter_spacing": 0.0
+      },
+      "h2": {
+        "name": "h2",
+        "font_family": "Inter, -apple-system, sans-serif",
+        "font_size": 18,
+        "line_height": 24,
+        "font_weight": 600,
+        "letter_spacing": 0.0
+      },
+      "h3": {
+        "name": "h3",
+        "font_family": "Inter, -apple-system, sans-serif",
+        "font_size": 14,
+        "line_height": 20,
+        "font_weight": 600,
+        "letter_spacing": 0.0
+      },
+      "body_lg": {
+        "name": "body_lg",
+        "font_family": "Inter, -apple-system, sans-serif",
+        "font_size": 15,
+        "line_height": 22,
+        "font_weight": 400,
+        "letter_spacing": 0.0
+      },
+      "body_md": {
+        "name": "body_md",
+        "font_family": "Inter, -apple-system, sans-serif",
+        "font_size": 13,
+        "line_height": 18,
+        "font_weight": 400,
+        "letter_spacing": 0.0
+      },
+      "body_sm": {
+        "name": "body_sm",
+        "font_family": "Inter, -apple-system, sans-serif",
+        "font_size": 12,
+        "line_height": 16,
+        "font_weight": 400,
+        "letter_spacing": 0.0
+      },
+      "caption": {
+        "name": "caption",
+        "font_family": "Inter, -apple-system, sans-serif",
+        "font_size": 11,
+        "line_height": 14,
+        "font_weight": 500,
+        "letter_spacing": 0.0
+      },
+      "button_label": {
+        "name": "button_label",
+        "font_family": "Inter, -apple-system, sans-serif",
+        "font_size": 13,
+        "line_height": 18,
+        "font_weight": 500,
+        "letter_spacing": 0.0
+      },
+      "code": {
+        "name": "code",
+        "font_family": "Fira Code, monospace",
+        "font_size": 12,
+        "line_height": 16,
+        "font_weight": 400,
+        "letter_spacing": 0.0
+      }
+    },
+    "spacing": {
+      "xxs": 2,
+      "xs": 4,
+      "sm": 8,
+      "md": 16,
+      "lg": 24,
+      "xl": 32,
+      "xxl": 48,
+      "xxxl": 64
+    },
+    "radius": {
+      "none": 0,
+      "xs": 3,
+      "sm": 6,
+      "md": 8,
+      "lg": 10,
+      "xl": 14,
+      "full": 9999
+    },
+    "shadows": {
+      "sm": {
+        "name": "sm",
+        "x": 0,
+        "y": 1,
+        "blur": 2,
+        "spread": 0,
+        "color": "rgba(0,0,0,0.05)",
+        "css_box_shadow": "0 1px 2px rgba(0,0,0,0.05)"
+      },
+      "md": {
+        "name": "md",
+        "x": 0,
+        "y": 4,
+        "blur": 6,
+        "spread": -1,
+        "color": "rgba(0,0,0,0.08)",
+        "css_box_shadow": "0 4px 6px -1px rgba(0,0,0,0.08)"
+      },
+      "lg": {
+        "name": "lg",
+        "x": 0,
+        "y": 10,
+        "blur": 15,
+        "spread": -3,
+        "color": "rgba(0,0,0,0.10)",
+        "css_box_shadow": "0 10px 15px -3px rgba(0,0,0,0.10)"
+      }
+    },
+    "grid_columns": 12,
+    "container_width": 1280
+  },
+  "component_registry": {
+    "components": {
+      "cmp_btn_primary": {
+        "component_id": "cmp_btn_primary",
+        "name": "Primary Action Button",
+        "type": "BUTTON",
+        "description": "Main conversion trigger with high visual emphasis and active click state.",
+        "default_width": 140,
+        "default_height": 36,
+        "auto_layout_direction": "horizontal",
+        "padding_x": 16,
+        "padding_y": 12,
+        "gap": 8,
+        "corner_radius": 6,
+        "bg_token_ref": "primary",
+        "text_token_ref": "text_on_primary",
+        "border_token_ref": null,
+        "variants": [
+          {
+            "variant_id": "primary_default",
+            "name": "Default",
+            "state": "default",
+            "size": "medium",
+            "properties": {}
+          },
+          {
+            "variant_id": "primary_hover",
+            "name": "Hover",
+            "state": "hover",
+            "size": "medium",
+            "properties": {}
+          },
+          {
+            "variant_id": "primary_disabled",
+            "name": "Disabled",
+            "state": "disabled",
+            "size": "medium",
+            "properties": {
+              "opacity": 0.5
+            }
+          },
+          {
+            "variant_id": "primary_loading",
+            "name": "Loading Spinner",
+            "state": "loading",
+            "size": "medium",
+            "properties": {}
+          }
+        ],
+        "nested_component_ids": []
+      },
+      "cmp_btn_secondary": {
+        "component_id": "cmp_btn_secondary",
+        "name": "Secondary Action Button",
+        "type": "BUTTON",
+        "description": "Subtle outline button for secondary dismissive or navigation actions.",
+        "default_width": 120,
+        "default_height": 36,
+        "auto_layout_direction": "horizontal",
+        "padding_x": 16,
+        "padding_y": 10,
+        "gap": 8,
+        "corner_radius": 8,
+        "bg_token_ref": "surface",
+        "text_token_ref": "text_primary",
+        "border_token_ref": "border_subtle",
+        "variants": [
+          {
+            "variant_id": "sec_default",
+            "name": "Default",
+            "state": "default",
+            "size": "medium",
+            "properties": {}
+          },
+          {
+            "variant_id": "sec_hover",
+            "name": "Hover",
+            "state": "hover",
+            "size": "medium",
+            "properties": {}
+          }
+        ],
+        "nested_component_ids": []
+      },
+      "cmp_icon_button": {
+        "component_id": "cmp_icon_button",
+        "name": "Icon Button",
+        "type": "ICON_BUTTON",
+        "description": "Compact square target for filters, back navigation, or bookmarking.",
+        "default_width": 40,
+        "default_height": 40,
+        "auto_layout_direction": "horizontal",
+        "padding_x": 8,
+        "padding_y": 8,
+        "gap": 0,
+        "corner_radius": 8,
+        "bg_token_ref": "surface",
+        "text_token_ref": "text_primary",
+        "border_token_ref": null,
+        "variants": [],
+        "nested_component_ids": []
+      },
+      "cmp_search_bar": {
+        "component_id": "cmp_search_bar",
+        "name": "Search Input Bar",
+        "type": "SEARCH_BAR",
+        "description": "Input field with magnifying glass icon and clear button.",
+        "default_width": 320,
+        "default_height": 44,
+        "auto_layout_direction": "horizontal",
+        "padding_x": 14,
+        "padding_y": 10,
+        "gap": 10,
+        "corner_radius": 10,
+        "bg_token_ref": "surface",
+        "text_token_ref": "text_primary",
+        "border_token_ref": "border_subtle",
+        "variants": [],
+        "nested_component_ids": []
+      },
+      "cmp_input_field": {
+        "component_id": "cmp_input_field",
+        "name": "Text Input Field",
+        "type": "INPUT",
+        "description": "Standard labeled input with inline validation message slot.",
+        "default_width": 280,
+        "default_height": 52,
+        "auto_layout_direction": "vertical",
+        "padding_x": 12,
+        "padding_y": 8,
+        "gap": 4,
+        "corner_radius": 8,
+        "bg_token_ref": "surface",
+        "text_token_ref": "text_primary",
+        "border_token_ref": "border_subtle",
+        "variants": [],
+        "nested_component_ids": []
+      },
+      "cmp_entity_card": {
+        "component_id": "cmp_entity_card",
+        "name": "Entity Content Card",
+        "type": "CARD",
+        "description": "Primary display card showcasing preview metadata, pricing/status, and title.",
+        "default_width": 290,
+        "default_height": 140,
+        "auto_layout_direction": "vertical",
+        "padding_x": 16,
+        "padding_y": 16,
+        "gap": 12,
+        "corner_radius": 12,
+        "bg_token_ref": "surface",
+        "text_token_ref": "text_primary",
+        "border_token_ref": "border_subtle",
+        "variants": [],
+        "nested_component_ids": []
+      },
+      "cmp_global_nav": {
+        "component_id": "cmp_global_nav",
+        "name": "Global Navigation Container",
+        "type": "SIDEBAR",
+        "description": "Persistent navigation affordance supporting primary route changes.",
+        "default_width": 240,
+        "default_height": 900,
+        "auto_layout_direction": "vertical",
+        "padding_x": 16,
+        "padding_y": 12,
+        "gap": 16,
+        "corner_radius": 0,
+        "bg_token_ref": "surface",
+        "text_token_ref": "text_secondary",
+        "border_token_ref": "border_subtle",
+        "variants": [],
+        "nested_component_ids": []
+      },
+      "cmp_status_badge": {
+        "component_id": "cmp_status_badge",
+        "name": "Semantic Status Badge",
+        "type": "BADGE",
+        "description": "Micro visual indicator for status: In Progress, Urgent, Discount, Under $10.",
+        "default_width": 72,
+        "default_height": 24,
+        "auto_layout_direction": "horizontal",
+        "padding_x": 8,
+        "padding_y": 4,
+        "gap": 4,
+        "corner_radius": 9999,
+        "bg_token_ref": "accent",
+        "text_token_ref": "text_primary",
+        "border_token_ref": null,
+        "variants": [],
+        "nested_component_ids": []
+      },
+      "cmp_user_avatar": {
+        "component_id": "cmp_user_avatar",
+        "name": "User Avatar",
+        "type": "AVATAR",
+        "description": "Circular profile picture or 2-letter fallback initials.",
+        "default_width": 36,
+        "default_height": 36,
+        "auto_layout_direction": "horizontal",
+        "padding_x": 0,
+        "padding_y": 0,
+        "gap": 0,
+        "corner_radius": 9999,
+        "bg_token_ref": "secondary",
+        "text_token_ref": "text_on_secondary",
+        "border_token_ref": null,
+        "variants": [],
+        "nested_component_ids": []
+      },
+      "cmp_overlay_container": {
+        "component_id": "cmp_overlay_container",
+        "name": "Focused Overlay Container",
+        "type": "MODAL",
+        "description": "Contextual sheet or dialog for task creation, dish customization, or checkout.",
+        "default_width": 560,
+        "default_height": 450,
+        "auto_layout_direction": "vertical",
+        "padding_x": 24,
+        "padding_y": 20,
+        "gap": 16,
+        "corner_radius": 12,
+        "bg_token_ref": "surface_elevated",
+        "text_token_ref": "text_primary",
+        "border_token_ref": null,
+        "variants": [],
+        "nested_component_ids": []
+      },
+      "cmp_empty_state": {
+        "component_id": "cmp_empty_state",
+        "name": "Zero-Data Empty State",
+        "type": "EMPTY_STATE",
+        "description": "Friendly illustration, helpful explanation, and prominent recovery CTA.",
+        "default_width": 340,
+        "default_height": 200,
+        "auto_layout_direction": "vertical",
+        "padding_x": 20,
+        "padding_y": 24,
+        "gap": 12,
+        "corner_radius": 12,
+        "bg_token_ref": "surface",
+        "text_token_ref": "text_muted",
+        "border_token_ref": null,
+        "variants": [],
+        "nested_component_ids": []
+      },
+      "cmp_error_banner": {
+        "component_id": "cmp_error_banner",
+        "name": "Inline Error Recovery Banner",
+        "type": "ERROR_STATE",
+        "description": "Alert banner highlighting failed operation with explicit retry trigger.",
+        "default_width": 500,
+        "default_height": 56,
+        "auto_layout_direction": "horizontal",
+        "padding_x": 16,
+        "padding_y": 12,
+        "gap": 12,
+        "corner_radius": 8,
+        "bg_token_ref": "surface",
+        "text_token_ref": "error",
+        "border_token_ref": "error",
+        "variants": [],
+        "nested_component_ids": []
+      },
+      "cmp_data_table": {
+        "component_id": "cmp_data_table",
+        "name": "Sortable Data Table",
+        "type": "TABLE",
+        "description": "Dense scannable grid supporting sorting, selection, and status chips.",
+        "default_width": 980,
+        "default_height": 420,
+        "auto_layout_direction": "vertical",
+        "padding_x": 0,
+        "padding_y": 0,
+        "gap": 0,
+        "corner_radius": 8,
+        "bg_token_ref": "surface",
+        "text_token_ref": "text_primary",
+        "border_token_ref": "border_subtle",
+        "variants": [],
+        "nested_component_ids": []
+      }
+    }
+  },
+  "screens": [
+    {
+      "screen_id": "scr_dashboard",
+      "screen_name": "Sprint Engineering Dashboard",
+      "purpose": "Provide comprehensive visibility into active sprint progress, blocker alerts, and team bandwidth.",
+      "user_goal": "Quickly identify blocked PRs and check overall sprint velocity.",
+      "entry_conditions": [
+        "User login",
+        "Click Dashboard in sidebar"
+      ],
+      "exit_actions": [
+        "Click Kanban Board -> scr_kanban_board",
+        "Click + New Task -> scr_create_task_modal"
+      ],
+      "primary_cta": "+ New Task (C)",
+      "secondary_actions": [
+        "Filter My Tasks",
+        "Export Sprint Report"
+      ],
+      "content_hierarchy": [
+        "Sprint Burndown Health",
+        "High-Priority Blocker Cards",
+        "Active PRs Pending Review",
+        "Recent Team Commits"
+      ],
+      "layout": {
+        "width": 1280,
+        "height": 900,
+        "direction": "horizontal",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_left": 0,
+        "padding_right": 0,
+        "gap": 0,
+        "background_token_ref": "background",
+        "scrollable": true
+      },
+      "sections": [
+        {
+          "section_id": "sec_sidebar",
+          "title": "Persistent Left Sidebar",
+          "direction": "vertical",
+          "gap": 16,
+          "padding": 0,
+          "layout_mode": "fixed",
+          "components": [
+            {
+              "instance_id": "inst_sidebar_nav",
+              "component_ref": "cmp_global_nav",
+              "name": "Global Sidebar",
+              "layout_mode": "fill",
+              "content_data": {
+                "active": "Dashboard"
+              },
+              "variant_ref": null,
+              "interactive_target_screen_id": "scr_kanban_board"
+            }
+          ]
+        },
+        {
+          "section_id": "sec_main_content",
+          "title": "Main Dashboard View",
+          "direction": "vertical",
+          "gap": 24,
+          "padding": 32,
+          "layout_mode": "fill",
+          "components": [
+            {
+              "instance_id": "inst_sprint_summary",
+              "component_ref": "cmp_entity_card",
+              "name": "Sprint Burndown Metric Card",
+              "layout_mode": "fill",
+              "content_data": {
+                "workspace_title": "SprintFlow • Core Platform Eng Team",
+                "active_sprint": "Sprint 34: Auth v2 & Realtime Webhooks",
+                "sprint_status": "Day 6 of 10 • 78% on track",
+                "burndown_summary": "42 of 58 Story Points Completed • 4 Blocked",
+                "columns": [
+                  {
+                    "id": "col_backlog",
+                    "title": "Backlog (8)",
+                    "color": "#64748B"
+                  },
+                  {
+                    "id": "col_ready",
+                    "title": "Ready for Dev (4)",
+                    "color": "#3B82F6"
+                  },
+                  {
+                    "id": "col_progress",
+                    "title": "In Progress (5)",
+                    "color": "#F59E0B"
+                  },
+                  {
+                    "id": "col_review",
+                    "title": "PR In Review (3)",
+                    "color": "#8B5CF6"
+                  },
+                  {
+                    "id": "col_done",
+                    "title": "Done & Merged (14)",
+                    "color": "#10B981"
+                  }
+                ],
+                "sample_tasks": [
+                  {
+                    "key": "ENG-402",
+                    "title": "Migrate JWT refresh token rotation to Redis cluster",
+                    "priority": "P0 Urgent",
+                    "priority_color": "#EF4444",
+                    "assignee": "Elena Rostova",
+                    "assignee_initials": "ER",
+                    "points": "5 pts",
+                    "branch": "feat/redis-jwt-rotation",
+                    "pr_status": "PR #128 opened • 2 approvals"
+                  },
+                  {
+                    "key": "ENG-409",
+                    "title": "Implement rate limiting middleware for public GraphQL gateway",
+                    "priority": "P1 High",
+                    "priority_color": "#F59E0B",
+                    "assignee": "Marcus Vance",
+                    "assignee_initials": "MV",
+                    "points": "3 pts",
+                    "branch": "fix/graphql-rate-limiter",
+                    "pr_status": "CI passing • Tests 100%"
+                  },
+                  {
+                    "key": "ENG-415",
+                    "title": "Add telemetry span for Figma Plugin WebSocket handshake latency",
+                    "priority": "P2 Normal",
+                    "priority_color": "#3B82F6",
+                    "assignee": "Samir Patel",
+                    "assignee_initials": "SP",
+                    "points": "2 pts",
+                    "branch": "chore/mcp-telemetry",
+                    "pr_status": "Draft PR"
+                  }
+                ],
+                "velocity_metrics": {
+                  "avg_velocity": "54 pts/sprint",
+                  "cycle_time": "1.8 days",
+                  "pr_merge_time": "4.2 hrs"
+                }
+              },
+              "variant_ref": null,
+              "interactive_target_screen_id": null
+            },
+            {
+              "instance_id": "inst_btn_new_task",
+              "component_ref": "cmp_btn_primary",
+              "name": "Create Task Button",
+              "layout_mode": "fill",
+              "content_data": {
+                "label": "+ Create Task (Press C)"
+              },
+              "variant_ref": null,
+              "interactive_target_screen_id": "scr_create_task_modal"
+            }
+          ]
+        }
+      ],
+      "states": [],
+      "navigation_bar_visible": true,
+      "prototype_destinations": {
+        "inst_sidebar_nav": "scr_kanban_board",
+        "inst_btn_new_task": "scr_create_task_modal"
+      }
+    },
+    {
+      "screen_id": "scr_kanban_board",
+      "screen_name": "Agile Sprint Kanban Board",
+      "purpose": "Visual drag-and-drop workflow tracking across Backlog, Ready, In Progress, Review, and Done columns.",
+      "user_goal": "Move tasks across stages and assign engineers with zero friction.",
+      "entry_conditions": [
+        "Click Sprint Board in sidebar"
+      ],
+      "exit_actions": [
+        "Click task card -> scr_task_detail",
+        "Click Analytics -> scr_analytics"
+      ],
+      "primary_cta": "+ Add Task to Column",
+      "secondary_actions": [
+        "Filter by Assignee",
+        "Toggle Group by Epic"
+      ],
+      "content_hierarchy": [
+        "Board Header & Sprint Selector",
+        "Filter & Search Bar",
+        "Kanban Columns (Backlog, Dev, Review, Done)",
+        "Task Cards with Story Points"
+      ],
+      "layout": {
+        "width": 1280,
+        "height": 900,
+        "direction": "horizontal",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_left": 0,
+        "padding_right": 0,
+        "gap": 0,
+        "background_token_ref": "background",
+        "scrollable": true
+      },
+      "sections": [
+        {
+          "section_id": "sec_board_content",
+          "title": "5-Column Kanban Board",
+          "direction": "horizontal",
+          "gap": 16,
+          "padding": 24,
+          "layout_mode": "fill",
+          "components": [
+            {
+              "instance_id": "inst_kanban_col_col_backlog",
+              "component_ref": "cmp_entity_card",
+              "name": "Kanban Column: Backlog (8)",
+              "layout_mode": "fill",
+              "content_data": {
+                "id": "col_backlog",
+                "title": "Backlog (8)",
+                "color": "#64748B"
+              },
+              "variant_ref": null,
+              "interactive_target_screen_id": null
+            },
+            {
+              "instance_id": "inst_kanban_col_col_ready",
+              "component_ref": "cmp_entity_card",
+              "name": "Kanban Column: Ready for Dev (4)",
+              "layout_mode": "fill",
+              "content_data": {
+                "id": "col_ready",
+                "title": "Ready for Dev (4)",
+                "color": "#3B82F6"
+              },
+              "variant_ref": null,
+              "interactive_target_screen_id": null
+            },
+            {
+              "instance_id": "inst_kanban_col_col_progress",
+              "component_ref": "cmp_entity_card",
+              "name": "Kanban Column: In Progress (5)",
+              "layout_mode": "fill",
+              "content_data": {
+                "id": "col_progress",
+                "title": "In Progress (5)",
+                "color": "#F59E0B"
+              },
+              "variant_ref": null,
+              "interactive_target_screen_id": null
+            },
+            {
+              "instance_id": "inst_kanban_col_col_review",
+              "component_ref": "cmp_entity_card",
+              "name": "Kanban Column: PR In Review (3)",
+              "layout_mode": "fill",
+              "content_data": {
+                "id": "col_review",
+                "title": "PR In Review (3)",
+                "color": "#8B5CF6"
+              },
+              "variant_ref": null,
+              "interactive_target_screen_id": null
+            },
+            {
+              "instance_id": "inst_kanban_col_col_done",
+              "component_ref": "cmp_entity_card",
+              "name": "Kanban Column: Done & Merged (14)",
+              "layout_mode": "fill",
+              "content_data": {
+                "id": "col_done",
+                "title": "Done & Merged (14)",
+                "color": "#10B981"
+              },
+              "variant_ref": null,
+              "interactive_target_screen_id": null
+            }
+          ]
+        }
+      ],
+      "states": [],
+      "navigation_bar_visible": true,
+      "prototype_destinations": {
+        "inst_kanban_col_col_progress": "scr_task_detail"
+      }
+    },
+    {
+      "screen_id": "scr_task_detail",
+      "screen_name": "Task Specification & PR Traceability Drawer",
+      "purpose": "Inspect task acceptance criteria, assignees, linked Git branches, PR review statuses, and comments.",
+      "user_goal": "Review implementation requirements and link GitHub PR.",
+      "entry_conditions": [
+        "Click any task card on board or list"
+      ],
+      "exit_actions": [
+        "Close drawer -> scr_kanban_board",
+        "Merge PR"
+      ],
+      "primary_cta": "Move to PR In Review",
+      "secondary_actions": [
+        "Copy Branch Name",
+        "Assign Reviewer"
+      ],
+      "content_hierarchy": [
+        "Task Key & Title",
+        "Status & Story Points Dropdown",
+        "Markdown Description",
+        "Linked GitHub PR Status",
+        "Discussion Thread"
+      ],
+      "layout": {
+        "width": 1280,
+        "height": 900,
+        "direction": "horizontal",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_left": 0,
+        "padding_right": 0,
+        "gap": 0,
+        "background_token_ref": "background",
+        "scrollable": true
+      },
+      "sections": [
+        {
+          "section_id": "sec_drawer_content",
+          "title": "Task Detail Drawer",
+          "direction": "vertical",
+          "gap": 16,
+          "padding": 32,
+          "layout_mode": "fill",
+          "components": [
+            {
+              "instance_id": "inst_task_detail_card",
+              "component_ref": "cmp_entity_card",
+              "name": "Task Detail Spec",
+              "layout_mode": "fill",
+              "content_data": {
+                "key": "ENG-402",
+                "title": "Migrate JWT refresh token rotation to Redis cluster",
+                "priority": "P0 Urgent",
+                "priority_color": "#EF4444",
+                "assignee": "Elena Rostova",
+                "assignee_initials": "ER",
+                "points": "5 pts",
+                "branch": "feat/redis-jwt-rotation",
+                "pr_status": "PR #128 opened • 2 approvals"
+              },
+              "variant_ref": null,
+              "interactive_target_screen_id": null
+            },
+            {
+              "instance_id": "inst_btn_close_drawer",
+              "component_ref": "cmp_btn_secondary",
+              "name": "Close Drawer Button",
+              "layout_mode": "fill",
+              "content_data": {
+                "label": "Close (Esc)"
+              },
+              "variant_ref": null,
+              "interactive_target_screen_id": "scr_kanban_board"
+            }
+          ]
+        }
+      ],
+      "states": [],
+      "navigation_bar_visible": true,
+      "prototype_destinations": {
+        "inst_btn_close_drawer": "scr_kanban_board"
+      }
+    },
+    {
+      "screen_id": "scr_analytics",
+      "screen_name": "Sprint Velocity & Burndown Analytics",
+      "purpose": "Visualize team velocity trends, cycle times, PR review latency, and completion forecasts.",
+      "user_goal": "Evaluate sprint delivery health during retrospectives.",
+      "entry_conditions": [
+        "Click Analytics in sidebar"
+      ],
+      "exit_actions": [
+        "Return to Board -> scr_kanban_board"
+      ],
+      "primary_cta": "Export Retrospective PDF",
+      "secondary_actions": [
+        "Switch Sprint",
+        "Filter by Squad"
+      ],
+      "content_hierarchy": [
+        "Velocity Metric KPIs",
+        "Burndown Chart",
+        "Cycle Time Breakdown",
+        "Contributor Impact Table"
+      ],
+      "layout": {
+        "width": 1280,
+        "height": 900,
+        "direction": "horizontal",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_left": 0,
+        "padding_right": 0,
+        "gap": 0,
+        "background_token_ref": "background",
+        "scrollable": true
+      },
+      "sections": [
+        {
+          "section_id": "sec_analytics_view",
+          "title": "Velocity Metrics Overview",
+          "direction": "vertical",
+          "gap": 20,
+          "padding": 32,
+          "layout_mode": "fill",
+          "components": [
+            {
+              "instance_id": "inst_velocity_card",
+              "component_ref": "cmp_entity_card",
+              "name": "Sprint Velocity Card",
+              "layout_mode": "fill",
+              "content_data": {
+                "avg_velocity": "54 pts/sprint",
+                "cycle_time": "1.8 days",
+                "pr_merge_time": "4.2 hrs"
+              },
+              "variant_ref": null,
+              "interactive_target_screen_id": null
+            },
+            {
+              "instance_id": "inst_btn_back_to_board",
+              "component_ref": "cmp_btn_secondary",
+              "name": "Back to Board",
+              "layout_mode": "fill",
+              "content_data": {
+                "label": "← Back to Sprint Board"
+              },
+              "variant_ref": null,
+              "interactive_target_screen_id": "scr_kanban_board"
+            }
+          ]
+        }
+      ],
+      "states": [],
+      "navigation_bar_visible": true,
+      "prototype_destinations": {
+        "inst_btn_back_to_board": "scr_kanban_board"
+      }
+    }
+  ],
+  "prototype": {
+    "start_screen_id": "scr_dashboard",
+    "connections": [
+      {
+        "id": "proto_conn_001",
+        "source_screen_id": "scr_dashboard",
+        "source_element_id": "inst_sidebar_nav",
+        "source_element_label": "Affordance inst_sidebar_nav on Sprint Engineering Dashboard",
+        "target_screen_id": "scr_kanban_board",
+        "trigger": "ON_CLICK",
+        "animation": "SLIDE_IN_RIGHT",
+        "duration_ms": 300,
+        "user_intent": "Navigate from Sprint Engineering Dashboard to target screen."
+      },
+      {
+        "id": "proto_conn_002",
+        "source_screen_id": "scr_dashboard",
+        "source_element_id": "inst_btn_new_task",
+        "source_element_label": "Affordance inst_btn_new_task on Sprint Engineering Dashboard",
+        "target_screen_id": "scr_create_task_modal",
+        "trigger": "ON_CLICK",
+        "animation": "SLIDE_IN_RIGHT",
+        "duration_ms": 300,
+        "user_intent": "Navigate from Sprint Engineering Dashboard to target screen."
+      },
+      {
+        "id": "proto_conn_003",
+        "source_screen_id": "scr_kanban_board",
+        "source_element_id": "inst_kanban_col_col_progress",
+        "source_element_label": "Affordance inst_kanban_col_col_progress on Agile Sprint Kanban Board",
+        "target_screen_id": "scr_task_detail",
+        "trigger": "ON_CLICK",
+        "animation": "SLIDE_IN_RIGHT",
+        "duration_ms": 300,
+        "user_intent": "Navigate from Agile Sprint Kanban Board to target screen."
+      },
+      {
+        "id": "proto_conn_004",
+        "source_screen_id": "scr_task_detail",
+        "source_element_id": "inst_btn_close_drawer",
+        "source_element_label": "Affordance inst_btn_close_drawer on Task Specification & PR Traceability Drawer",
+        "target_screen_id": "scr_kanban_board",
+        "trigger": "ON_CLICK",
+        "animation": "SLIDE_IN_RIGHT",
+        "duration_ms": 300,
+        "user_intent": "Navigate from Task Specification & PR Traceability Drawer to target screen."
+      },
+      {
+        "id": "proto_conn_005",
+        "source_screen_id": "scr_analytics",
+        "source_element_id": "inst_btn_back_to_board",
+        "source_element_label": "Affordance inst_btn_back_to_board on Sprint Velocity & Burndown Analytics",
+        "target_screen_id": "scr_kanban_board",
+        "trigger": "ON_CLICK",
+        "animation": "SLIDE_IN_RIGHT",
+        "duration_ms": 300,
+        "user_intent": "Navigate from Sprint Velocity & Burndown Analytics to target screen."
+      }
+    ]
+  },
+  "non_disruptive_strategy": {
+    "existing_flow_risk": "MEDIUM",
+    "primary_risks": [
+      "Changing task status interaction may disrupt established muscle-memory during standups.",
+      "Automated Git PR linking might surprise engineers if tickets update without explicit confirmation.",
+      "New analytics dashboard adds visual weight to the sidebar navigation."
+    ],
+    "recommended_mechanism": "PROGRESSIVE_DISCLOSURE",
+    "progressive_disclosure_steps": [
+      "Step 1: Baseline Entry - Keep standard Kanban drag-and-drop identical to existing agile boards.",
+      "Step 2: Contextual Teaser - When task is moved to 'In Review', prompt: 'Link branch feat/auth? [Link once] [Always auto-link]'.",
+      "Step 3: Advanced Controls - Velocity burndown charts live in dedicated 'Analytics' tab rather than cluttering daily board."
+    ],
+    "opt_in_toggle_spec": "Settings > Workflow > 'Enable automated GitHub status transitions' (Default: Opt-in with confirmation banner).",
+    "contextual_onboarding_trigger": "Show non-modal toast when first commit with issue key ENG-xxx is pushed: 'We detected a linked commit! Click to view status update.'.",
+    "safe_fallbacks": [
+      {
+        "failure_trigger": "GitHub Webhook or CI status API rate-limited",
+        "fallback_behavior": "Allow manual drag status change with an informational indicator: 'PR status check delayed'.",
+        "preserves_data": true,
+        "user_messaging": "Git sync is running slow. You can still move tasks manually."
+      },
+      {
+        "failure_trigger": "Engineer accidentally moves card to 'Done' prematurely",
+        "fallback_behavior": "Provide instant 'Undo' floating snackbar for 8 seconds and log undo action in task history.",
+        "preserves_data": true,
+        "user_messaging": "Task moved to Done. [Undo (Z)]"
+      }
+    ],
+    "impact_score_1_to_10": 4
+  },
+  "audit_report": {
+    "overall_usability_score_100": 88,
+    "cognitive_load_level": "Optimal",
+    "accessibility_rating": "WCAG 2.1 AA Compliant",
+    "critical_count": 0,
+    "high_count": 1,
+    "medium_count": 1,
+    "low_count": 1,
+    "findings": [
+      {
+        "id": "FND-01",
+        "title": "Explicit verification required before high-value action",
+        "category": "Error Prevention",
+        "severity": "HIGH",
+        "heuristic": "Error Prevention",
+        "screen_id": "scr_create_task_modal",
+        "affected_element": "Payment / Task Submission CTA",
+        "problem": "User might tap confirmation accidentally when moving quickly.",
+        "why_it_matters": "Accidental submissions cause immediate user panic, refund requests, or phantom tickets.",
+        "evidence": "Screen interaction flow review.",
+        "ux_principle": "Nielsen Heuristic #5: Error Prevention (Slips and Mistakes)",
+        "confidence_percentage": 92,
+        "recommendation": "Use explicit swipe-to-confirm affordance or 8-second undo snackbar.",
+        "impact": "High",
+        "effort": "Low",
+        "risk": "Low",
+        "validation_test": "5-second usability testing with rushed participants."
+      },
+      {
+        "id": "FND-02",
+        "title": "Preserve previous search filters and recent location memory",
+        "category": "Cognitive Load",
+        "severity": "MEDIUM",
+        "heuristic": "Recognition Rather Than Recall",
+        "screen_id": "scr_kanban_board",
+        "affected_element": "Filter Pills / Active Search Query",
+        "problem": "Users frequently re-enter the exact same dietary filter or sprint squad view.",
+        "why_it_matters": "Forcing recall rather than recognition increases cognitive friction.",
+        "evidence": "Observed default filter reset on screen revisit.",
+        "ux_principle": "Nielsen Heuristic #6: Recognition Rather Than Recall",
+        "confidence_percentage": 88,
+        "recommendation": "Store top 3 recent selections in local cache with 1-tap re-activation.",
+        "impact": "Medium",
+        "effort": "Low",
+        "risk": "Low",
+        "validation_test": "Track filter click frequency in product analytics."
+      },
+      {
+        "id": "FND-03",
+        "title": "Real-time ETA and courier milestone synchronization",
+        "category": "Usability",
+        "severity": "LOW",
+        "heuristic": "Visibility of System Status",
+        "screen_id": "scr_analytics",
+        "affected_element": "Live Progress Stepper",
+        "problem": "Static progress bars create anxiety if status doesn't refresh within 30 seconds.",
+        "why_it_matters": "Users wonder if the system stalled or network disconnected.",
+        "evidence": "Tracking screen state review.",
+        "ux_principle": "Nielsen Heuristic #1: Visibility of System Status",
+        "confidence_percentage": 94,
+        "recommendation": "Include subtle pulsing live indicator and 'Updated 5s ago' timestamp.",
+        "impact": "Medium",
+        "effort": "Low",
+        "risk": "Low",
+        "validation_test": "User anxiety feedback survey during active orders."
+      }
+    ],
+    "mentor_summary": "Overall UX health is strong at 88/100. Found 1 high-priority friction point around error prevention. Address the confirmation affordance to make this bulletproof for distracted users!"
+  },
+  "qa_report": {
+    "overall_qa_score_100": 100,
+    "requirement_coverage_percentage": 100.0,
+    "visual_qa": {
+      "grid_alignment_passed": true,
+      "typography_scale_passed": true,
+      "contrast_accessibility_passed": true,
+      "component_reuse_ratio": 1.0,
+      "visual_density_rating": "Balanced",
+      "checks": [
+        {
+          "check_id": "QA-VIS-01",
+          "name": "8-Point Grid Geometry Adherence",
+          "passed": true,
+          "score": 1.0,
+          "details": "All section gaps and internal padding adhere strictly to the 4px/8px spatial cadence.",
+          "severity": "LOW",
+          "recommended_fix": null
+        },
+        {
+          "check_id": "QA-VIS-02",
+          "name": "Typographic Hierarchy Monotonicity",
+          "passed": true,
+          "score": 1.0,
+          "details": "Typography scale strictly preserves visual contrast ratio and heading hierarchy.",
+          "severity": "LOW",
+          "recommended_fix": null
+        },
+        {
+          "check_id": "QA-VIS-03",
+          "name": "WCAG 2.1 AA Contrast Ratio Verification",
+          "passed": true,
+          "score": 1.0,
+          "details": "Text tokens exceed the 4.5:1 ratio requirement against their respective background surfaces.",
+          "severity": "MEDIUM",
+          "recommended_fix": null
+        },
+        {
+          "check_id": "QA-VIS-04",
+          "name": "Component Instance Reuse Ratio",
+          "passed": true,
+          "score": 1.0,
+          "details": "100% of rendered screen elements reference verified master components.",
+          "severity": "MEDIUM",
+          "recommended_fix": null
+        }
+      ]
+    },
+    "requirements_breakdown": [
+      {
+        "requirement_statement": "Create projects & sprints",
+        "status": "FULLY_COVERED",
+        "covered_by_screens": [
+          "scr_dashboard"
+        ],
+        "covered_by_components": [
+          "cmp_entity_card",
+          "cmp_btn_primary"
+        ],
+        "validation_notes": "Verified via screen flow traversal and semantic component inspection."
+      },
+      {
+        "requirement_statement": "Manage agile tasks across Kanban columns",
+        "status": "FULLY_COVERED",
+        "covered_by_screens": [
+          "scr_kanban_board"
+        ],
+        "covered_by_components": [
+          "cmp_entity_card"
+        ],
+        "validation_notes": "Verified via screen flow traversal and semantic component inspection."
+      },
+      {
+        "requirement_statement": "Assign engineers, points & priorities",
+        "status": "FULLY_COVERED",
+        "covered_by_screens": [
+          "scr_task_detail"
+        ],
+        "covered_by_components": [
+          "cmp_entity_card",
+          "cmp_btn_secondary"
+        ],
+        "validation_notes": "Verified via screen flow traversal and semantic component inspection."
+      },
+      {
+        "requirement_statement": "Track sprint progress & burndown velocity",
+        "status": "FULLY_COVERED",
+        "covered_by_screens": [
+          "scr_analytics",
+          "scr_dashboard"
+        ],
+        "covered_by_components": [
+          "cmp_entity_card"
+        ],
+        "validation_notes": "Verified via screen flow traversal and semantic component inspection."
+      }
+    ],
+    "repair_iterations_applied": 0,
+    "issues_resolved": [],
+    "unresolved_issues": [],
+    "is_ready_for_production": true
+  }
+}

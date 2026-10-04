@@ -1,0 +1,22 @@
+{
+  "name": "azia-autonomous-ux-design-mcp",
+  "version": "1.0.0",
+  "description": "AZIA • Autonomous AI Product Design Engineer & Figma MCP",
+  "main": "plugin/dist/code.js",
+  "scripts": {
+    "test": "pytest tests -v",
+    "generate:food": "python run_azia.py --requirement \"Build a modern food delivery app for college students. Students should discover nearby restaurants, search food, order food, pay, and track delivery. The experience should be fast, affordable and simple.\" --output-dir output/food_delivery --platform mobile",
+    "generate:saas": "python run_azia.py --requirement \"Build a project management SaaS for small engineering teams. Teams should create projects, manage tasks, assign work, track progress, and see project status.\" --output-dir output/saas_pm --platform desktop",
+    "mcp": "python mcp_server.py"
+  },
+  "keywords": [
+    "figma-plugin",
+    "mcp-server",
+    "ai-designer",
+    "autonomous-ux",
+    "design-system",
+    "product-design"
+  ],
+  "author": "AZIA Autonomous Systems",
+  "license": "MIT"
+}

@@ -1,0 +1,17 @@
+{
+  "name": "AZIA • AI UX Copilot & Autonomous Design MCP",
+  "id": "azia-autonomous-ux-copilot",
+  "api": "1.0.0",
+  "main": "dist/code.js",
+  "ui": "src/ui.html",
+  "editorType": ["figma", "figjam"],
+  "networkAccess": {
+    "allowedDomains": ["none"]
+  },
+  "relaunchButtons": [
+    {
+      "command": "open",
+      "text": "Open AZIA AI UX Agent"
+    }
+  ]
+}

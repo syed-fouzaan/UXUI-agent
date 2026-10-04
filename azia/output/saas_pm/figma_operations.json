@@ -1,0 +1,1268 @@
+{
+  "type": "AZIA_RENDER_PRODUCT",
+  "metadata": {
+    "product_id": "prd_fa509270",
+    "product_name": "SprintFlow Workspace",
+    "category": "Developer-Centric Project Management SaaS",
+    "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780",
+    "managed_by": "autonomous-design-mcp",
+    "total_operations": 47,
+    "total_screens": 4,
+    "total_components": 13
+  },
+  "design_tokens": {
+    "system_name": "SprintFlow Workspace Design Tokens",
+    "platform": "desktop",
+    "theme_mode": "light",
+    "style_direction": "enterprise",
+    "colors": {
+      "primary": {
+        "name": "primary",
+        "hex": "#2563EB",
+        "role": "interactive",
+        "contrast_ratio_on_bg": 7.1,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": true
+      },
+      "primary_hover": {
+        "name": "primary_hover",
+        "hex": "#1D4ED8",
+        "role": "interactive_hover",
+        "contrast_ratio_on_bg": 8.8,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": true
+      },
+      "secondary": {
+        "name": "secondary",
+        "hex": "#0F172A",
+        "role": "secondary_interactive",
+        "contrast_ratio_on_bg": 14.5,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": true
+      },
+      "accent": {
+        "name": "accent",
+        "hex": "#06B6D4",
+        "role": "badge_highlight",
+        "contrast_ratio_on_bg": 4.6,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": false
+      },
+      "background": {
+        "name": "background",
+        "hex": "#F8FAFC",
+        "role": "canvas_background",
+        "contrast_ratio_on_bg": 1.0,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": false
+      },
+      "surface": {
+        "name": "surface",
+        "hex": "#FFFFFF",
+        "role": "card_surface",
+        "contrast_ratio_on_bg": 1.1,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": false
+      },
+      "surface_elevated": {
+        "name": "surface_elevated",
+        "hex": "#FFFFFF",
+        "role": "modal_surface",
+        "contrast_ratio_on_bg": 1.2,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": false
+      },
+      "text_primary": {
+        "name": "text_primary",
+        "hex": "#0F172A",
+        "role": "primary_text",
+        "contrast_ratio_on_bg": 14.2,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": true
+      },
+      "text_secondary": {
+        "name": "text_secondary",
+        "hex": "#475569",
+        "role": "secondary_text",
+        "contrast_ratio_on_bg": 7.1,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": true
+      },
+      "text_muted": {
+        "name": "text_muted",
+        "hex": "#64748B",
+        "role": "muted_text",
+        "contrast_ratio_on_bg": 4.6,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": false
+      },
+      "border_subtle": {
+        "name": "border_subtle",
+        "hex": "#E2E8F0",
+        "role": "border",
+        "contrast_ratio_on_bg": 1.5,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": false
+      },
+      "border_focus": {
+        "name": "border_focus",
+        "hex": "#38BDF8",
+        "role": "focus_ring",
+        "contrast_ratio_on_bg": 6.2,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": false
+      },
+      "success": {
+        "name": "success",
+        "hex": "#10B981",
+        "role": "status_success",
+        "contrast_ratio_on_bg": 4.8,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": false
+      },
+      "warning": {
+        "name": "warning",
+        "hex": "#F59E0B",
+        "role": "status_warning",
+        "contrast_ratio_on_bg": 5.0,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": false
+      },
+      "error": {
+        "name": "error",
+        "hex": "#EF4444",
+        "role": "status_error",
+        "contrast_ratio_on_bg": 5.2,
+        "wcag_aa_compliant": true,
+        "wcag_aaa_compliant": false
+      }
+    },
+    "typography": {
+      "display": {
+        "name": "display",
+        "font_family": "Inter, -apple-system, sans-serif",
+        "font_size": 32,
+        "line_height": 40,
+        "font_weight": 700,
+        "letter_spacing": 0.0
+      },
+      "h1": {
+        "name": "h1",
+        "font_family": "Inter, -apple-system, sans-serif",
+        "font_size": 24,
+        "line_height": 32,
+        "font_weight": 600,
+        "letter_spacing": 0.0
+      },
+      "h2": {
+        "name": "h2",
+        "font_family": "Inter, -apple-system, sans-serif",
+        "font_size": 18,
+        "line_height": 24,
+        "font_weight": 600,
+        "letter_spacing": 0.0
+      },
+      "h3": {
+        "name": "h3",
+        "font_family": "Inter, -apple-system, sans-serif",
+        "font_size": 14,
+        "line_height": 20,
+        "font_weight": 600,
+        "letter_spacing": 0.0
+      },
+      "body_lg": {
+        "name": "body_lg",
+        "font_family": "Inter, -apple-system, sans-serif",
+        "font_size": 15,
+        "line_height": 22,
+        "font_weight": 400,
+        "letter_spacing": 0.0
+      },
+      "body_md": {
+        "name": "body_md",
+        "font_family": "Inter, -apple-system, sans-serif",
+        "font_size": 13,
+        "line_height": 18,
+        "font_weight": 400,
+        "letter_spacing": 0.0
+      },
+      "body_sm": {
+        "name": "body_sm",
+        "font_family": "Inter, -apple-system, sans-serif",
+        "font_size": 12,
+        "line_height": 16,
+        "font_weight": 400,
+        "letter_spacing": 0.0
+      },
+      "caption": {
+        "name": "caption",
+        "font_family": "Inter, -apple-system, sans-serif",
+        "font_size": 11,
+        "line_height": 14,
+        "font_weight": 500,
+        "letter_spacing": 0.0
+      },
+      "button_label": {
+        "name": "button_label",
+        "font_family": "Inter, -apple-system, sans-serif",
+        "font_size": 13,
+        "line_height": 18,
+        "font_weight": 500,
+        "letter_spacing": 0.0
+      },
+      "code": {
+        "name": "code",
+        "font_family": "Fira Code, monospace",
+        "font_size": 12,
+        "line_height": 16,
+        "font_weight": 400,
+        "letter_spacing": 0.0
+      }
+    },
+    "spacing": {
+      "xxs": 2,
+      "xs": 4,
+      "sm": 8,
+      "md": 16,
+      "lg": 24,
+      "xl": 32,
+      "xxl": 48,
+      "xxxl": 64
+    },
+    "radius": {
+      "none": 0,
+      "xs": 3,
+      "sm": 6,
+      "md": 8,
+      "lg": 10,
+      "xl": 14,
+      "full": 9999
+    },
+    "shadows": {
+      "sm": {
+        "name": "sm",
+        "x": 0,
+        "y": 1,
+        "blur": 2,
+        "spread": 0,
+        "color": "rgba(0,0,0,0.05)",
+        "css_box_shadow": "0 1px 2px rgba(0,0,0,0.05)"
+      },
+      "md": {
+        "name": "md",
+        "x": 0,
+        "y": 4,
+        "blur": 6,
+        "spread": -1,
+        "color": "rgba(0,0,0,0.08)",
+        "css_box_shadow": "0 4px 6px -1px rgba(0,0,0,0.08)"
+      },
+      "lg": {
+        "name": "lg",
+        "x": 0,
+        "y": 10,
+        "blur": 15,
+        "spread": -3,
+        "color": "rgba(0,0,0,0.10)",
+        "css_box_shadow": "0 10px 15px -3px rgba(0,0,0,0.10)"
+      }
+    },
+    "grid_columns": 12,
+    "container_width": 1280
+  },
+  "operations": [
+    {
+      "op_id": "op_0001",
+      "op_type": "create_page",
+      "target_id": "page_prd_fa509270",
+      "parent_id": null,
+      "name": "\u2728 SprintFlow Workspace \u2022 Master Design System & Flows",
+      "payload": {
+        "product_id": "prd_fa509270",
+        "category": "Developer-Centric Project Management SaaS"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0002",
+      "op_type": "create_section",
+      "target_id": "sec_ux_arch_prd_fa509270",
+      "parent_id": "page_prd_fa509270",
+      "name": "1. UX Architecture & Discovery Board",
+      "payload": {
+        "x": 0,
+        "y": 0,
+        "width": 1600,
+        "height": 900
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0003",
+      "op_type": "create_sticky_note",
+      "target_id": "sticky_persona_PER-01",
+      "parent_id": "sec_ux_arch_prd_fa509270",
+      "name": "Persona: Marcus Vance - Lead Staff Engineer",
+      "payload": {
+        "x": 50,
+        "y": 100,
+        "color": "BLUE",
+        "content": "\ud83d\udc64 Marcus Vance - Lead Staff Engineer\nRole: Technical Tech Lead / Scrum Master\nGoal: Keep a 10-person distributed backend team unblocked and track sprint commitments without spending hours updating Jira.\nContext: Dual 4K desktop workstation, Chrome and terminal windows open side-by-side."
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0004",
+      "op_type": "create_sticky_note",
+      "target_id": "sticky_persona_PER-02",
+      "parent_id": "sec_ux_arch_prd_fa509270",
+      "name": "Persona: Elena Rostova - Full-Stack Developer",
+      "payload": {
+        "x": 370,
+        "y": 100,
+        "color": "BLUE",
+        "content": "\ud83d\udc64 Elena Rostova - Full-Stack Developer\nRole: Senior Software Engineer\nGoal: Pick up assigned sprint tickets, understand requirements immediately, and link Git PRs with zero friction.\nContext: MacBook Pro 14-inch, IDE active, prefers Dark Mode."
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0005",
+      "op_type": "create_sticky_note",
+      "target_id": "sticky_asm_ASM-SAAS-01",
+      "parent_id": "sec_ux_arch_prd_fa509270",
+      "name": "Assumption: ASM-SAAS-01",
+      "payload": {
+        "x": 50,
+        "y": 420,
+        "color": "YELLOW",
+        "content": "\ud83d\udca1 ASSUMPTION (HIGH)\nDevelopers prefer a dual Kanban/List toggle rather than forced board views.\nValidation: View usage telemetry analytics"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0006",
+      "op_type": "create_sticky_note",
+      "target_id": "sticky_asm_ASM-SAAS-02",
+      "parent_id": "sec_ux_arch_prd_fa509270",
+      "name": "Assumption: ASM-SAAS-02",
+      "payload": {
+        "x": 370,
+        "y": 420,
+        "color": "YELLOW",
+        "content": "\ud83d\udca1 ASSUMPTION (MEDIUM)\nA collapsible contextual sidebar preserves screen real-estate on 13-inch laptop displays.\nValidation: Responsive usability testing"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0007",
+      "op_type": "create_section",
+      "target_id": "sec_components_prd_fa509270",
+      "parent_id": "page_prd_fa509270",
+      "name": "2. Design System & Master Components",
+      "payload": {
+        "x": 1800,
+        "y": 0,
+        "width": 1400,
+        "height": 900
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0008",
+      "op_type": "create_component",
+      "target_id": "cmp_btn_primary",
+      "parent_id": "sec_components_prd_fa509270",
+      "name": "Primary Action Button",
+      "payload": {
+        "type": "BUTTON",
+        "width": 140,
+        "height": 36,
+        "direction": "horizontal",
+        "padding_x": 16,
+        "padding_y": 12,
+        "gap": 8,
+        "radius": 6,
+        "bg_token": "primary",
+        "text_token": "text_on_primary",
+        "y": 100
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0009",
+      "op_type": "create_component",
+      "target_id": "cmp_btn_secondary",
+      "parent_id": "sec_components_prd_fa509270",
+      "name": "Secondary Action Button",
+      "payload": {
+        "type": "BUTTON",
+        "width": 120,
+        "height": 36,
+        "direction": "horizontal",
+        "padding_x": 16,
+        "padding_y": 10,
+        "gap": 8,
+        "radius": 8,
+        "bg_token": "surface",
+        "text_token": "text_primary",
+        "y": 176
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0010",
+      "op_type": "create_component",
+      "target_id": "cmp_icon_button",
+      "parent_id": "sec_components_prd_fa509270",
+      "name": "Icon Button",
+      "payload": {
+        "type": "ICON_BUTTON",
+        "width": 40,
+        "height": 40,
+        "direction": "horizontal",
+        "padding_x": 8,
+        "padding_y": 8,
+        "gap": 0,
+        "radius": 8,
+        "bg_token": "surface",
+        "text_token": "text_primary",
+        "y": 252
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0011",
+      "op_type": "create_component",
+      "target_id": "cmp_search_bar",
+      "parent_id": "sec_components_prd_fa509270",
+      "name": "Search Input Bar",
+      "payload": {
+        "type": "SEARCH_BAR",
+        "width": 320,
+        "height": 44,
+        "direction": "horizontal",
+        "padding_x": 14,
+        "padding_y": 10,
+        "gap": 10,
+        "radius": 10,
+        "bg_token": "surface",
+        "text_token": "text_primary",
+        "y": 332
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0012",
+      "op_type": "create_component",
+      "target_id": "cmp_input_field",
+      "parent_id": "sec_components_prd_fa509270",
+      "name": "Text Input Field",
+      "payload": {
+        "type": "INPUT",
+        "width": 280,
+        "height": 52,
+        "direction": "vertical",
+        "padding_x": 12,
+        "padding_y": 8,
+        "gap": 4,
+        "radius": 8,
+        "bg_token": "surface",
+        "text_token": "text_primary",
+        "y": 416
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0013",
+      "op_type": "create_component",
+      "target_id": "cmp_entity_card",
+      "parent_id": "sec_components_prd_fa509270",
+      "name": "Entity Content Card",
+      "payload": {
+        "type": "CARD",
+        "width": 290,
+        "height": 140,
+        "direction": "vertical",
+        "padding_x": 16,
+        "padding_y": 16,
+        "gap": 12,
+        "radius": 12,
+        "bg_token": "surface",
+        "text_token": "text_primary",
+        "y": 508
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0014",
+      "op_type": "create_component",
+      "target_id": "cmp_global_nav",
+      "parent_id": "sec_components_prd_fa509270",
+      "name": "Global Navigation Container",
+      "payload": {
+        "type": "SIDEBAR",
+        "width": 240,
+        "height": 900,
+        "direction": "vertical",
+        "padding_x": 16,
+        "padding_y": 12,
+        "gap": 16,
+        "radius": 0,
+        "bg_token": "surface",
+        "text_token": "text_secondary",
+        "y": 688
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0015",
+      "op_type": "create_component",
+      "target_id": "cmp_status_badge",
+      "parent_id": "sec_components_prd_fa509270",
+      "name": "Semantic Status Badge",
+      "payload": {
+        "type": "BADGE",
+        "width": 72,
+        "height": 24,
+        "direction": "horizontal",
+        "padding_x": 8,
+        "padding_y": 4,
+        "gap": 4,
+        "radius": 9999,
+        "bg_token": "accent",
+        "text_token": "text_primary",
+        "y": 1628
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0016",
+      "op_type": "create_component",
+      "target_id": "cmp_user_avatar",
+      "parent_id": "sec_components_prd_fa509270",
+      "name": "User Avatar",
+      "payload": {
+        "type": "AVATAR",
+        "width": 36,
+        "height": 36,
+        "direction": "horizontal",
+        "padding_x": 0,
+        "padding_y": 0,
+        "gap": 0,
+        "radius": 9999,
+        "bg_token": "secondary",
+        "text_token": "text_on_secondary",
+        "y": 1692
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0017",
+      "op_type": "create_component",
+      "target_id": "cmp_overlay_container",
+      "parent_id": "sec_components_prd_fa509270",
+      "name": "Focused Overlay Container",
+      "payload": {
+        "type": "MODAL",
+        "width": 560,
+        "height": 450,
+        "direction": "vertical",
+        "padding_x": 24,
+        "padding_y": 20,
+        "gap": 16,
+        "radius": 12,
+        "bg_token": "surface_elevated",
+        "text_token": "text_primary",
+        "y": 1768
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0018",
+      "op_type": "create_component",
+      "target_id": "cmp_empty_state",
+      "parent_id": "sec_components_prd_fa509270",
+      "name": "Zero-Data Empty State",
+      "payload": {
+        "type": "EMPTY_STATE",
+        "width": 340,
+        "height": 200,
+        "direction": "vertical",
+        "padding_x": 20,
+        "padding_y": 24,
+        "gap": 12,
+        "radius": 12,
+        "bg_token": "surface",
+        "text_token": "text_muted",
+        "y": 2258
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0019",
+      "op_type": "create_component",
+      "target_id": "cmp_error_banner",
+      "parent_id": "sec_components_prd_fa509270",
+      "name": "Inline Error Recovery Banner",
+      "payload": {
+        "type": "ERROR_STATE",
+        "width": 500,
+        "height": 56,
+        "direction": "horizontal",
+        "padding_x": 16,
+        "padding_y": 12,
+        "gap": 12,
+        "radius": 8,
+        "bg_token": "surface",
+        "text_token": "error",
+        "y": 2498
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0020",
+      "op_type": "create_component",
+      "target_id": "cmp_data_table",
+      "parent_id": "sec_components_prd_fa509270",
+      "name": "Sortable Data Table",
+      "payload": {
+        "type": "TABLE",
+        "width": 980,
+        "height": 420,
+        "direction": "vertical",
+        "padding_x": 0,
+        "padding_y": 0,
+        "gap": 0,
+        "radius": 8,
+        "bg_token": "surface",
+        "text_token": "text_primary",
+        "y": 2594
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0021",
+      "op_type": "create_section",
+      "target_id": "sec_screens_prd_fa509270",
+      "parent_id": "page_prd_fa509270",
+      "name": "3. Interactive Connected Product Screens",
+      "payload": {
+        "x": 3400,
+        "y": 0,
+        "width": 3600,
+        "height": 1100
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0022",
+      "op_type": "create_screen",
+      "target_id": "scr_dashboard",
+      "parent_id": "sec_screens_prd_fa509270",
+      "name": "scr_dashboard: Sprint Engineering Dashboard",
+      "payload": {
+        "x": 3500,
+        "y": 100,
+        "width": 1280,
+        "height": 900,
+        "direction": "horizontal",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_x": 0,
+        "gap": 0,
+        "bg_hex": "#F8FAFC",
+        "scrollable": true
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0023",
+      "op_type": "create_auto_layout",
+      "target_id": "sec_scr_dashboard_sec_sidebar",
+      "parent_id": "scr_dashboard",
+      "name": "Persistent Left Sidebar",
+      "payload": {
+        "direction": "vertical",
+        "gap": 16,
+        "padding": 0,
+        "layout_mode": "fixed"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0024",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_dashboard_inst_sidebar_nav",
+      "parent_id": "sec_scr_dashboard_sec_sidebar",
+      "name": "Global Sidebar",
+      "payload": {
+        "master_component_id": "cmp_global_nav",
+        "content_data": {
+          "active": "Dashboard"
+        },
+        "interactive_target_screen_id": "scr_kanban_board"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0025",
+      "op_type": "create_auto_layout",
+      "target_id": "sec_scr_dashboard_sec_main_content",
+      "parent_id": "scr_dashboard",
+      "name": "Main Dashboard View",
+      "payload": {
+        "direction": "vertical",
+        "gap": 24,
+        "padding": 32,
+        "layout_mode": "fill"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0026",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_dashboard_inst_sprint_summary",
+      "parent_id": "sec_scr_dashboard_sec_main_content",
+      "name": "Sprint Burndown Metric Card",
+      "payload": {
+        "master_component_id": "cmp_entity_card",
+        "content_data": {
+          "workspace_title": "SprintFlow \u2022 Core Platform Eng Team",
+          "active_sprint": "Sprint 34: Auth v2 & Realtime Webhooks",
+          "sprint_status": "Day 6 of 10 \u2022 78% on track",
+          "burndown_summary": "42 of 58 Story Points Completed \u2022 4 Blocked",
+          "columns": [
+            {
+              "id": "col_backlog",
+              "title": "Backlog (8)",
+              "color": "#64748B"
+            },
+            {
+              "id": "col_ready",
+              "title": "Ready for Dev (4)",
+              "color": "#3B82F6"
+            },
+            {
+              "id": "col_progress",
+              "title": "In Progress (5)",
+              "color": "#F59E0B"
+            },
+            {
+              "id": "col_review",
+              "title": "PR In Review (3)",
+              "color": "#8B5CF6"
+            },
+            {
+              "id": "col_done",
+              "title": "Done & Merged (14)",
+              "color": "#10B981"
+            }
+          ],
+          "sample_tasks": [
+            {
+              "key": "ENG-402",
+              "title": "Migrate JWT refresh token rotation to Redis cluster",
+              "priority": "P0 Urgent",
+              "priority_color": "#EF4444",
+              "assignee": "Elena Rostova",
+              "assignee_initials": "ER",
+              "points": "5 pts",
+              "branch": "feat/redis-jwt-rotation",
+              "pr_status": "PR #128 opened \u2022 2 approvals"
+            },
+            {
+              "key": "ENG-409",
+              "title": "Implement rate limiting middleware for public GraphQL gateway",
+              "priority": "P1 High",
+              "priority_color": "#F59E0B",
+              "assignee": "Marcus Vance",
+              "assignee_initials": "MV",
+              "points": "3 pts",
+              "branch": "fix/graphql-rate-limiter",
+              "pr_status": "CI passing \u2022 Tests 100%"
+            },
+            {
+              "key": "ENG-415",
+              "title": "Add telemetry span for Figma Plugin WebSocket handshake latency",
+              "priority": "P2 Normal",
+              "priority_color": "#3B82F6",
+              "assignee": "Samir Patel",
+              "assignee_initials": "SP",
+              "points": "2 pts",
+              "branch": "chore/mcp-telemetry",
+              "pr_status": "Draft PR"
+            }
+          ],
+          "velocity_metrics": {
+            "avg_velocity": "54 pts/sprint",
+            "cycle_time": "1.8 days",
+            "pr_merge_time": "4.2 hrs"
+          }
+        },
+        "interactive_target_screen_id": null
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0027",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_dashboard_inst_btn_new_task",
+      "parent_id": "sec_scr_dashboard_sec_main_content",
+      "name": "Create Task Button",
+      "payload": {
+        "master_component_id": "cmp_btn_primary",
+        "content_data": {
+          "label": "+ Create Task (Press C)"
+        },
+        "interactive_target_screen_id": "scr_create_task_modal"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0028",
+      "op_type": "create_screen",
+      "target_id": "scr_kanban_board",
+      "parent_id": "sec_screens_prd_fa509270",
+      "name": "scr_kanban_board: Agile Sprint Kanban Board",
+      "payload": {
+        "x": 4860,
+        "y": 100,
+        "width": 1280,
+        "height": 900,
+        "direction": "horizontal",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_x": 0,
+        "gap": 0,
+        "bg_hex": "#F8FAFC",
+        "scrollable": true
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0029",
+      "op_type": "create_auto_layout",
+      "target_id": "sec_scr_kanban_board_sec_board_content",
+      "parent_id": "scr_kanban_board",
+      "name": "5-Column Kanban Board",
+      "payload": {
+        "direction": "horizontal",
+        "gap": 16,
+        "padding": 24,
+        "layout_mode": "fill"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0030",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_kanban_board_inst_kanban_col_col_backlog",
+      "parent_id": "sec_scr_kanban_board_sec_board_content",
+      "name": "Kanban Column: Backlog (8)",
+      "payload": {
+        "master_component_id": "cmp_entity_card",
+        "content_data": {
+          "id": "col_backlog",
+          "title": "Backlog (8)",
+          "color": "#64748B"
+        },
+        "interactive_target_screen_id": null
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0031",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_kanban_board_inst_kanban_col_col_ready",
+      "parent_id": "sec_scr_kanban_board_sec_board_content",
+      "name": "Kanban Column: Ready for Dev (4)",
+      "payload": {
+        "master_component_id": "cmp_entity_card",
+        "content_data": {
+          "id": "col_ready",
+          "title": "Ready for Dev (4)",
+          "color": "#3B82F6"
+        },
+        "interactive_target_screen_id": null
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0032",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_kanban_board_inst_kanban_col_col_progress",
+      "parent_id": "sec_scr_kanban_board_sec_board_content",
+      "name": "Kanban Column: In Progress (5)",
+      "payload": {
+        "master_component_id": "cmp_entity_card",
+        "content_data": {
+          "id": "col_progress",
+          "title": "In Progress (5)",
+          "color": "#F59E0B"
+        },
+        "interactive_target_screen_id": null
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0033",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_kanban_board_inst_kanban_col_col_review",
+      "parent_id": "sec_scr_kanban_board_sec_board_content",
+      "name": "Kanban Column: PR In Review (3)",
+      "payload": {
+        "master_component_id": "cmp_entity_card",
+        "content_data": {
+          "id": "col_review",
+          "title": "PR In Review (3)",
+          "color": "#8B5CF6"
+        },
+        "interactive_target_screen_id": null
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0034",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_kanban_board_inst_kanban_col_col_done",
+      "parent_id": "sec_scr_kanban_board_sec_board_content",
+      "name": "Kanban Column: Done & Merged (14)",
+      "payload": {
+        "master_component_id": "cmp_entity_card",
+        "content_data": {
+          "id": "col_done",
+          "title": "Done & Merged (14)",
+          "color": "#10B981"
+        },
+        "interactive_target_screen_id": null
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0035",
+      "op_type": "create_screen",
+      "target_id": "scr_task_detail",
+      "parent_id": "sec_screens_prd_fa509270",
+      "name": "scr_task_detail: Task Specification & PR Traceability Drawer",
+      "payload": {
+        "x": 6220,
+        "y": 100,
+        "width": 1280,
+        "height": 900,
+        "direction": "horizontal",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_x": 0,
+        "gap": 0,
+        "bg_hex": "#F8FAFC",
+        "scrollable": true
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0036",
+      "op_type": "create_auto_layout",
+      "target_id": "sec_scr_task_detail_sec_drawer_content",
+      "parent_id": "scr_task_detail",
+      "name": "Task Detail Drawer",
+      "payload": {
+        "direction": "vertical",
+        "gap": 16,
+        "padding": 32,
+        "layout_mode": "fill"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0037",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_task_detail_inst_task_detail_card",
+      "parent_id": "sec_scr_task_detail_sec_drawer_content",
+      "name": "Task Detail Spec",
+      "payload": {
+        "master_component_id": "cmp_entity_card",
+        "content_data": {
+          "key": "ENG-402",
+          "title": "Migrate JWT refresh token rotation to Redis cluster",
+          "priority": "P0 Urgent",
+          "priority_color": "#EF4444",
+          "assignee": "Elena Rostova",
+          "assignee_initials": "ER",
+          "points": "5 pts",
+          "branch": "feat/redis-jwt-rotation",
+          "pr_status": "PR #128 opened \u2022 2 approvals"
+        },
+        "interactive_target_screen_id": null
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0038",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_task_detail_inst_btn_close_drawer",
+      "parent_id": "sec_scr_task_detail_sec_drawer_content",
+      "name": "Close Drawer Button",
+      "payload": {
+        "master_component_id": "cmp_btn_secondary",
+        "content_data": {
+          "label": "Close (Esc)"
+        },
+        "interactive_target_screen_id": "scr_kanban_board"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0039",
+      "op_type": "create_screen",
+      "target_id": "scr_analytics",
+      "parent_id": "sec_screens_prd_fa509270",
+      "name": "scr_analytics: Sprint Velocity & Burndown Analytics",
+      "payload": {
+        "x": 7580,
+        "y": 100,
+        "width": 1280,
+        "height": 900,
+        "direction": "horizontal",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_x": 0,
+        "gap": 0,
+        "bg_hex": "#F8FAFC",
+        "scrollable": true
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0040",
+      "op_type": "create_auto_layout",
+      "target_id": "sec_scr_analytics_sec_analytics_view",
+      "parent_id": "scr_analytics",
+      "name": "Velocity Metrics Overview",
+      "payload": {
+        "direction": "vertical",
+        "gap": 20,
+        "padding": 32,
+        "layout_mode": "fill"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0041",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_analytics_inst_velocity_card",
+      "parent_id": "sec_scr_analytics_sec_analytics_view",
+      "name": "Sprint Velocity Card",
+      "payload": {
+        "master_component_id": "cmp_entity_card",
+        "content_data": {
+          "avg_velocity": "54 pts/sprint",
+          "cycle_time": "1.8 days",
+          "pr_merge_time": "4.2 hrs"
+        },
+        "interactive_target_screen_id": null
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0042",
+      "op_type": "create_instance",
+      "target_id": "inst_scr_analytics_inst_btn_back_to_board",
+      "parent_id": "sec_scr_analytics_sec_analytics_view",
+      "name": "Back to Board",
+      "payload": {
+        "master_component_id": "cmp_btn_secondary",
+        "content_data": {
+          "label": "\u2190 Back to Sprint Board"
+        },
+        "interactive_target_screen_id": "scr_kanban_board"
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0043",
+      "op_type": "connect_prototype",
+      "target_id": "proto_conn_001",
+      "parent_id": null,
+      "name": "Link: scr_dashboard -> scr_kanban_board",
+      "payload": {
+        "source_screen_id": "scr_dashboard",
+        "target_screen_id": "scr_kanban_board",
+        "source_element_id": "inst_sidebar_nav",
+        "trigger": "ON_CLICK",
+        "animation": "SLIDE_IN_RIGHT",
+        "duration_ms": 300
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0044",
+      "op_type": "connect_prototype",
+      "target_id": "proto_conn_002",
+      "parent_id": null,
+      "name": "Link: scr_dashboard -> scr_create_task_modal",
+      "payload": {
+        "source_screen_id": "scr_dashboard",
+        "target_screen_id": "scr_create_task_modal",
+        "source_element_id": "inst_btn_new_task",
+        "trigger": "ON_CLICK",
+        "animation": "SLIDE_IN_RIGHT",
+        "duration_ms": 300
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0045",
+      "op_type": "connect_prototype",
+      "target_id": "proto_conn_003",
+      "parent_id": null,
+      "name": "Link: scr_kanban_board -> scr_task_detail",
+      "payload": {
+        "source_screen_id": "scr_kanban_board",
+        "target_screen_id": "scr_task_detail",
+        "source_element_id": "inst_kanban_col_col_progress",
+        "trigger": "ON_CLICK",
+        "animation": "SLIDE_IN_RIGHT",
+        "duration_ms": 300
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0046",
+      "op_type": "connect_prototype",
+      "target_id": "proto_conn_004",
+      "parent_id": null,
+      "name": "Link: scr_task_detail -> scr_kanban_board",
+      "payload": {
+        "source_screen_id": "scr_task_detail",
+        "target_screen_id": "scr_kanban_board",
+        "source_element_id": "inst_btn_close_drawer",
+        "trigger": "ON_CLICK",
+        "animation": "SLIDE_IN_RIGHT",
+        "duration_ms": 300
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    },
+    {
+      "op_id": "op_0047",
+      "op_type": "connect_prototype",
+      "target_id": "proto_conn_005",
+      "parent_id": null,
+      "name": "Link: scr_analytics -> scr_kanban_board",
+      "payload": {
+        "source_screen_id": "scr_analytics",
+        "target_screen_id": "scr_kanban_board",
+        "source_element_id": "inst_btn_back_to_board",
+        "trigger": "ON_CLICK",
+        "animation": "SLIDE_IN_RIGHT",
+        "duration_ms": 300
+      },
+      "managed_by": "autonomous-design-mcp",
+      "generation_id": "014a6fa2-b4e5-4df4-a240-236dc5b36780"
+    }
+  ],
+  "audit_findings": [
+    {
+      "id": "FND-01",
+      "title": "Explicit verification required before high-value action",
+      "category": "Error Prevention",
+      "severity": "HIGH",
+      "heuristic": "Error Prevention",
+      "screen_id": "scr_create_task_modal",
+      "affected_element": "Payment / Task Submission CTA",
+      "problem": "User might tap confirmation accidentally when moving quickly.",
+      "why_it_matters": "Accidental submissions cause immediate user panic, refund requests, or phantom tickets.",
+      "evidence": "Screen interaction flow review.",
+      "ux_principle": "Nielsen Heuristic #5: Error Prevention (Slips and Mistakes)",
+      "confidence_percentage": 92,
+      "recommendation": "Use explicit swipe-to-confirm affordance or 8-second undo snackbar.",
+      "impact": "High",
+      "effort": "Low",
+      "risk": "Low",
+      "validation_test": "5-second usability testing with rushed participants."
+    },
+    {
+      "id": "FND-02",
+      "title": "Preserve previous search filters and recent location memory",
+      "category": "Cognitive Load",
+      "severity": "MEDIUM",
+      "heuristic": "Recognition Rather Than Recall",
+      "screen_id": "scr_kanban_board",
+      "affected_element": "Filter Pills / Active Search Query",
+      "problem": "Users frequently re-enter the exact same dietary filter or sprint squad view.",
+      "why_it_matters": "Forcing recall rather than recognition increases cognitive friction.",
+      "evidence": "Observed default filter reset on screen revisit.",
+      "ux_principle": "Nielsen Heuristic #6: Recognition Rather Than Recall",
+      "confidence_percentage": 88,
+      "recommendation": "Store top 3 recent selections in local cache with 1-tap re-activation.",
+      "impact": "Medium",
+      "effort": "Low",
+      "risk": "Low",
+      "validation_test": "Track filter click frequency in product analytics."
+    },
+    {
+      "id": "FND-03",
+      "title": "Real-time ETA and courier milestone synchronization",
+      "category": "Usability",
+      "severity": "LOW",
+      "heuristic": "Visibility of System Status",
+      "screen_id": "scr_analytics",
+      "affected_element": "Live Progress Stepper",
+      "problem": "Static progress bars create anxiety if status doesn't refresh within 30 seconds.",
+      "why_it_matters": "Users wonder if the system stalled or network disconnected.",
+      "evidence": "Tracking screen state review.",
+      "ux_principle": "Nielsen Heuristic #1: Visibility of System Status",
+      "confidence_percentage": 94,
+      "recommendation": "Include subtle pulsing live indicator and 'Updated 5s ago' timestamp.",
+      "impact": "Medium",
+      "effort": "Low",
+      "risk": "Low",
+      "validation_test": "User anxiety feedback survey during active orders."
+    }
+  ]
+}

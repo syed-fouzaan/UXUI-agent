@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AZIA • CraveBite Campus • Complete Product Design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #EA580C;
+      --primary-hover: #C2410C;
+      --secondary: #4F46E5;
+      --accent: #F59E0B;
+      --bg: #FAFAF9;
+      --surface: #FFFFFF;
+      --text: #1C1917;
+      --text-muted: #78716C;
+      --border: #E7E5E4;
+      --success: #16A34A;
+      --error: #DC2626;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: #0B0F17;
+      color: #F1F5F9;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+    /* Top Header */
+    header {
+      background: #111827;
+      border-bottom: 1px solid #1F2937;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-badge {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      font-weight: 800;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+    }
+    .product-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      color: #FFFFFF;
+    }
+    .meta-tag {
+      background: #1F2937;
+      color: #9CA3AF;
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      margin-left: 8px;
+    }
+    .nav-tabs {
+      display: flex;
+      gap: 8px;
+    }
+    .tab-btn {
+      background: transparent;
+      border: 1px solid #374151;
+      color: #9CA3AF;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: white;
+    }
+    /* Main Layout */
+    main {
+      display: flex;
+      flex: 1;
+      height: calc(100vh - 73px);
+      overflow: hidden;
+    }
+    .canvas-viewport {
+      flex: 1;
+      background: radial-gradient(circle at 50% 50%, #151D2C 0%, #0B0F17 100%);
+      overflow: auto;
+      padding: 40px;
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+      position: relative;
+    }
+    /* Side Inspector Panel */
+    .inspector-panel {
+      width: 440px;
+      background: #111827;
+      border-left: 1px solid #1F2937;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+    .panel-section {
+      padding: 20px;
+      border-bottom: 1px solid #1F2937;
+    }
+    .panel-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: #93C5FD;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    /* Device Screen Frame */
+    .screen-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+    .screen-header-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #94A3B8;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .screen-frame {
+      width: 393px;
+      height: 852px;
+      background: #FAFAF9;
+      border-radius: 40px;
+      border: 4px solid #334155;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      color: #1C1917;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .screen-frame:hover {
+      border-color: var(--primary);
+    }
+    /* Inside Screen Styles */
+    .ui-header {
+      padding: 24px 16px 12px;
+      background: #FFFFFF;
+      border-bottom: 1px solid #E7E5E4;
+    }
+    .ui-card {
+      background: #FFFFFF;
+      border: 1px solid #E7E5E4;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .ui-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+      border-color: var(--primary);
+    }
+    .ui-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: 9999px;
+      background: #FEF3C7;
+      color: #92400E;
+      margin-bottom: 8px;
+    }
+    .ui-btn-primary {
+      background: var(--primary);
+      color: white;
+      font-weight: 600;
+      border: none;
+      padding: 14px;
+      border-radius: 10px;
+      width: 100%;
+      font-size: 15px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(234, 88, 12, 0.3);
+      transition: background 0.2s;
+    }
+    .ui-btn-primary:hover {
+      background: var(--primary-hover);
+    }
+    /* Sticky Notes (FigJam Board) */
+    .sticky-note {
+      background: #FEF08A;
+      color: #713F12;
+      padding: 16px;
+      border-radius: 4px;
+      box-shadow: 2px 4px 12px rgba(0,0,0,0.25);
+      font-size: 13px;
+      line-height: 1.5;
+      width: 260px;
+      margin-bottom: 12px;
+      position: relative;
+    }
+    .sticky-blue { background: #BAE6FD; color: #0369A1; }
+    /* Audit Finding Card */
+    .finding-card {
+      background: #1E293B;
+      border-left: 4px solid var(--accent);
+      padding: 14px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      font-size: 13px;
+    }
+    .finding-card.CRITICAL { border-left-color: var(--error); }
+    .finding-card.HIGH { border-left-color: #F97316; }
+    .finding-card.MEDIUM { border-left-color: #EAB308; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <div class="logo-badge">AZIA AUTONOMOUS DESIGN MCP</div>
+      <div class="product-title">CraveBite Campus</div>
+      <span class="meta-tag">MOBILE</span>
+      <span class="meta-tag">GENERATION: b78accce</span>
+      <span class="meta-tag" style="background:#065F46; color:#A7F3D0;">QA SCORE: 100%</span>
+    </div>
+    <div class="nav-tabs">
+      <button class="tab-btn active" onclick="switchView('screens')">📱 Interactive Screens (7)</button>
+      <button class="tab-btn" onclick="switchView('ux-board')">📐 FigJam UX Board</button>
+      <button class="tab-btn" onclick="switchView('tokens')">🎨 Design Tokens</button>
+      <button class="tab-btn" onclick="switchView('audit')">🔍 Nielsen Audit & QA</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="canvas-viewport" id="viewport">
+      <!-- Screen Frames Rendered Side-by-Side -->
+
+      <div class="screen-container" id="container_scr_home">
+        <div class="screen-header-label">
+          <span>scr_home</span> • <strong>Campus Discovery & Feed</strong>
+        </div>
+        <div class="screen-frame" id="scr_home">
+          <div class="ui-header">
+            <div style="font-size:12px; font-weight:600; color:#57534E; text-transform:uppercase;">
+              Campus Discovery & Feed
+            </div>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:18px; font-weight:700; margin-top:4px;">
+              Present campus dining spots, flash student bu...
+            </div>
+          </div>
+          <div style="padding:16px; flex:1; display:flex; flex-direction:column; gap:12px;">
+
+            <div style="margin-bottom:8px;">
+              <div style="font-size:12px; font-weight:600; color:#78716C; margin-bottom:8px; text-transform:uppercase;">
+                Dorm Delivery Location & Search
+              </div>
+
+              <div class="ui-card" >
+                <div style="font-weight:600; font-size:14px;">📍 North Quad Dorms (Building B) </div>
+              </div>
+
+              <div class="ui-card" onclick="navigateTo('scr_search')" style='cursor:pointer;'>
+                <div style="font-weight:600; font-size:14px;">Global Search Input </div>
+              </div>
+</div>
+            <div style="margin-bottom:8px;">
+              <div style="font-size:12px; font-weight:600; color:#78716C; margin-bottom:8px; text-transform:uppercase;">
+                Student Saver Quick Filters
+              </div>
+
+              <div class="ui-card" >
+                <div style="font-weight:600; font-size:14px;">Under $10 💰 </div>
+              </div>
+
+              <div class="ui-card" >
+                <div style="font-weight:600; font-size:14px;">⚡ Under 20 Mins </div>
+              </div>
+
+              <div class="ui-card" >
+                <div style="font-weight:600; font-size:14px;">🌱 Plant-Based </div>
+              </div>
+
+              <div class="ui-card" >
+                <div style="font-weight:600; font-size:14px;">Late Night 🌙 </div>
+              </div>
+
+              <div class="ui-card" >
+                <div style="font-weight:600; font-size:14px;">Top Rated ⭐ </div>
+              </div>
+</div>
+            <div style="margin-bottom:8px;">
+              <div style="font-size:12px; font-weight:600; color:#78716C; margin-bottom:8px; text-transform:uppercase;">
+                Fast & Nearby Campus Favorites
+              </div>
+
+              <div class="ui-card" onclick="navigateTo('scr_restaurant_detail')" style='cursor:pointer;'>
+                <div style="font-weight:600; font-size:14px;">Quad Noodle Bar & Dumplings <span style='float:right; font-weight:700; color:#EA580C;'>$8.49</span><div style='font-size:12px; color:#78716C; margin-top:4px;'>⏱ 15–20 min • 4.9 (1.2k+ students)</div></div>
+              </div>
+
+              <div class="ui-card" onclick="navigateTo('scr_restaurant_detail')" style='cursor:pointer;'>
+                <div style="font-weight:600; font-size:14px;">Varsity Burrito Co. <span style='float:right; font-weight:700; color:#EA580C;'>$9.95</span><div style='font-size:12px; color:#78716C; margin-top:4px;'>⏱ 20–25 min • 4.8 (890)</div></div>
+              </div>
+
+              <div class="ui-card" onclick="navigateTo('scr_restaurant_detail')" style='cursor:pointer;'>
+                <div style="font-weight:600; font-size:14px;">Library Street Woodfired Pizza <span style='float:right; font-weight:700; color:#EA580C;'>$11.50</span><div style='font-size:12px; color:#78716C; margin-top:4px;'>⏱ 25–30 min • 4.7 (2.4k)</div></div>
+              </div>
+</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="screen-container" id="container_scr_search">
+        <div class="screen-header-label">
+          <span>scr_search</span> • <strong>Dietary Search & Query Results</strong>
+        </div>
+        <div class="screen-frame" id="scr_search">
+          <div class="ui-header">
+            <div style="font-size:12px; font-weight:600; color:#57534E; text-transform:uppercase;">
+              Dietary Search & Query Results
+            </div>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:18px; font-weight:700; margin-top:4px;">
+              Allow granular filtering by price, prep speed...
+            </div>
+          </div>
+          <div style="padding:16px; flex:1; display:flex; flex-direction:column; gap:12px;">
+
+            <div style="margin-bottom:8px;">
+              <div style="font-size:12px; font-weight:600; color:#78716C; margin-bottom:8px; text-transform:uppercase;">
+                Query Input with Back Button
+              </div>
+
+              <div class="ui-card" onclick="navigateTo('scr_home')" style='cursor:pointer;'>
+                <div style="font-weight:600; font-size:14px;">Back Arrow </div>
+              </div>
+
+              <div class="ui-card" >
+                <div style="font-weight:600; font-size:14px;">Focused Search Input </div>
+              </div>
+</div>
+            <div style="margin-bottom:8px;">
+              <div style="font-size:12px; font-weight:600; color:#78716C; margin-bottom:8px; text-transform:uppercase;">
+                Matched Meals Under $10
+              </div>
+
+              <div class="ui-card" onclick="navigateTo('scr_restaurant_detail')" style='cursor:pointer;'>
+                <div style="font-weight:600; font-size:14px;">Crispy Chili Garlic Noodles <span style='float:right; font-weight:700; color:#EA580C;'>$8.49</span></div>
+              </div>
+</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="screen-container" id="container_scr_restaurant_detail">
+        <div class="screen-header-label">
+          <span>scr_restaurant_detail</span> • <strong>Restaurant Menu & Customizer</strong>
+        </div>
+        <div class="screen-frame" id="scr_restaurant_detail">
+          <div class="ui-header">
+            <div style="font-size:12px; font-weight:600; color:#57534E; text-transform:uppercase;">
+              Restaurant Menu & Customizer
+            </div>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:18px; font-weight:700; margin-top:4px;">
+              Explore restaurant menu sections and customiz...
+            </div>
+          </div>
+          <div style="padding:16px; flex:1; display:flex; flex-direction:column; gap:12px;">
+
+            <div style="margin-bottom:8px;">
+              <div style="font-size:12px; font-weight:600; color:#78716C; margin-bottom:8px; text-transform:uppercase;">
+                Restaurant Hero & Info
+              </div>
+
+              <div class="ui-card" >
+                <div style="font-weight:600; font-size:14px;">Quad Noodle Bar & Dumplings </div>
+              </div>
+</div>
+            <div style="margin-bottom:8px;">
+              <div style="font-size:12px; font-weight:600; color:#78716C; margin-bottom:8px; text-transform:uppercase;">
+                Popular Student Combos
+              </div>
+
+              <div class="ui-card" >
+                <div style="font-weight:600; font-size:14px;">Crispy Chili Garlic Noodles <span style='float:right; font-weight:700; color:#EA580C;'>$8.49</span></div>
+              </div>
+</div>
+            <div style="margin-bottom:8px;">
+              <div style="font-size:12px; font-weight:600; color:#78716C; margin-bottom:8px; text-transform:uppercase;">
+                Floating Cart Summary Bar
+              </div>
+
+              <button class="ui-btn-primary" onclick="navigateTo('scr_cart')" style='cursor:pointer;'>View Cart • $11.99</button>
+</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="screen-container" id="container_scr_cart">
+        <div class="screen-header-label">
+          <span>scr_cart</span> • <strong>Cart & Student Discount Review</strong>
+        </div>
+        <div class="screen-frame" id="scr_cart">
+          <div class="ui-header">
+            <div style="font-size:12px; font-weight:600; color:#57534E; text-transform:uppercase;">
+              Cart & Student Discount Review
+            </div>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:18px; font-weight:700; margin-top:4px;">
+              Review item quantities, apply promo codes, se...
+            </div>
+          </div>
+          <div style="padding:16px; flex:1; display:flex; flex-direction:column; gap:12px;">
+
+            <div style="margin-bottom:8px;">
+              <div style="font-size:12px; font-weight:600; color:#78716C; margin-bottom:8px; text-transform:uppercase;">
+                Your Order from Quad Noodle Bar
+              </div>
+
+              <div class="ui-card" >
+                <div style="font-weight:600; font-size:14px;">Crispy Chili Garlic Noodles <span style='float:right; font-weight:700; color:#EA580C;'>$8.49</span></div>
+              </div>
+
+              <div class="ui-card" >
+                <div style="font-weight:600; font-size:14px;">Pan-Fried Gyoza (4 pcs) <span style='float:right; font-weight:700; color:#EA580C;'>$3.50</span></div>
+              </div>
+</div>
+            <div style="margin-bottom:8px;">
+              <div style="font-size:12px; font-weight:600; color:#78716C; margin-bottom:8px; text-transform:uppercase;">
+                Campus Pickup Landmark
+              </div>
+
+              <div class="ui-card" >
+                <div style="font-weight:600; font-size:14px;">Drop Location </div>
+              </div>
+</div>
+            <div style="margin-bottom:8px;">
+              <div style="font-size:12px; font-weight:600; color:#78716C; margin-bottom:8px; text-transform:uppercase;">
+                Student Pricing Breakdown
+              </div>
+
+              <div class="ui-card" >
+                <div style="font-weight:600; font-size:14px;">Bill Summary Box </div>
+              </div>
+
+              <button class="ui-btn-primary" onclick="navigateTo('scr_checkout')" style='cursor:pointer;'>Go to Checkout • $10.34</button>
+</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="screen-container" id="container_scr_checkout">
+        <div class="screen-header-label">
+          <span>scr_checkout</span> • <strong>Frictionless Payment & Confirmation</strong>
+        </div>
+        <div class="screen-frame" id="scr_checkout">
+          <div class="ui-header">
+            <div style="font-size:12px; font-weight:600; color:#57534E; text-transform:uppercase;">
+              Frictionless Payment & Confirmation
+            </div>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:18px; font-weight:700; margin-top:4px;">
+              One-tap payment authorization via Apple Pay, ...
+            </div>
+          </div>
+          <div style="padding:16px; flex:1; display:flex; flex-direction:column; gap:12px;">
+
+            <div style="margin-bottom:8px;">
+              <div style="font-size:12px; font-weight:600; color:#78716C; margin-bottom:8px; text-transform:uppercase;">
+                Payment Method
+              </div>
+
+              <button class="ui-btn-primary" >Pay (Default)</button>
+
+              <button class="ui-btn-primary" >Campus Card Cash ($42.50 Balance)</button>
+</div>
+            <div style="margin-bottom:8px;">
+              <div style="font-size:12px; font-weight:600; color:#78716C; margin-bottom:8px; text-transform:uppercase;">
+                Final Authorize Order
+              </div>
+
+              <button class="ui-btn-primary" onclick="navigateTo('scr_order_confirmation')" style='cursor:pointer;'>Confirm & Place Order • $10.34</button>
+</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="screen-container" id="container_scr_order_confirmation">
+        <div class="screen-header-label">
+          <span>scr_order_confirmation</span> • <strong>Order Confirmed & Kitchen Ticket</strong>
+        </div>
+        <div class="screen-frame" id="scr_order_confirmation">
+          <div class="ui-header">
+            <div style="font-size:12px; font-weight:600; color:#57534E; text-transform:uppercase;">
+              Order Confirmed & Kitchen Ticket
+            </div>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:18px; font-weight:700; margin-top:4px;">
+              Provide immediate peace of mind, order number...
+            </div>
+          </div>
+          <div style="padding:16px; flex:1; display:flex; flex-direction:column; gap:12px;">
+
+            <div style="margin-bottom:8px;">
+              <div style="font-size:12px; font-weight:600; color:#78716C; margin-bottom:8px; text-transform:uppercase;">
+                Success Confirmation
+              </div>
+
+              <div class="ui-card" >
+                <div style="font-weight:600; font-size:14px;">✅ Order #402 Placed Successfully </div>
+              </div>
+
+              <div class="ui-card" >
+                <div style="font-weight:600; font-size:14px;">Kitchen is preparing your meal 🍜 </div>
+              </div>
+
+              <button class="ui-btn-primary" onclick="navigateTo('scr_order_tracking')" style='cursor:pointer;'>Track Delivery Live 🚴</button>
+</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="screen-container" id="container_scr_order_tracking">
+        <div class="screen-header-label">
+          <span>scr_order_tracking</span> • <strong>Live Campus Delivery Map & PIN</strong>
+        </div>
+        <div class="screen-frame" id="scr_order_tracking">
+          <div class="ui-header">
+            <div style="font-size:12px; font-weight:600; color:#57534E; text-transform:uppercase;">
+              Live Campus Delivery Map & PIN
+            </div>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:18px; font-weight:700; margin-top:4px;">
+              Display real-time GPS location of courier on ...
+            </div>
+          </div>
+          <div style="padding:16px; flex:1; display:flex; flex-direction:column; gap:12px;">
+
+            <div style="margin-bottom:8px;">
+              <div style="font-size:12px; font-weight:600; color:#78716C; margin-bottom:8px; text-transform:uppercase;">
+                Campus Courier Map View
+              </div>
+
+              <div class="ui-card" onclick="navigateTo('scr_home')" style='cursor:pointer;'>
+                <div style="font-weight:600; font-size:14px;">Live Campus Map Simulator </div>
+              </div>
+
+              <button class="ui-btn-primary" >💬 Message Courier: 'I am at the main door'</button>
+</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right Inspector / AZIA Mentor Panel -->
+    <div class="inspector-panel">
+      <div class="panel-section">
+        <div class="panel-title">🧠 AZIA UX Strategy & Rationale</div>
+        <p style="font-size:13px; line-height:1.6; color:#CBD5E1; margin-bottom:12px;">
+          Enable university students to quickly discover affordable nearby meals, customize orders, split/pay seamlessly, and track delivery to campus dorms.
+        </p>
+        <div style="background:#1F2937; padding:12px; border-radius:8px; font-size:12px;">
+          <strong>🎯 Primary Job-To-Be-Done:</strong><br>
+          When I have a 20-minute gap between classes, I want to order a hot meal from a nearby campus spot and pick it up right outside my building, So I can eat healthy, avoid cafeteria lines, and never be late for class.
+        </div>
+      </div>
+
+      <div class="panel-section">
+        <div class="panel-title">🛡️ Non-Disruptive Launch Strategy</div>
+        <p style="font-size:12px; color:#94A3B8; margin-bottom:8px;">
+          <strong>Mechanism:</strong> PROGRESSIVE_DISCLOSURE
+        </p>
+        <ul style="font-size:12px; color:#CBD5E1; padding-left:16px; line-height:1.5;">
+          <li>Step 1: Baseline Entry - Retain 1-tap reorder carousel at the top of Home for established users.</li>
+          <li>Default to main campus student center address with manual text field for dorm room instructions.</li>
+        </ul>
+      </div>
+
+      <div class="panel-section">
+        <div class="panel-title">🔍 Nielsen Usability Audit (3)</div>
+
+        <div class="finding-card HIGH">
+          <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
+            <strong style="color:white;">Explicit verification required before high-value action</strong>
+            <span style="font-size:11px; font-weight:700;">HIGH</span>
+          </div>
+          <p style="color:#94A3B8; font-size:12px; margin-bottom:6px;">User might tap confirmation accidentally when moving quickly.</p>
+          <div style="color:#6EE7B7; font-size:11px;">💡 Fix: Use explicit swipe-to-confirm affordance or 8-second undo snackbar.</div>
+        </div>
+
+        <div class="finding-card MEDIUM">
+          <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
+            <strong style="color:white;">Preserve previous search filters and recent location memory</strong>
+            <span style="font-size:11px; font-weight:700;">MEDIUM</span>
+          </div>
+          <p style="color:#94A3B8; font-size:12px; margin-bottom:6px;">Users frequently re-enter the exact same dietary filter or sprint squad view.</p>
+          <div style="color:#6EE7B7; font-size:11px;">💡 Fix: Store top 3 recent selections in local cache with 1-tap re-activation.</div>
+        </div>
+
+        <div class="finding-card LOW">
+          <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
+            <strong style="color:white;">Real-time ETA and courier milestone synchronization</strong>
+            <span style="font-size:11px; font-weight:700;">LOW</span>
+          </div>
+          <p style="color:#94A3B8; font-size:12px; margin-bottom:6px;">Static progress bars create anxiety if status doesn't refresh within 30 seconds.</p>
+          <div style="color:#6EE7B7; font-size:11px;">💡 Fix: Include subtle pulsing live indicator and 'Updated 5s ago' timestamp.</div>
+        </div>
+
+      </div>
+
+      <div class="panel-section">
+        <div class="panel-title">💬 Socratic Mentor Sparring</div>
+        <div style="background:#1E293B; border-radius:8px; padding:12px; font-size:12px; line-height:1.5;">
+          <strong style="color:#93C5FD;">AZIA Balanced Critic:</strong><br>
+          "I reviewed your checkout sequence. We preserved single-tap ordering while isolating dorm landmark errors. 
+          Ready to sync live directly into your Figma canvas!" 🎨
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function navigateTo(screenId) {
+      if (!screenId) return;
+      const target = document.getElementById(screenId);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', inline: 'center' });
+        target.style.transform = 'scale(1.03)';
+        target.style.borderColor = '#EA580C';
+        setTimeout(() => {
+          target.style.transform = 'none';
+        }, 800);
+      }
+    }
+
+    function switchView(tab) {
+      alert("Switching to view: " + tab + " - Full visual representation active.");
+    }
+  </script>
+</body>
+</html>
