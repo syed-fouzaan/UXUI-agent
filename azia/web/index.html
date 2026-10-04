@@ -191,6 +191,7 @@
       align-items: center;
       gap: 6px;
       transition: all 0.2s;
+      text-decoration: none;
     }
     .btn-action-ghost:hover {
       background: rgba(255, 255, 255, 0.12);
@@ -532,6 +533,10 @@
       <button type="button" class="btn-action-primary" onclick="copyOperations()">
         <span>🎨 Copy Figma JSON</span>
       </button>
+
+      <a href="./azia-figma-plugin.zip" download="azia-figma-plugin.zip" class="btn-action-ghost" title="Download Figma Plugin for another system">
+        <span>📦 Download Plugin</span>
+      </a>
 
       <button type="button" class="btn-action-ghost" id="btn-toggle-spar" onclick="toggleSparDrawer()">
         <span>💬 Socratic AI</span>

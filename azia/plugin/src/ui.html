@@ -336,7 +336,7 @@
   <!-- Tab 2: Live AI API Generation -->
   <div id="tab-design" class="content-area">
     <label>AZIA Backend API URL</label>
-    <input type="text" id="server-url" value="http://localhost:8000" placeholder="http://localhost:8000 or your Render URL">
+    <input type="text" id="server-url" value="https://uxui-agent.onrender.com" placeholder="https://uxui-agent.onrender.com">
 
     <label>Product Requirement Prompt</label>
     <textarea id="req-prompt" rows="4" placeholder="e.g. Build an AI-native fitness tracking mobile app with workout logging, streak tracker, and diet telemetry."></textarea>
@@ -449,7 +449,7 @@
     }
 
     async function renderDemo(domain) {
-      const serverUrl = document.getElementById('server-url')?.value.trim() || "http://localhost:8000";
+      const serverUrl = document.getElementById('server-url')?.value.trim() || "https://uxui-agent.onrender.com";
       const statusEl = document.getElementById('render-status');
       statusEl.style.display = 'block';
       statusEl.innerText = "Loading " + domain + " operations payload...";
@@ -493,7 +493,7 @@
       const promptText = document.getElementById('req-prompt').value || "Build a modern food delivery app for college students.";
       const platform = document.getElementById('platform-select').value;
       const style = document.getElementById('style-select').value;
-      const serverUrl = document.getElementById('server-url').value.trim() || "http://localhost:8000";
+      const serverUrl = document.getElementById('server-url').value.trim() || "https://uxui-agent.onrender.com";
 
       const box = document.getElementById('status-box');
       const msg = document.getElementById('status-msg');
@@ -550,7 +550,7 @@
       input.value = '';
       stream.scrollTop = stream.scrollHeight;
 
-      const serverUrl = document.getElementById('server-url')?.value.trim() || "http://localhost:8000";
+      const serverUrl = document.getElementById('server-url')?.value.trim() || "https://uxui-agent.onrender.com";
       try {
         const res = await fetch(serverUrl + "/api/spar", {
           method: "POST",

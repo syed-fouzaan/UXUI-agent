@@ -11,7 +11,7 @@
   "relaunchButtons": [
     {
       "command": "open",
-      "text": "Open AZIA AI UX Agent"
+      "name": "Open AZIA AI UX Agent"
     }
   ]
 }

@@ -108,6 +108,17 @@ def health():
     return {"status": "ok", "engine": "ready", "ai": llm_client.get_provider_status()}
 
 
+@app.get("/download-plugin")
+@app.get("/api/figma/download-plugin")
+def download_figma_plugin():
+    """Serves the pre-bundled Figma plugin zip for instant installation on any machine."""
+    from fastapi.responses import FileResponse
+    zip_path = os.path.join(os.path.dirname(__file__), "web", "azia-figma-plugin.zip")
+    if os.path.exists(zip_path):
+        return FileResponse(zip_path, media_type="application/zip", filename="azia-figma-plugin.zip")
+    raise HTTPException(status_code=404, detail="Plugin zip archive not found.")
+
+
 @app.get("/api/ai/status")
 def ai_status():
     """Returns availability and model info for Google Gemini and xAI Grok APIs."""
