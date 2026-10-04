@@ -182,18 +182,29 @@
       align-items: center;
     }
     .screen-frame {
-      width: 1280px;
-      height: 852px;
       background: #F8FAFC;
-      border-radius: 12px;
-      border: 4px solid #334155;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
-      overflow-y: auto;
+      color: #0F172A;
+      position: relative;
       display: flex;
       flex-direction: column;
-      position: relative;
-      color: #0F172A;
+      overflow: hidden;
       transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .screen-frame.mobile-frame {
+      width: 393px;
+      height: 852px;
+      border-radius: 46px;
+      border: 8px solid #1E293B;
+      box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8), inset 0 0 0 2px rgba(255, 255, 255, 0.1);
+    }
+    .screen-frame.desktop-frame {
+      width: 1180px;
+      max-width: 92vw;
+      height: 780px;
+      border-radius: 14px;
+      border: 1px solid #30363D;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
+      background: #0D1117;
     }
     .screen-frame:hover {
       border-color: var(--primary);
@@ -518,6 +529,1539 @@
     .finding-card.CRITICAL { border-left-color: var(--error); }
     .finding-card.HIGH { border-left-color: #F97316; }
     .finding-card.MEDIUM { border-left-color: #EAB308; }
+
+    /* ==========================================================================
+       SENIOR DESIGN ENGINEER COMPONENT STYLING SYSTEM
+       ========================================================================== */
+
+    /* iOS Mobile Chrome & Status Bar */
+    .ios-status-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 22px 6px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #F8FAFC;
+      background: rgba(15, 23, 42, 0.88);
+      backdrop-filter: blur(16px);
+      z-index: 30;
+      flex-shrink: 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .ios-time {
+      font-weight: 700;
+      letter-spacing: -0.2px;
+      font-size: 13px;
+    }
+    .ios-dynamic-island {
+      width: 100px;
+      height: 26px;
+      background: #000000;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 8px;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15);
+    }
+    .island-camera-dot {
+      width: 8px;
+      height: 8px;
+      background: #0F172A;
+      border-radius: 50%;
+      border: 1px solid #334155;
+    }
+    .ios-icons {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+    }
+    .ios-battery {
+      width: 22px;
+      height: 11px;
+      border: 1.5px solid rgba(255, 255, 255, 0.8);
+      border-radius: 3px;
+      padding: 1px;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+    .ios-battery::after {
+      content: '';
+      position: absolute;
+      right: -3.5px;
+      top: 2px;
+      width: 2px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 0 1px 1px 0;
+    }
+    .battery-level {
+      width: 80%;
+      height: 100%;
+      background: #10B981;
+      border-radius: 1px;
+    }
+    .ios-home-indicator {
+      padding: 10px 0 12px;
+      display: flex;
+      justify-content: center;
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(12px);
+      z-index: 30;
+      flex-shrink: 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .home-bar {
+      width: 134px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 2px;
+    }
+
+    /* Desktop macOS Chrome Window */
+    .desktop-window-bar {
+      background: #161B22;
+      border-bottom: 1px solid #30363D;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+    .window-controls {
+      display: flex;
+      gap: 8px;
+    }
+    .control-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+    }
+    .control-dot.close { background: #EF4444; }
+    .control-dot.min { background: #F59E0B; }
+    .control-dot.max { background: #10B981; }
+    .window-title-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #8B949E;
+    }
+    .badge-env {
+      background: #065F46;
+      color: #A7F3D0;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    /* Senior Location Chip */
+    .senior-location-chip {
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-bottom: 10px;
+    }
+    .senior-location-chip:hover {
+      background: rgba(51, 65, 85, 0.8);
+      border-color: var(--primary);
+    }
+    .loc-pin-icon { font-size: 18px; }
+    .loc-content { flex: 1; }
+    .loc-subtext {
+      font-size: 10px;
+      font-weight: 700;
+      color: #94A3B8;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .loc-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #F8FAFC;
+    }
+    .loc-chevron { font-size: 11px; color: #94A3B8; }
+
+    /* Senior Search Bar */
+    .senior-search-bar {
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-bottom: 12px;
+    }
+    .senior-search-bar:hover, .senior-search-bar.active-query {
+      border-color: var(--primary);
+      background: rgba(30, 41, 59, 0.9);
+    }
+    .search-lens { font-size: 14px; opacity: 0.7; }
+    .search-placeholder { flex: 1; font-size: 13px; color: #94A3B8; }
+    .search-query-text { flex: 1; font-size: 13px; font-weight: 600; color: #F8FAFC; }
+    .search-kbd {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+      padding: 2px 6px;
+      color: #94A3B8;
+    }
+    .search-clear-badge {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: #E2E8F0;
+    }
+
+    /* Senior Filter Pills */
+    .senior-filter-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #CBD5E1;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+    .senior-filter-pill:hover {
+      background: rgba(51, 65, 85, 0.8);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .senior-filter-pill.active {
+      background: linear-gradient(135deg, var(--primary), #D97706);
+      border-color: transparent;
+      color: white;
+      box-shadow: 0 4px 12px rgba(234, 88, 12, 0.35);
+    }
+
+    /* Senior Restaurant Card */
+    .senior-restaurant-card {
+      background: #1E293B;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+      margin-bottom: 14px;
+    }
+    .senior-restaurant-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--primary);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+    }
+    .rest-cover-banner {
+      height: 84px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #1E293B, #0F172A);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .rest-hero-emoji {
+      font-size: 38px;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+    }
+    .rest-badge-pill {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(234, 88, 12, 0.92);
+      color: white;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    .rest-eta-pill {
+      position: absolute;
+      bottom: 8px;
+      right: 10px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #F8FAFC;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+    .rest-body { padding: 14px; }
+    .rest-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+    }
+    .rest-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #F8FAFC;
+    }
+    .rest-rating {
+      font-size: 12px;
+      font-weight: 700;
+      color: #FBBF24;
+    }
+    .rest-cuisine-row {
+      font-size: 12px;
+      color: #94A3B8;
+      margin-bottom: 10px;
+    }
+    .rest-featured-dish {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 8px 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .dish-fire { font-size: 16px; }
+    .dish-info { flex: 1; }
+    .dish-tag {
+      font-size: 9px;
+      font-weight: 800;
+      color: #EA580C;
+      letter-spacing: 0.5px;
+      display: block;
+    }
+    .dish-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: #E2E8F0;
+    }
+    .dish-quick-price {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .rest-dorm-landmark {
+      font-size: 11px;
+      color: #64748B;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Senior Dish Menu Card */
+    .senior-dish-card {
+      background: #1E293B;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 12px 14px;
+      display: flex;
+      gap: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-bottom: 10px;
+    }
+    .senior-dish-card:hover {
+      border-color: var(--primary);
+      background: #243248;
+    }
+    .dish-card-left { flex: 1; }
+    .dish-badge-row {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+    .dish-badge-pill {
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      color: #FBBF24;
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .dish-rest-sub { font-size: 10px; color: #94A3B8; }
+    .dish-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: #F8FAFC;
+      margin-bottom: 4px;
+    }
+    .dish-desc {
+      font-size: 11px;
+      color: #94A3B8;
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+    .dish-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .dish-price {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--primary);
+    }
+    .dish-card-right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .dish-img-thumb {
+      width: 58px;
+      height: 58px;
+      border-radius: 10px;
+      background: #0F172A;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+    }
+    .dish-add-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .dish-add-btn:hover {
+      background: var(--primary-hover);
+      transform: scale(1.05);
+    }
+
+    /* Senior Input Field */
+    .senior-input-field {
+      background: #1E293B;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+    }
+    .input-field-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: #94A3B8;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+    .input-field-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .input-field-icon { font-size: 16px; }
+    .input-field-value {
+      flex: 1;
+      font-size: 13px;
+      font-weight: 600;
+      color: #F8FAFC;
+    }
+    .input-field-action {
+      font-size: 11px;
+      color: var(--primary);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* Senior Cart Item Card */
+    .senior-cart-item-card {
+      background: #1E293B;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .cart-qty-badge {
+      background: rgba(234, 88, 12, 0.15);
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 12px;
+      padding: 4px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(234, 88, 12, 0.3);
+    }
+    .cart-item-details { flex: 1; }
+    .cart-item-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #F8FAFC;
+    }
+    .cart-item-opts {
+      font-size: 11px;
+      color: #94A3B8;
+      margin-top: 2px;
+    }
+    .cart-item-price {
+      font-weight: 700;
+      font-size: 13px;
+      color: #F8FAFC;
+    }
+
+    /* Senior Bill Card */
+    .senior-bill-card {
+      background: #111827;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+    .bill-header {
+      font-size: 11px;
+      font-weight: 700;
+      color: #94A3B8;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+    .bill-line {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: #CBD5E1;
+      margin-bottom: 8px;
+    }
+    .bill-line.discount { color: #34D399; }
+    .discount-pill {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #34D399;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+    .fee-free { color: #34D399; font-weight: 700; }
+    .strikethrough {
+      text-decoration: line-through;
+      color: #64748B;
+      font-size: 11px;
+      margin-left: 4px;
+    }
+    .bill-divider {
+      height: 1px;
+      background: rgba(255, 255, 255, 0.1);
+      margin: 10px 0;
+    }
+    .bill-line.total {
+      font-size: 16px;
+      font-weight: 800;
+      color: #F8FAFC;
+      margin-bottom: 4px;
+    }
+    .total-amount {
+      color: var(--primary);
+      font-size: 18px;
+    }
+    .bill-tax-note {
+      font-size: 11px;
+      color: #64748B;
+      margin-top: 6px;
+    }
+
+    /* Senior Kitchen Ticket & Prep Stepper */
+    .senior-kitchen-ticket {
+      background: #111827;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 14px;
+    }
+    .ticket-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .ticket-status-pill {
+      background: rgba(234, 88, 12, 0.15);
+      border: 1px solid rgba(234, 88, 12, 0.3);
+      color: var(--primary);
+      font-size: 10px;
+      font-weight: 800;
+      padding: 4px 8px;
+      border-radius: 6px;
+    }
+    .ticket-pin-badge { text-align: right; }
+    .pin-caption {
+      font-size: 9px;
+      color: #94A3B8;
+      display: block;
+    }
+    .pin-code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 16px;
+      color: #FBBF24;
+      letter-spacing: 1px;
+    }
+    .ticket-headline {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #F8FAFC;
+      margin-bottom: 12px;
+    }
+    .ticket-eta-box {
+      background: rgba(30, 41, 59, 0.5);
+      border-radius: 10px;
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .eta-clock { font-size: 20px; }
+    .eta-label { font-size: 10px; color: #94A3B8; font-weight: 600; }
+    .eta-val { font-size: 14px; font-weight: 700; color: #38BDF8; }
+    .prep-stepper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      padding: 0 4px;
+    }
+    .step-node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .step-circle {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #1F2937;
+      border: 1px solid #374151;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: #94A3B8;
+    }
+    .step-node.done .step-circle {
+      background: #10B981;
+      border-color: #059669;
+      color: white;
+    }
+    .step-node.active .step-circle {
+      background: var(--primary);
+      border-color: #EA580C;
+      color: white;
+      box-shadow: 0 0 10px rgba(234, 88, 12, 0.5);
+    }
+    .step-name {
+      font-size: 10px;
+      font-weight: 600;
+      color: #94A3B8;
+    }
+    .step-line {
+      flex: 1;
+      height: 2px;
+      background: #374151;
+      margin: 0 6px 14px;
+    }
+    .step-line.active { background: var(--primary); }
+    .ticket-destination {
+      font-size: 12px;
+      color: #CBD5E1;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Senior Live Tracking Map Card */
+    .senior-live-map-card {
+      background: #111827;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 14px;
+    }
+    .map-viewport {
+      height: 180px;
+      background: #0B1120;
+      position: relative;
+      overflow: hidden;
+    }
+    .map-grid-layer {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .map-road.road-h {
+      position: absolute;
+      top: 60%;
+      left: 0;
+      width: 100%;
+      height: 16px;
+      background: #1E293B;
+      border-top: 1px dashed rgba(255,255,255,0.15);
+      border-bottom: 1px dashed rgba(255,255,255,0.15);
+    }
+    .map-road.road-v {
+      position: absolute;
+      left: 45%;
+      top: 0;
+      width: 16px;
+      height: 100%;
+      background: #1E293B;
+      border-left: 1px dashed rgba(255,255,255,0.15);
+      border-right: 1px dashed rgba(255,255,255,0.15);
+    }
+    .map-route-line {
+      position: absolute;
+      top: 35%;
+      left: 30%;
+      width: 45%;
+      height: 3px;
+      background: linear-gradient(90deg, #10B981, #38BDF8);
+      border-radius: 2px;
+      transform: rotate(22deg);
+    }
+    .map-pin.destination-pin {
+      position: absolute;
+      top: 25%;
+      right: 18%;
+    }
+    .pin-bubble {
+      background: #0F172A;
+      border: 1px solid #38BDF8;
+      color: #38BDF8;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+    .map-pin.courier-pin {
+      position: absolute;
+      top: 50%;
+      left: 32%;
+    }
+    .courier-pulse-ring {
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(16, 185, 129, 0.3);
+      animation: pulse 2s infinite;
+      transform: translate(-50%, -50%);
+    }
+    .pin-marker {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #10B981;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      box-shadow: 0 0 12px rgba(16, 185, 129, 0.6);
+      transform: translate(-50%, -50%);
+    }
+    .map-live-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: #34D399;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      padding: 4px 8px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .live-dot-green {
+      width: 6px;
+      height: 6px;
+      background: #10B981;
+      border-radius: 50%;
+      box-shadow: 0 0 6px #10B981;
+    }
+    .courier-meta-bar {
+      padding: 12px 14px;
+      background: #1E293B;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .courier-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #3B82F6;
+      color: white;
+      font-weight: 700;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .courier-info { flex: 1; }
+    .courier-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #F8FAFC;
+    }
+    .courier-status-text {
+      font-size: 11px;
+      color: #94A3B8;
+    }
+    .courier-eta-badge {
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #38BDF8;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 6px;
+    }
+    .courier-pin-reminder {
+      background: #0F172A;
+      padding: 8px 14px;
+      font-size: 11px;
+      color: #CBD5E1;
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .show-qr-link {
+      color: var(--primary);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* Senior Buttons */
+    .senior-btn-primary {
+      background: linear-gradient(135deg, var(--primary), #D97706);
+      color: white;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      border: none;
+      padding: 14px 18px;
+      border-radius: 12px;
+      width: 100%;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      margin-top: 6px;
+    }
+    .senior-btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(234, 88, 12, 0.45);
+    }
+    .senior-btn-primary:active { transform: scale(0.98); }
+    .btn-counter-badge {
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 12px;
+      padding: 2px 7px;
+      font-size: 11px;
+    }
+    .btn-arrow { transition: transform 0.2s; }
+    .senior-btn-primary:hover .btn-arrow { transform: translateX(3px); }
+
+    .senior-btn-secondary {
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #E2E8F0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      padding: 12px 16px;
+      border-radius: 10px;
+      width: 100%;
+      font-size: 13px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      margin-top: 4px;
+    }
+    .senior-btn-secondary:hover {
+      background: rgba(51, 65, 85, 0.8);
+      border-color: rgba(255, 255, 255, 0.25);
+      color: white;
+    }
+    .btn-speed-badge {
+      background: rgba(16, 185, 129, 0.2);
+      color: #34D399;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    /* Senior Status Banner */
+    .senior-status-banner {
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 12px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .status-banner-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #10B981;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 13px;
+    }
+    .status-banner-text { flex: 1; }
+    .status-banner-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #F8FAFC;
+    }
+    .status-banner-sub {
+      font-size: 11px;
+      color: #A7F3D0;
+    }
+
+    /* Senior SaaS Sidebar */
+    .senior-saas-sidebar {
+      width: 240px;
+      background: #0D1117;
+      border-right: 1px solid #21262D;
+      display: flex;
+      flex-direction: column;
+      padding: 16px 12px;
+      flex-shrink: 0;
+    }
+    .sidebar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 8px 16px;
+      border-bottom: 1px solid #21262D;
+      margin-bottom: 12px;
+    }
+    .brand-spark {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+    }
+    .brand-meta { line-height: 1.2; }
+    .brand-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 14px;
+      color: #F8FAFC;
+    }
+    .brand-tier {
+      font-size: 9px;
+      font-weight: 700;
+      color: #8B949E;
+      letter-spacing: 0.5px;
+    }
+    .sidebar-workspace-select {
+      background: #161B22;
+      border: 1px solid #30363D;
+      border-radius: 8px;
+      padding: 8px 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      font-size: 12px;
+      color: #C9D1D9;
+    }
+    .ws-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10B981;
+      box-shadow: 0 0 6px #10B981;
+    }
+    .ws-name { flex: 1; font-weight: 600; }
+    .ws-chevron { font-size: 10px; color: #8B949E; }
+    .sidebar-nav-section { flex: 1; }
+    .nav-section-title {
+      font-size: 10px;
+      font-weight: 700;
+      color: #6E7681;
+      letter-spacing: 0.5px;
+      padding: 4px 8px;
+      margin-bottom: 6px;
+    }
+    .sidebar-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      border-radius: 6px;
+      font-size: 13px;
+      color: #8B949E;
+      cursor: pointer;
+      margin-bottom: 2px;
+      transition: all 0.15s ease;
+    }
+    .sidebar-nav-item:hover {
+      background: #161B22;
+      color: #C9D1D9;
+    }
+    .sidebar-nav-item.active {
+      background: rgba(59, 130, 246, 0.12);
+      color: #58A6FF;
+      font-weight: 600;
+      border-left: 3px solid #58A6FF;
+    }
+    .nav-icon { font-size: 14px; }
+    .nav-text { flex: 1; }
+    .nav-pill-badge {
+      background: rgba(16, 185, 129, 0.2);
+      color: #34D399;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+    .nav-pill-count {
+      background: #21262D;
+      color: #8B949E;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+    .nav-pill-alert {
+      background: rgba(239, 68, 68, 0.2);
+      color: #F87171;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+    .sidebar-user-footer {
+      border-top: 1px solid #21262D;
+      padding-top: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .user-avatar-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #238636;
+      color: white;
+      font-weight: 700;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .user-info { line-height: 1.2; }
+    .user-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: #F0F6FC;
+    }
+    .user-role {
+      font-size: 10px;
+      color: #8B949E;
+    }
+
+    /* Senior SaaS Sprint Metric Card */
+    .senior-sprint-metric-card {
+      background: #161B22;
+      border: 1px solid #30363D;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .sprint-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+    .sprint-sub {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #58A6FF;
+      margin-bottom: 4px;
+    }
+    .sprint-main-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #F0F6FC;
+    }
+    .sprint-blocker-pill {
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #F87171;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+    .burndown-progress-bar-container { margin-bottom: 18px; }
+    .progress-bar-track {
+      height: 10px;
+      background: #21262D;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-bottom: 6px;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #10B981, #38BDF8);
+      border-radius: 5px;
+    }
+    .progress-bar-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: #8B949E;
+    }
+    .progress-current { color: #58A6FF; font-weight: 600; }
+    .sprint-triplets {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .metric-triplet {
+      background: #0D1117;
+      border: 1px solid #21262D;
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+    }
+    .triplet-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 18px;
+      font-weight: 800;
+      color: #F0F6FC;
+    }
+    .triplet-lbl {
+      font-size: 10px;
+      color: #8B949E;
+      margin-top: 2px;
+    }
+
+    /* Senior Kanban Column & Task Cards */
+    .senior-kanban-column {
+      background: #161B22;
+      border: 1px solid #30363D;
+      border-radius: 10px;
+      padding: 12px;
+      width: 270px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .col-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #21262D;
+    }
+    .col-title-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .col-color-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+    }
+    .col-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #C9D1D9;
+    }
+    .col-add-btn {
+      color: #8B949E;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .col-cards-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      overflow-y: auto;
+    }
+    .senior-kanban-task-card {
+      background: #0D1117;
+      border: 1px solid #30363D;
+      border-radius: 8px;
+      padding: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .senior-kanban-task-card:hover {
+      border-color: #58A6FF;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+    .task-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .task-key {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: #58A6FF;
+      font-weight: 600;
+    }
+    .task-priority-pill {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 4px;
+      border: 1px solid;
+    }
+    .task-priority-pill.P0 {
+      background: rgba(239, 68, 68, 0.15);
+      border-color: rgba(239, 68, 68, 0.3);
+      color: #F87171;
+    }
+    .task-priority-pill.P1 {
+      background: rgba(245, 158, 11, 0.15);
+      border-color: rgba(245, 158, 11, 0.3);
+      color: #FBBF24;
+    }
+    .task-priority-pill.P2 {
+      background: rgba(59, 130, 246, 0.15);
+      border-color: rgba(59, 130, 246, 0.3);
+      color: #60A5FA;
+    }
+    .task-card-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #F0F6FC;
+      line-height: 1.4;
+      margin-bottom: 10px;
+    }
+    .task-card-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .task-branch-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: #8B949E;
+      background: #161B22;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .task-assignee-avatar {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #238636;
+      color: white;
+      font-size: 10px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Senior Task Detail Drawer */
+    .senior-task-detail-drawer {
+      background: #161B22;
+      border: 1px solid #30363D;
+      border-radius: 12px;
+      padding: 24px;
+      max-width: 680px;
+    }
+    .drawer-key-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .drawer-key-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      font-weight: 700;
+      color: #58A6FF;
+    }
+    .drawer-priority-pill {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      border: 1px solid;
+    }
+    .drawer-points-pill {
+      font-size: 11px;
+      background: #21262D;
+      color: #C9D1D9;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .drawer-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #F0F6FC;
+      margin-bottom: 16px;
+    }
+    .drawer-meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+      background: #0D1117;
+      padding: 12px 16px;
+      border-radius: 8px;
+      border: 1px solid #21262D;
+    }
+    .meta-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: #8B949E;
+      margin-bottom: 4px;
+    }
+    .meta-val {
+      font-size: 13px;
+      color: #F0F6FC;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .avatar-dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #238636;
+      color: white;
+      font-size: 10px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .branch-code {
+      font-family: 'JetBrains Mono', monospace;
+      color: #58A6FF;
+      font-size: 12px;
+    }
+    .drawer-pr-banner {
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 8px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .pr-icon { font-size: 18px; }
+    .pr-info { flex: 1; }
+    .pr-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #58A6FF;
+    }
+    .pr-checks {
+      font-size: 11px;
+      color: #34D399;
+    }
+    .pr-merge-shortcut {
+      background: #238636;
+      color: white;
+      border: none;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .drawer-criteria-section {
+      border-top: 1px solid #21262D;
+      padding-top: 16px;
+    }
+    .criteria-header {
+      font-size: 11px;
+      font-weight: 700;
+      color: #8B949E;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+    .criteria-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .criteria-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: #C9D1D9;
+      margin-bottom: 8px;
+    }
+
+    /* Senior Analytics Card */
+    .senior-analytics-card {
+      background: #161B22;
+      border: 1px solid #30363D;
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .analytics-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 24px;
+    }
+    .analytics-sub {
+      font-size: 10px;
+      font-weight: 700;
+      color: #8B949E;
+      letter-spacing: 0.5px;
+    }
+    .analytics-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #F0F6FC;
+    }
+    .analytics-badge {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #34D399;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+    .velocity-chart-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 24px;
+      height: 160px;
+      padding: 0 16px 16px;
+      border-bottom: 1px solid #21262D;
+      margin-bottom: 20px;
+    }
+    .chart-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .col-bar {
+      width: 100%;
+      max-width: 48px;
+      background: #3B82F6;
+      border-radius: 6px 6px 0 0;
+      display: flex;
+      justify-content: center;
+      padding-top: 6px;
+    }
+    .bar-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: white;
+    }
+    .col-lbl {
+      font-size: 11px;
+      color: #8B949E;
+    }
+    .chart-col.active .col-lbl {
+      color: #34D399;
+      font-weight: 700;
+    }
+    .analytics-kpi-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .kpi-box {
+      background: #0D1117;
+      border: 1px solid #21262D;
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+    .kpi-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      font-weight: 800;
+      color: #38BDF8;
+    }
+    .kpi-desc {
+      font-size: 11px;
+      color: #8B949E;
+      margin-top: 4px;
+    }
   </style>
 </head>
 <body>
@@ -561,7 +2105,7 @@
             <div class="screen-header-label">
               <span>scr_dashboard</span> • <strong>Sprint Engineering Dashboard</strong>
             </div>
-            <div class="screen-frame" id="scr_dashboard">
+            <div class="screen-frame desktop-frame" id="scr_dashboard">
               <!-- Visual Gaze Saliency Heatmap Layer -->
               <div class="heatmap-overlay">
 
@@ -582,37 +2126,116 @@
 
               </div>
 
-              <!-- Screen Native Contents -->
-              <div class="ui-header">
-                <div style="font-size:12px; font-weight:600; color:#475569; text-transform:uppercase;">
-                  Sprint Engineering Dashboard
+              <!-- Desktop App Window Chrome -->
+              <div class="desktop-window-bar">
+                <div class="window-controls">
+                  <span class="control-dot close"></span>
+                  <span class="control-dot min"></span>
+                  <span class="control-dot max"></span>
                 </div>
-                <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:18px; font-weight:700; margin-top:4px;">
-                  Provide comprehensive visibility into active ...
+                <div class="window-title-bar">
+                  <span>SprintFlow</span> • <span>Sprint Engineering Dashboard</span>
+                </div>
+                <div>
+                  <span class="badge-env">SPRINT 34 ACTIVE</span>
                 </div>
               </div>
-              <div style="padding:16px; flex:1; display:flex; flex-direction:column; gap:12px;">
 
-                <div style="margin-bottom:8px;">
-                  <div style="font-size:12px; font-weight:600; color:#64748B; margin-bottom:8px; text-transform:uppercase;">
-                    Persistent Left Sidebar
-                  </div>
+              <!-- Desktop Body Layout -->
+              <div class="desktop-body-layout" style="display:flex; flex:1; overflow:hidden;">
 
-                  <div class="ui-card" onclick="navigateTo('scr_kanban_board')" style='cursor:pointer;'>
-                    <div style="font-weight:600; font-size:14px;">Global Sidebar </div>
-                  </div>
-</div>
-                <div style="margin-bottom:8px;">
-                  <div style="font-size:12px; font-weight:600; color:#64748B; margin-bottom:8px; text-transform:uppercase;">
-                    Main Dashboard View
-                  </div>
+            <div class="senior-saas-sidebar">
+              <div class="sidebar-brand">
+                <div class="brand-spark">⚡</div>
+                <div class="brand-meta">
+                  <div class="brand-name">SprintFlow</div>
+                  <div class="brand-tier">ENTERPRISE CLOUD</div>
+                </div>
+              </div>
+              <div class="sidebar-workspace-select">
+                <span class="ws-dot"></span>
+                <span class="ws-name">Core Eng Workspace</span>
+                <span class="ws-chevron">▾</span>
+              </div>
+              <div class="sidebar-nav-section">
+                <div class="nav-section-title">ENGINEERING SPRINT</div>
+                <div class="sidebar-nav-item active" onclick="navigateTo('scr_dashboard')">
+                  <span class="nav-icon">📊</span>
+                  <span class="nav-text">Dashboard</span>
+                  <span class="nav-pill-badge">Live</span>
+                </div>
+                <div class="sidebar-nav-item " onclick="navigateTo('scr_kanban_board')">
+                  <span class="nav-icon">📋</span>
+                  <span class="nav-text">Sprint Board</span>
+                  <span class="nav-pill-count">24</span>
+                </div>
+                <div class="sidebar-nav-item" onclick="navigateTo('scr_kanban_board')">
+                  <span class="nav-icon">📑</span>
+                  <span class="nav-text">Backlog</span>
+                </div>
+                <div class="sidebar-nav-item" onclick="navigateTo('scr_task_detail')">
+                  <span class="nav-icon">🔀</span>
+                  <span class="nav-text">Pull Requests</span>
+                  <span class="nav-pill-alert">2</span>
+                </div>
+                <div class="sidebar-nav-item" onclick="navigateTo('scr_analytics')">
+                  <span class="nav-icon">📈</span>
+                  <span class="nav-text">Velocity &amp; Burndown</span>
+                </div>
+              </div>
+              <div class="sidebar-user-footer">
+                <div class="user-avatar-circle">ER</div>
+                <div class="user-info">
+                  <div class="user-name">Elena Rostova</div>
+                  <div class="user-role">Staff Engineer • Sprint 34</div>
+                </div>
+              </div>
+            </div>
+<div style="flex:1; padding:24px; overflow-y:auto; display:flex; flex-direction:column; gap:16px;">
+            <div class="senior-sprint-metric-card">
+              <div class="sprint-header-row">
+                <div>
+                  <div class="sprint-sub">Sprint 34: Core Architecture &amp; Platform</div>
+                  <div class="sprint-main-title">Day 6 of 10 • 78% on track</div>
+                </div>
+                <div class="sprint-blocker-pill">🔴 4 Blockers Active</div>
+              </div>
+              <div class="burndown-progress-bar-container">
+                <div class="progress-bar-track">
+                  <div class="progress-bar-fill" style="width: 78%;"></div>
+                </div>
+                <div class="progress-bar-labels">
+                  <span>0 pts</span>
+                  <span class="progress-current">42 of 58 Story Points Completed • 4 Blocked</span>
+                  <span>58 pts target</span>
+                </div>
+              </div>
+              <div class="sprint-triplets">
+                <div class="metric-triplet">
+                  <div class="triplet-val">58</div>
+                  <div class="triplet-lbl">Committed Pts</div>
+                </div>
+                <div class="metric-triplet">
+                  <div class="triplet-val" style="color: #10B981;">42</div>
+                  <div class="triplet-lbl">Completed</div>
+                </div>
+                <div class="metric-triplet">
+                  <div class="triplet-val" style="color: #38BDF8;">1.8d</div>
+                  <div class="triplet-lbl">Cycle Time</div>
+                </div>
+                <div class="metric-triplet">
+                  <div class="triplet-val" style="color: #A855F7;">4.2h</div>
+                  <div class="triplet-lbl">Avg PR Merge</div>
+                </div>
+              </div>
+            </div>
 
-                  <div class="ui-card" >
-                    <div style="font-weight:600; font-size:14px;">Sprint Burndown Metric Card </div>
-                  </div>
+                <button type="button" class="senior-btn-primary" onclick="navigateTo('scr_create_task_modal')" style='cursor:pointer;'>
+                  <span>+ Create Task (Press C)</span>
+                  <span class="btn-arrow">→</span>
+                </button>
 
-                  <button type="button" class="ui-btn-primary" onclick="navigateTo('scr_create_task_modal')" style='cursor:pointer;'>+ Create Task (Press C)</button>
-</div>
+                </div>
               </div>
             </div>
           </div>
@@ -621,7 +2244,7 @@
             <div class="screen-header-label">
               <span>scr_kanban_board</span> • <strong>Agile Sprint Kanban Board</strong>
             </div>
-            <div class="screen-frame" id="scr_kanban_board">
+            <div class="screen-frame desktop-frame" id="scr_kanban_board">
               <!-- Visual Gaze Saliency Heatmap Layer -->
               <div class="heatmap-overlay">
 
@@ -642,42 +2265,181 @@
 
               </div>
 
-              <!-- Screen Native Contents -->
-              <div class="ui-header">
-                <div style="font-size:12px; font-weight:600; color:#475569; text-transform:uppercase;">
-                  Agile Sprint Kanban Board
+              <!-- Desktop App Window Chrome -->
+              <div class="desktop-window-bar">
+                <div class="window-controls">
+                  <span class="control-dot close"></span>
+                  <span class="control-dot min"></span>
+                  <span class="control-dot max"></span>
                 </div>
-                <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:18px; font-weight:700; margin-top:4px;">
-                  Visual drag-and-drop workflow tracking across...
+                <div class="window-title-bar">
+                  <span>SprintFlow</span> • <span>Agile Sprint Kanban Board</span>
+                </div>
+                <div>
+                  <span class="badge-env">SPRINT 34 ACTIVE</span>
                 </div>
               </div>
-              <div style="padding:16px; flex:1; display:flex; flex-direction:column; gap:12px;">
 
-                <div style="margin-bottom:8px;">
-                  <div style="font-size:12px; font-weight:600; color:#64748B; margin-bottom:8px; text-transform:uppercase;">
-                    5-Column Kanban Board
+              <!-- Desktop Body Layout -->
+              <div class="desktop-body-layout" style="display:flex; flex:1; overflow:hidden;">
+<div style="flex:1; padding:24px; overflow-y:auto; display:flex; flex-direction:column; gap:16px;"><div style="display:flex; gap:16px; overflow-x:auto; padding-bottom:8px; align-items:flex-start;">
+            <div class="senior-kanban-column" >
+              <div class="col-header">
+                <div class="col-title-group">
+                  <span class="col-color-dot" style="background: #64748B;"></span>
+                  <span class="col-title">Backlog (8)</span>
+                </div>
+                <span class="col-add-btn">+</span>
+              </div>
+              <div class="col-cards-list">
+                
+                <div class="senior-kanban-task-card" onclick="navigateTo('scr_task_detail')">
+                  <div class="task-card-top">
+                    <span class="task-key">ENG-418</span>
+                    <span class="task-priority-pill P2">P2 Normal</span>
+                    <span style="font-size:10px; color:#8B949E;">3 pts</span>
                   </div>
+                  <div class="task-card-title">WebSocket heartbeat reconnection backoff</div>
+                  <div class="task-card-bottom">
+                    <span class="task-branch-badge">🌿 fix/ws-backoff</span>
+                    <span class="task-assignee-avatar">MK</span>
+                  </div>
+                </div>
 
-                  <div class="ui-card" >
-                    <div style="font-weight:600; font-size:14px;">Backlog (8) </div>
+                <div class="senior-kanban-task-card" onclick="navigateTo('scr_task_detail')">
+                  <div class="task-card-top">
+                    <span class="task-key">ENG-422</span>
+                    <span class="task-priority-pill P2">P2 Normal</span>
+                    <span style="font-size:10px; color:#8B949E;">2 pts</span>
                   </div>
+                  <div class="task-card-title">Audit Figma variable import memory footprint</div>
+                  <div class="task-card-bottom">
+                    <span class="task-branch-badge">🌿 perf/figma-mem</span>
+                    <span class="task-assignee-avatar">AL</span>
+                  </div>
+                </div>
 
-                  <div class="ui-card" >
-                    <div style="font-weight:600; font-size:14px;">Ready for Dev (4) </div>
-                  </div>
+              </div>
+            </div>
 
-                  <div class="ui-card" onclick="navigateTo('scr_task_detail')" style='cursor:pointer;'>
-                    <div style="font-weight:600; font-size:14px;">In Progress (5) </div>
+            <div class="senior-kanban-column" >
+              <div class="col-header">
+                <div class="col-title-group">
+                  <span class="col-color-dot" style="background: #3B82F6;"></span>
+                  <span class="col-title">Ready for Dev (4)</span>
+                </div>
+                <span class="col-add-btn">+</span>
+              </div>
+              <div class="col-cards-list">
+                
+                <div class="senior-kanban-task-card" onclick="navigateTo('scr_task_detail')">
+                  <div class="task-card-top">
+                    <span class="task-key">ENG-411</span>
+                    <span class="task-priority-pill P1">P1 High</span>
+                    <span style="font-size:10px; color:#8B949E;">5 pts</span>
                   </div>
+                  <div class="task-card-title">Implement multi-tenant telemetry exporter</div>
+                  <div class="task-card-bottom">
+                    <span class="task-branch-badge">🌿 feat/telemetry</span>
+                    <span class="task-assignee-avatar">SK</span>
+                  </div>
+                </div>
 
-                  <div class="ui-card" >
-                    <div style="font-weight:600; font-size:14px;">PR In Review (3) </div>
-                  </div>
+              </div>
+            </div>
 
-                  <div class="ui-card" >
-                    <div style="font-weight:600; font-size:14px;">Done & Merged (14) </div>
+            <div class="senior-kanban-column" onclick="navigateTo('scr_task_detail')" style='cursor:pointer;'>
+              <div class="col-header">
+                <div class="col-title-group">
+                  <span class="col-color-dot" style="background: #F59E0B;"></span>
+                  <span class="col-title">In Progress (5)</span>
+                </div>
+                <span class="col-add-btn">+</span>
+              </div>
+              <div class="col-cards-list">
+                
+                <div class="senior-kanban-task-card" onclick="navigateTo('scr_task_detail')">
+                  <div class="task-card-top">
+                    <span class="task-key">ENG-402</span>
+                    <span class="task-priority-pill P0">P0 Urgent</span>
+                    <span style="font-size:10px; color:#8B949E;">5 pts</span>
                   </div>
+                  <div class="task-card-title">Core component architecture &amp; tokens ingestion</div>
+                  <div class="task-card-bottom">
+                    <span class="task-branch-badge">🌿 feat/core-arch</span>
+                    <span class="task-assignee-avatar">ER</span>
+                  </div>
+                </div>
+
+                <div class="senior-kanban-task-card" onclick="navigateTo('scr_task_detail')">
+                  <div class="task-card-top">
+                    <span class="task-key">ENG-409</span>
+                    <span class="task-priority-pill P1">P1 High</span>
+                    <span style="font-size:10px; color:#8B949E;">3 pts</span>
+                  </div>
+                  <div class="task-card-title">Rate limiting middleware and caching gateway</div>
+                  <div class="task-card-bottom">
+                    <span class="task-branch-badge">🌿 feat/rate-limit</span>
+                    <span class="task-assignee-avatar">JD</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="senior-kanban-column" >
+              <div class="col-header">
+                <div class="col-title-group">
+                  <span class="col-color-dot" style="background: #8B5CF6;"></span>
+                  <span class="col-title">PR In Review (3)</span>
+                </div>
+                <span class="col-add-btn">+</span>
+              </div>
+              <div class="col-cards-list">
+                
+                <div class="senior-kanban-task-card" onclick="navigateTo('scr_task_detail')">
+                  <div class="task-card-top">
+                    <span class="task-key">ENG-398</span>
+                    <span class="task-priority-pill P1">P1 High</span>
+                    <span style="font-size:10px; color:#8B949E;">3 pts</span>
+                  </div>
+                  <div class="task-card-title">WCAG 2.1 AA contrast calculation engine</div>
+                  <div class="task-card-bottom">
+                    <span class="task-branch-badge">🌿 audit/contrast</span>
+                    <span class="task-assignee-avatar">ER</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="senior-kanban-column" >
+              <div class="col-header">
+                <div class="col-title-group">
+                  <span class="col-color-dot" style="background: #10B981;"></span>
+                  <span class="col-title">Done &amp; Merged (14)</span>
+                </div>
+                <span class="col-add-btn">+</span>
+              </div>
+              <div class="col-cards-list">
+                
+                <div class="senior-kanban-task-card" onclick="navigateTo('scr_task_detail')">
+                  <div class="task-card-top">
+                    <span class="task-key">ENG-384</span>
+                    <span class="task-priority-pill P0">P0 Merged</span>
+                    <span style="font-size:10px; color:#8B949E;">8 pts</span>
+                  </div>
+                  <div class="task-card-title">Design token DTCG parser and CSS serializer</div>
+                  <div class="task-card-bottom">
+                    <span class="task-branch-badge">🌿 feat/tokens</span>
+                    <span class="task-assignee-avatar">ER</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
 </div>
+                </div>
               </div>
             </div>
           </div>
@@ -686,7 +2448,7 @@
             <div class="screen-header-label">
               <span>scr_task_detail</span> • <strong>Task Specification & PR Traceability Drawer</strong>
             </div>
-            <div class="screen-frame" id="scr_task_detail">
+            <div class="screen-frame desktop-frame" id="scr_task_detail">
               <!-- Visual Gaze Saliency Heatmap Layer -->
               <div class="heatmap-overlay">
 
@@ -707,28 +2469,70 @@
 
               </div>
 
-              <!-- Screen Native Contents -->
-              <div class="ui-header">
-                <div style="font-size:12px; font-weight:600; color:#475569; text-transform:uppercase;">
-                  Task Specification & PR Traceability Drawer
+              <!-- Desktop App Window Chrome -->
+              <div class="desktop-window-bar">
+                <div class="window-controls">
+                  <span class="control-dot close"></span>
+                  <span class="control-dot min"></span>
+                  <span class="control-dot max"></span>
                 </div>
-                <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:18px; font-weight:700; margin-top:4px;">
-                  Inspect task acceptance criteria, assignees, ...
+                <div class="window-title-bar">
+                  <span>SprintFlow</span> • <span>Task Specification & PR Traceability Drawer</span>
+                </div>
+                <div>
+                  <span class="badge-env">SPRINT 34 ACTIVE</span>
                 </div>
               </div>
-              <div style="padding:16px; flex:1; display:flex; flex-direction:column; gap:12px;">
 
-                <div style="margin-bottom:8px;">
-                  <div style="font-size:12px; font-weight:600; color:#64748B; margin-bottom:8px; text-transform:uppercase;">
-                    Task Detail Drawer
+              <!-- Desktop Body Layout -->
+              <div class="desktop-body-layout" style="display:flex; flex:1; overflow:hidden;">
+<div style="flex:1; padding:24px; overflow-y:auto; display:flex; flex-direction:column; gap:16px;">
+            <div class="senior-task-detail-drawer">
+              <div class="drawer-key-row">
+                <span class="drawer-key-pill">ENG-402</span>
+                <span class="drawer-priority-pill" style="border-color:#EF4444; color:#EF4444;">
+                  ● P0 Urgent
+                </span>
+                <span class="drawer-points-pill">5 pts</span>
+              </div>
+              <div class="drawer-title">Core component architecture for SprintFlow Workspace</div>
+              <div class="drawer-meta-grid">
+                <div class="meta-cell">
+                  <div class="meta-label">ASSIGNEE</div>
+                  <div class="meta-val">
+                    <span class="avatar-dot">ER</span>
+                    <span>Elena Rostova</span>
                   </div>
+                </div>
+                <div class="meta-cell">
+                  <div class="meta-label">GIT BRANCH</div>
+                  <div class="meta-val branch-code">🌿 feat/core-arch</div>
+                </div>
+              </div>
+              <div class="drawer-pr-banner">
+                <div class="pr-icon">🔀</div>
+                <div class="pr-info">
+                  <div class="pr-title">PR #128 opened • 2 approvals</div>
+                  <div class="pr-checks">✓ 14 CI/CD automated checks passed • Ready to merge</div>
+                </div>
+                <button type="button" class="pr-merge-shortcut">Review PR</button>
+              </div>
+              <div class="drawer-criteria-section">
+                <div class="criteria-header">ACCEPTANCE CRITERIA SPECIFICATION</div>
+                <ul class="criteria-list">
+                  <li><input type="checkbox" checked disabled /> <span>Deterministic token propagation across React and SwiftUI bundles</span></li>
+                  <li><input type="checkbox" checked disabled /> <span>WCAG 2.1 AA 4.5:1 minimum color contrast verified on dark/light themes</span></li>
+                  <li><input type="checkbox" checked disabled /> <span>Sub-50ms optimistic UI updates on add-to-cart state transitions</span></li>
+                </ul>
+              </div>
+            </div>
 
-                  <div class="ui-card" >
-                    <div style="font-weight:600; font-size:14px;">Migrate JWT refresh token rotation to Redis cluster </div>
-                  </div>
+                <button type="button" class="senior-btn-secondary" onclick="navigateTo('scr_kanban_board')" style='cursor:pointer;'>
+                  <span>Close (Esc)</span>
+                  
+                </button>
 
-                  <button type="button" class="ui-btn-primary" onclick="navigateTo('scr_kanban_board')" style='cursor:pointer;'>Close (Esc)</button>
-</div>
+                </div>
               </div>
             </div>
           </div>
@@ -737,7 +2541,7 @@
             <div class="screen-header-label">
               <span>scr_analytics</span> • <strong>Sprint Velocity & Burndown Analytics</strong>
             </div>
-            <div class="screen-frame" id="scr_analytics">
+            <div class="screen-frame desktop-frame" id="scr_analytics">
               <!-- Visual Gaze Saliency Heatmap Layer -->
               <div class="heatmap-overlay">
 
@@ -758,28 +2562,68 @@
 
               </div>
 
-              <!-- Screen Native Contents -->
-              <div class="ui-header">
-                <div style="font-size:12px; font-weight:600; color:#475569; text-transform:uppercase;">
-                  Sprint Velocity & Burndown Analytics
+              <!-- Desktop App Window Chrome -->
+              <div class="desktop-window-bar">
+                <div class="window-controls">
+                  <span class="control-dot close"></span>
+                  <span class="control-dot min"></span>
+                  <span class="control-dot max"></span>
                 </div>
-                <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:18px; font-weight:700; margin-top:4px;">
-                  Visualize team velocity trends, cycle times, ...
+                <div class="window-title-bar">
+                  <span>SprintFlow</span> • <span>Sprint Velocity & Burndown Analytics</span>
+                </div>
+                <div>
+                  <span class="badge-env">SPRINT 34 ACTIVE</span>
                 </div>
               </div>
-              <div style="padding:16px; flex:1; display:flex; flex-direction:column; gap:12px;">
 
-                <div style="margin-bottom:8px;">
-                  <div style="font-size:12px; font-weight:600; color:#64748B; margin-bottom:8px; text-transform:uppercase;">
-                    Velocity Metrics Overview
-                  </div>
+              <!-- Desktop Body Layout -->
+              <div class="desktop-body-layout" style="display:flex; flex:1; overflow:hidden;">
+<div style="flex:1; padding:24px; overflow-y:auto; display:flex; flex-direction:column; gap:16px;">
+            <div class="senior-sprint-metric-card">
+              <div class="sprint-header-row">
+                <div>
+                  <div class="sprint-sub">Sprint 34: Core Architecture &amp; Platform</div>
+                  <div class="sprint-main-title">Day 6 of 10 • 78% on track</div>
+                </div>
+                <div class="sprint-blocker-pill">🔴 4 Blockers Active</div>
+              </div>
+              <div class="burndown-progress-bar-container">
+                <div class="progress-bar-track">
+                  <div class="progress-bar-fill" style="width: 78%;"></div>
+                </div>
+                <div class="progress-bar-labels">
+                  <span>0 pts</span>
+                  <span class="progress-current">42 of 58 Story Points Completed • 4 Blocked</span>
+                  <span>58 pts target</span>
+                </div>
+              </div>
+              <div class="sprint-triplets">
+                <div class="metric-triplet">
+                  <div class="triplet-val">58</div>
+                  <div class="triplet-lbl">Committed Pts</div>
+                </div>
+                <div class="metric-triplet">
+                  <div class="triplet-val" style="color: #10B981;">42</div>
+                  <div class="triplet-lbl">Completed</div>
+                </div>
+                <div class="metric-triplet">
+                  <div class="triplet-val" style="color: #38BDF8;">1.8d</div>
+                  <div class="triplet-lbl">Cycle Time</div>
+                </div>
+                <div class="metric-triplet">
+                  <div class="triplet-val" style="color: #A855F7;">4.2h</div>
+                  <div class="triplet-lbl">Avg PR Merge</div>
+                </div>
+              </div>
+            </div>
 
-                  <div class="ui-card" >
-                    <div style="font-weight:600; font-size:14px;">Sprint Velocity Card </div>
-                  </div>
+                <button type="button" class="senior-btn-secondary" onclick="navigateTo('scr_kanban_board')" style='cursor:pointer;'>
+                  <span>← Back to Sprint Board</span>
+                  
+                </button>
 
-                  <button type="button" class="ui-btn-primary" onclick="navigateTo('scr_kanban_board')" style='cursor:pointer;'>← Back to Sprint Board</button>
-</div>
+                </div>
               </div>
             </div>
           </div>

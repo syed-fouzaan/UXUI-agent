@@ -182,18 +182,29 @@
       align-items: center;
     }
     .screen-frame {
-      width: 393px;
-      height: 852px;
       background: #FAFAF9;
-      border-radius: 40px;
-      border: 4px solid #334155;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
-      overflow-y: auto;
+      color: #1C1917;
+      position: relative;
       display: flex;
       flex-direction: column;
-      position: relative;
-      color: #1C1917;
+      overflow: hidden;
       transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .screen-frame.mobile-frame {
+      width: 393px;
+      height: 852px;
+      border-radius: 46px;
+      border: 8px solid #1E293B;
+      box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8), inset 0 0 0 2px rgba(255, 255, 255, 0.1);
+    }
+    .screen-frame.desktop-frame {
+      width: 1180px;
+      max-width: 92vw;
+      height: 780px;
+      border-radius: 14px;
+      border: 1px solid #30363D;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
+      background: #0D1117;
     }
     .screen-frame:hover {
       border-color: var(--primary);
@@ -518,6 +529,1539 @@
     .finding-card.CRITICAL { border-left-color: var(--error); }
     .finding-card.HIGH { border-left-color: #F97316; }
     .finding-card.MEDIUM { border-left-color: #EAB308; }
+
+    /* ==========================================================================
+       SENIOR DESIGN ENGINEER COMPONENT STYLING SYSTEM
+       ========================================================================== */
+
+    /* iOS Mobile Chrome & Status Bar */
+    .ios-status-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 22px 6px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #F8FAFC;
+      background: rgba(15, 23, 42, 0.88);
+      backdrop-filter: blur(16px);
+      z-index: 30;
+      flex-shrink: 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .ios-time {
+      font-weight: 700;
+      letter-spacing: -0.2px;
+      font-size: 13px;
+    }
+    .ios-dynamic-island {
+      width: 100px;
+      height: 26px;
+      background: #000000;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 8px;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15);
+    }
+    .island-camera-dot {
+      width: 8px;
+      height: 8px;
+      background: #0F172A;
+      border-radius: 50%;
+      border: 1px solid #334155;
+    }
+    .ios-icons {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+    }
+    .ios-battery {
+      width: 22px;
+      height: 11px;
+      border: 1.5px solid rgba(255, 255, 255, 0.8);
+      border-radius: 3px;
+      padding: 1px;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+    .ios-battery::after {
+      content: '';
+      position: absolute;
+      right: -3.5px;
+      top: 2px;
+      width: 2px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 0 1px 1px 0;
+    }
+    .battery-level {
+      width: 80%;
+      height: 100%;
+      background: #10B981;
+      border-radius: 1px;
+    }
+    .ios-home-indicator {
+      padding: 10px 0 12px;
+      display: flex;
+      justify-content: center;
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(12px);
+      z-index: 30;
+      flex-shrink: 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .home-bar {
+      width: 134px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 2px;
+    }
+
+    /* Desktop macOS Chrome Window */
+    .desktop-window-bar {
+      background: #161B22;
+      border-bottom: 1px solid #30363D;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+    .window-controls {
+      display: flex;
+      gap: 8px;
+    }
+    .control-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+    }
+    .control-dot.close { background: #EF4444; }
+    .control-dot.min { background: #F59E0B; }
+    .control-dot.max { background: #10B981; }
+    .window-title-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #8B949E;
+    }
+    .badge-env {
+      background: #065F46;
+      color: #A7F3D0;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    /* Senior Location Chip */
+    .senior-location-chip {
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-bottom: 10px;
+    }
+    .senior-location-chip:hover {
+      background: rgba(51, 65, 85, 0.8);
+      border-color: var(--primary);
+    }
+    .loc-pin-icon { font-size: 18px; }
+    .loc-content { flex: 1; }
+    .loc-subtext {
+      font-size: 10px;
+      font-weight: 700;
+      color: #94A3B8;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .loc-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #F8FAFC;
+    }
+    .loc-chevron { font-size: 11px; color: #94A3B8; }
+
+    /* Senior Search Bar */
+    .senior-search-bar {
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-bottom: 12px;
+    }
+    .senior-search-bar:hover, .senior-search-bar.active-query {
+      border-color: var(--primary);
+      background: rgba(30, 41, 59, 0.9);
+    }
+    .search-lens { font-size: 14px; opacity: 0.7; }
+    .search-placeholder { flex: 1; font-size: 13px; color: #94A3B8; }
+    .search-query-text { flex: 1; font-size: 13px; font-weight: 600; color: #F8FAFC; }
+    .search-kbd {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+      padding: 2px 6px;
+      color: #94A3B8;
+    }
+    .search-clear-badge {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: #E2E8F0;
+    }
+
+    /* Senior Filter Pills */
+    .senior-filter-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #CBD5E1;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+    .senior-filter-pill:hover {
+      background: rgba(51, 65, 85, 0.8);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .senior-filter-pill.active {
+      background: linear-gradient(135deg, var(--primary), #D97706);
+      border-color: transparent;
+      color: white;
+      box-shadow: 0 4px 12px rgba(234, 88, 12, 0.35);
+    }
+
+    /* Senior Restaurant Card */
+    .senior-restaurant-card {
+      background: #1E293B;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+      margin-bottom: 14px;
+    }
+    .senior-restaurant-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--primary);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+    }
+    .rest-cover-banner {
+      height: 84px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #1E293B, #0F172A);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .rest-hero-emoji {
+      font-size: 38px;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+    }
+    .rest-badge-pill {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(234, 88, 12, 0.92);
+      color: white;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    .rest-eta-pill {
+      position: absolute;
+      bottom: 8px;
+      right: 10px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #F8FAFC;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+    .rest-body { padding: 14px; }
+    .rest-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+    }
+    .rest-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #F8FAFC;
+    }
+    .rest-rating {
+      font-size: 12px;
+      font-weight: 700;
+      color: #FBBF24;
+    }
+    .rest-cuisine-row {
+      font-size: 12px;
+      color: #94A3B8;
+      margin-bottom: 10px;
+    }
+    .rest-featured-dish {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 8px 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .dish-fire { font-size: 16px; }
+    .dish-info { flex: 1; }
+    .dish-tag {
+      font-size: 9px;
+      font-weight: 800;
+      color: #EA580C;
+      letter-spacing: 0.5px;
+      display: block;
+    }
+    .dish-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: #E2E8F0;
+    }
+    .dish-quick-price {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .rest-dorm-landmark {
+      font-size: 11px;
+      color: #64748B;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Senior Dish Menu Card */
+    .senior-dish-card {
+      background: #1E293B;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 12px 14px;
+      display: flex;
+      gap: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-bottom: 10px;
+    }
+    .senior-dish-card:hover {
+      border-color: var(--primary);
+      background: #243248;
+    }
+    .dish-card-left { flex: 1; }
+    .dish-badge-row {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+    .dish-badge-pill {
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      color: #FBBF24;
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .dish-rest-sub { font-size: 10px; color: #94A3B8; }
+    .dish-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: #F8FAFC;
+      margin-bottom: 4px;
+    }
+    .dish-desc {
+      font-size: 11px;
+      color: #94A3B8;
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+    .dish-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .dish-price {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--primary);
+    }
+    .dish-card-right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .dish-img-thumb {
+      width: 58px;
+      height: 58px;
+      border-radius: 10px;
+      background: #0F172A;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+    }
+    .dish-add-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .dish-add-btn:hover {
+      background: var(--primary-hover);
+      transform: scale(1.05);
+    }
+
+    /* Senior Input Field */
+    .senior-input-field {
+      background: #1E293B;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+    }
+    .input-field-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: #94A3B8;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+    .input-field-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .input-field-icon { font-size: 16px; }
+    .input-field-value {
+      flex: 1;
+      font-size: 13px;
+      font-weight: 600;
+      color: #F8FAFC;
+    }
+    .input-field-action {
+      font-size: 11px;
+      color: var(--primary);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* Senior Cart Item Card */
+    .senior-cart-item-card {
+      background: #1E293B;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .cart-qty-badge {
+      background: rgba(234, 88, 12, 0.15);
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 12px;
+      padding: 4px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(234, 88, 12, 0.3);
+    }
+    .cart-item-details { flex: 1; }
+    .cart-item-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #F8FAFC;
+    }
+    .cart-item-opts {
+      font-size: 11px;
+      color: #94A3B8;
+      margin-top: 2px;
+    }
+    .cart-item-price {
+      font-weight: 700;
+      font-size: 13px;
+      color: #F8FAFC;
+    }
+
+    /* Senior Bill Card */
+    .senior-bill-card {
+      background: #111827;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+    .bill-header {
+      font-size: 11px;
+      font-weight: 700;
+      color: #94A3B8;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+    .bill-line {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: #CBD5E1;
+      margin-bottom: 8px;
+    }
+    .bill-line.discount { color: #34D399; }
+    .discount-pill {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #34D399;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+    .fee-free { color: #34D399; font-weight: 700; }
+    .strikethrough {
+      text-decoration: line-through;
+      color: #64748B;
+      font-size: 11px;
+      margin-left: 4px;
+    }
+    .bill-divider {
+      height: 1px;
+      background: rgba(255, 255, 255, 0.1);
+      margin: 10px 0;
+    }
+    .bill-line.total {
+      font-size: 16px;
+      font-weight: 800;
+      color: #F8FAFC;
+      margin-bottom: 4px;
+    }
+    .total-amount {
+      color: var(--primary);
+      font-size: 18px;
+    }
+    .bill-tax-note {
+      font-size: 11px;
+      color: #64748B;
+      margin-top: 6px;
+    }
+
+    /* Senior Kitchen Ticket & Prep Stepper */
+    .senior-kitchen-ticket {
+      background: #111827;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 14px;
+    }
+    .ticket-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .ticket-status-pill {
+      background: rgba(234, 88, 12, 0.15);
+      border: 1px solid rgba(234, 88, 12, 0.3);
+      color: var(--primary);
+      font-size: 10px;
+      font-weight: 800;
+      padding: 4px 8px;
+      border-radius: 6px;
+    }
+    .ticket-pin-badge { text-align: right; }
+    .pin-caption {
+      font-size: 9px;
+      color: #94A3B8;
+      display: block;
+    }
+    .pin-code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 16px;
+      color: #FBBF24;
+      letter-spacing: 1px;
+    }
+    .ticket-headline {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #F8FAFC;
+      margin-bottom: 12px;
+    }
+    .ticket-eta-box {
+      background: rgba(30, 41, 59, 0.5);
+      border-radius: 10px;
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .eta-clock { font-size: 20px; }
+    .eta-label { font-size: 10px; color: #94A3B8; font-weight: 600; }
+    .eta-val { font-size: 14px; font-weight: 700; color: #38BDF8; }
+    .prep-stepper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      padding: 0 4px;
+    }
+    .step-node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .step-circle {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #1F2937;
+      border: 1px solid #374151;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: #94A3B8;
+    }
+    .step-node.done .step-circle {
+      background: #10B981;
+      border-color: #059669;
+      color: white;
+    }
+    .step-node.active .step-circle {
+      background: var(--primary);
+      border-color: #EA580C;
+      color: white;
+      box-shadow: 0 0 10px rgba(234, 88, 12, 0.5);
+    }
+    .step-name {
+      font-size: 10px;
+      font-weight: 600;
+      color: #94A3B8;
+    }
+    .step-line {
+      flex: 1;
+      height: 2px;
+      background: #374151;
+      margin: 0 6px 14px;
+    }
+    .step-line.active { background: var(--primary); }
+    .ticket-destination {
+      font-size: 12px;
+      color: #CBD5E1;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Senior Live Tracking Map Card */
+    .senior-live-map-card {
+      background: #111827;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 14px;
+    }
+    .map-viewport {
+      height: 180px;
+      background: #0B1120;
+      position: relative;
+      overflow: hidden;
+    }
+    .map-grid-layer {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .map-road.road-h {
+      position: absolute;
+      top: 60%;
+      left: 0;
+      width: 100%;
+      height: 16px;
+      background: #1E293B;
+      border-top: 1px dashed rgba(255,255,255,0.15);
+      border-bottom: 1px dashed rgba(255,255,255,0.15);
+    }
+    .map-road.road-v {
+      position: absolute;
+      left: 45%;
+      top: 0;
+      width: 16px;
+      height: 100%;
+      background: #1E293B;
+      border-left: 1px dashed rgba(255,255,255,0.15);
+      border-right: 1px dashed rgba(255,255,255,0.15);
+    }
+    .map-route-line {
+      position: absolute;
+      top: 35%;
+      left: 30%;
+      width: 45%;
+      height: 3px;
+      background: linear-gradient(90deg, #10B981, #38BDF8);
+      border-radius: 2px;
+      transform: rotate(22deg);
+    }
+    .map-pin.destination-pin {
+      position: absolute;
+      top: 25%;
+      right: 18%;
+    }
+    .pin-bubble {
+      background: #0F172A;
+      border: 1px solid #38BDF8;
+      color: #38BDF8;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+    .map-pin.courier-pin {
+      position: absolute;
+      top: 50%;
+      left: 32%;
+    }
+    .courier-pulse-ring {
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(16, 185, 129, 0.3);
+      animation: pulse 2s infinite;
+      transform: translate(-50%, -50%);
+    }
+    .pin-marker {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #10B981;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      box-shadow: 0 0 12px rgba(16, 185, 129, 0.6);
+      transform: translate(-50%, -50%);
+    }
+    .map-live-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: #34D399;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      padding: 4px 8px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .live-dot-green {
+      width: 6px;
+      height: 6px;
+      background: #10B981;
+      border-radius: 50%;
+      box-shadow: 0 0 6px #10B981;
+    }
+    .courier-meta-bar {
+      padding: 12px 14px;
+      background: #1E293B;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .courier-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #3B82F6;
+      color: white;
+      font-weight: 700;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .courier-info { flex: 1; }
+    .courier-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #F8FAFC;
+    }
+    .courier-status-text {
+      font-size: 11px;
+      color: #94A3B8;
+    }
+    .courier-eta-badge {
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #38BDF8;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 6px;
+    }
+    .courier-pin-reminder {
+      background: #0F172A;
+      padding: 8px 14px;
+      font-size: 11px;
+      color: #CBD5E1;
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .show-qr-link {
+      color: var(--primary);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* Senior Buttons */
+    .senior-btn-primary {
+      background: linear-gradient(135deg, var(--primary), #D97706);
+      color: white;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      border: none;
+      padding: 14px 18px;
+      border-radius: 12px;
+      width: 100%;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      margin-top: 6px;
+    }
+    .senior-btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(234, 88, 12, 0.45);
+    }
+    .senior-btn-primary:active { transform: scale(0.98); }
+    .btn-counter-badge {
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 12px;
+      padding: 2px 7px;
+      font-size: 11px;
+    }
+    .btn-arrow { transition: transform 0.2s; }
+    .senior-btn-primary:hover .btn-arrow { transform: translateX(3px); }
+
+    .senior-btn-secondary {
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #E2E8F0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      padding: 12px 16px;
+      border-radius: 10px;
+      width: 100%;
+      font-size: 13px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      margin-top: 4px;
+    }
+    .senior-btn-secondary:hover {
+      background: rgba(51, 65, 85, 0.8);
+      border-color: rgba(255, 255, 255, 0.25);
+      color: white;
+    }
+    .btn-speed-badge {
+      background: rgba(16, 185, 129, 0.2);
+      color: #34D399;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    /* Senior Status Banner */
+    .senior-status-banner {
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 12px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .status-banner-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #10B981;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 13px;
+    }
+    .status-banner-text { flex: 1; }
+    .status-banner-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #F8FAFC;
+    }
+    .status-banner-sub {
+      font-size: 11px;
+      color: #A7F3D0;
+    }
+
+    /* Senior SaaS Sidebar */
+    .senior-saas-sidebar {
+      width: 240px;
+      background: #0D1117;
+      border-right: 1px solid #21262D;
+      display: flex;
+      flex-direction: column;
+      padding: 16px 12px;
+      flex-shrink: 0;
+    }
+    .sidebar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 8px 16px;
+      border-bottom: 1px solid #21262D;
+      margin-bottom: 12px;
+    }
+    .brand-spark {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+    }
+    .brand-meta { line-height: 1.2; }
+    .brand-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 14px;
+      color: #F8FAFC;
+    }
+    .brand-tier {
+      font-size: 9px;
+      font-weight: 700;
+      color: #8B949E;
+      letter-spacing: 0.5px;
+    }
+    .sidebar-workspace-select {
+      background: #161B22;
+      border: 1px solid #30363D;
+      border-radius: 8px;
+      padding: 8px 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      font-size: 12px;
+      color: #C9D1D9;
+    }
+    .ws-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10B981;
+      box-shadow: 0 0 6px #10B981;
+    }
+    .ws-name { flex: 1; font-weight: 600; }
+    .ws-chevron { font-size: 10px; color: #8B949E; }
+    .sidebar-nav-section { flex: 1; }
+    .nav-section-title {
+      font-size: 10px;
+      font-weight: 700;
+      color: #6E7681;
+      letter-spacing: 0.5px;
+      padding: 4px 8px;
+      margin-bottom: 6px;
+    }
+    .sidebar-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      border-radius: 6px;
+      font-size: 13px;
+      color: #8B949E;
+      cursor: pointer;
+      margin-bottom: 2px;
+      transition: all 0.15s ease;
+    }
+    .sidebar-nav-item:hover {
+      background: #161B22;
+      color: #C9D1D9;
+    }
+    .sidebar-nav-item.active {
+      background: rgba(59, 130, 246, 0.12);
+      color: #58A6FF;
+      font-weight: 600;
+      border-left: 3px solid #58A6FF;
+    }
+    .nav-icon { font-size: 14px; }
+    .nav-text { flex: 1; }
+    .nav-pill-badge {
+      background: rgba(16, 185, 129, 0.2);
+      color: #34D399;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+    .nav-pill-count {
+      background: #21262D;
+      color: #8B949E;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+    .nav-pill-alert {
+      background: rgba(239, 68, 68, 0.2);
+      color: #F87171;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+    .sidebar-user-footer {
+      border-top: 1px solid #21262D;
+      padding-top: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .user-avatar-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #238636;
+      color: white;
+      font-weight: 700;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .user-info { line-height: 1.2; }
+    .user-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: #F0F6FC;
+    }
+    .user-role {
+      font-size: 10px;
+      color: #8B949E;
+    }
+
+    /* Senior SaaS Sprint Metric Card */
+    .senior-sprint-metric-card {
+      background: #161B22;
+      border: 1px solid #30363D;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .sprint-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+    .sprint-sub {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #58A6FF;
+      margin-bottom: 4px;
+    }
+    .sprint-main-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #F0F6FC;
+    }
+    .sprint-blocker-pill {
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #F87171;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+    .burndown-progress-bar-container { margin-bottom: 18px; }
+    .progress-bar-track {
+      height: 10px;
+      background: #21262D;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-bottom: 6px;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #10B981, #38BDF8);
+      border-radius: 5px;
+    }
+    .progress-bar-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: #8B949E;
+    }
+    .progress-current { color: #58A6FF; font-weight: 600; }
+    .sprint-triplets {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .metric-triplet {
+      background: #0D1117;
+      border: 1px solid #21262D;
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+    }
+    .triplet-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 18px;
+      font-weight: 800;
+      color: #F0F6FC;
+    }
+    .triplet-lbl {
+      font-size: 10px;
+      color: #8B949E;
+      margin-top: 2px;
+    }
+
+    /* Senior Kanban Column & Task Cards */
+    .senior-kanban-column {
+      background: #161B22;
+      border: 1px solid #30363D;
+      border-radius: 10px;
+      padding: 12px;
+      width: 270px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .col-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #21262D;
+    }
+    .col-title-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .col-color-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+    }
+    .col-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #C9D1D9;
+    }
+    .col-add-btn {
+      color: #8B949E;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .col-cards-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      overflow-y: auto;
+    }
+    .senior-kanban-task-card {
+      background: #0D1117;
+      border: 1px solid #30363D;
+      border-radius: 8px;
+      padding: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .senior-kanban-task-card:hover {
+      border-color: #58A6FF;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+    .task-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .task-key {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: #58A6FF;
+      font-weight: 600;
+    }
+    .task-priority-pill {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 4px;
+      border: 1px solid;
+    }
+    .task-priority-pill.P0 {
+      background: rgba(239, 68, 68, 0.15);
+      border-color: rgba(239, 68, 68, 0.3);
+      color: #F87171;
+    }
+    .task-priority-pill.P1 {
+      background: rgba(245, 158, 11, 0.15);
+      border-color: rgba(245, 158, 11, 0.3);
+      color: #FBBF24;
+    }
+    .task-priority-pill.P2 {
+      background: rgba(59, 130, 246, 0.15);
+      border-color: rgba(59, 130, 246, 0.3);
+      color: #60A5FA;
+    }
+    .task-card-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #F0F6FC;
+      line-height: 1.4;
+      margin-bottom: 10px;
+    }
+    .task-card-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .task-branch-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: #8B949E;
+      background: #161B22;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .task-assignee-avatar {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #238636;
+      color: white;
+      font-size: 10px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Senior Task Detail Drawer */
+    .senior-task-detail-drawer {
+      background: #161B22;
+      border: 1px solid #30363D;
+      border-radius: 12px;
+      padding: 24px;
+      max-width: 680px;
+    }
+    .drawer-key-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .drawer-key-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      font-weight: 700;
+      color: #58A6FF;
+    }
+    .drawer-priority-pill {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      border: 1px solid;
+    }
+    .drawer-points-pill {
+      font-size: 11px;
+      background: #21262D;
+      color: #C9D1D9;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .drawer-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #F0F6FC;
+      margin-bottom: 16px;
+    }
+    .drawer-meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+      background: #0D1117;
+      padding: 12px 16px;
+      border-radius: 8px;
+      border: 1px solid #21262D;
+    }
+    .meta-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: #8B949E;
+      margin-bottom: 4px;
+    }
+    .meta-val {
+      font-size: 13px;
+      color: #F0F6FC;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .avatar-dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #238636;
+      color: white;
+      font-size: 10px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .branch-code {
+      font-family: 'JetBrains Mono', monospace;
+      color: #58A6FF;
+      font-size: 12px;
+    }
+    .drawer-pr-banner {
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 8px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .pr-icon { font-size: 18px; }
+    .pr-info { flex: 1; }
+    .pr-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #58A6FF;
+    }
+    .pr-checks {
+      font-size: 11px;
+      color: #34D399;
+    }
+    .pr-merge-shortcut {
+      background: #238636;
+      color: white;
+      border: none;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .drawer-criteria-section {
+      border-top: 1px solid #21262D;
+      padding-top: 16px;
+    }
+    .criteria-header {
+      font-size: 11px;
+      font-weight: 700;
+      color: #8B949E;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+    .criteria-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .criteria-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: #C9D1D9;
+      margin-bottom: 8px;
+    }
+
+    /* Senior Analytics Card */
+    .senior-analytics-card {
+      background: #161B22;
+      border: 1px solid #30363D;
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .analytics-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 24px;
+    }
+    .analytics-sub {
+      font-size: 10px;
+      font-weight: 700;
+      color: #8B949E;
+      letter-spacing: 0.5px;
+    }
+    .analytics-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #F0F6FC;
+    }
+    .analytics-badge {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #34D399;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+    .velocity-chart-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 24px;
+      height: 160px;
+      padding: 0 16px 16px;
+      border-bottom: 1px solid #21262D;
+      margin-bottom: 20px;
+    }
+    .chart-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .col-bar {
+      width: 100%;
+      max-width: 48px;
+      background: #3B82F6;
+      border-radius: 6px 6px 0 0;
+      display: flex;
+      justify-content: center;
+      padding-top: 6px;
+    }
+    .bar-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: white;
+    }
+    .col-lbl {
+      font-size: 11px;
+      color: #8B949E;
+    }
+    .chart-col.active .col-lbl {
+      color: #34D399;
+      font-weight: 700;
+    }
+    .analytics-kpi-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .kpi-box {
+      background: #0D1117;
+      border: 1px solid #21262D;
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+    .kpi-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      font-weight: 800;
+      color: #38BDF8;
+    }
+    .kpi-desc {
+      font-size: 11px;
+      color: #8B949E;
+      margin-top: 4px;
+    }
   </style>
 </head>
 <body>
@@ -561,7 +2105,7 @@
             <div class="screen-header-label">
               <span>scr_home</span> • <strong>Campus Discovery & Feed</strong>
             </div>
-            <div class="screen-frame" id="scr_home">
+            <div class="screen-frame mobile-frame" id="scr_home">
               <!-- Visual Gaze Saliency Heatmap Layer -->
               <div class="heatmap-overlay">
 
@@ -582,72 +2126,173 @@
 
               </div>
 
-              <!-- Screen Native Contents -->
-              <div class="ui-header">
-                <div style="font-size:12px; font-weight:600; color:#57534E; text-transform:uppercase;">
-                  Campus Discovery & Feed
+              <!-- iOS Status Bar & Dynamic Island -->
+              <div class="ios-status-bar">
+                <span class="ios-time">9:41</span>
+                <div class="ios-dynamic-island">
+                  <div class="island-camera-dot"></div>
                 </div>
-                <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:18px; font-weight:700; margin-top:4px;">
-                  Present campus dining spots, flash student bu...
+                <div class="ios-icons">
+                  <span class="ios-signal">📶</span>
+                  <span class="ios-wifi">5G</span>
+                  <div class="ios-battery"><div class="battery-level"></div></div>
                 </div>
               </div>
-              <div style="padding:16px; flex:1; display:flex; flex-direction:column; gap:12px;">
 
-                <div style="margin-bottom:8px;">
-                  <div style="font-size:12px; font-weight:600; color:#78716C; margin-bottom:8px; text-transform:uppercase;">
+              <!-- Scrollable Inner Content -->
+              <div class="screen-scroll-body" style="padding:16px; flex:1; display:flex; flex-direction:column; gap:10px; overflow-y:auto;">
+
+                <div style="margin-bottom:6px;">
+                  <div style="font-size:11px; font-weight:700; color:#78716C; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px;">
                     Dorm Delivery Location & Search
                   </div>
 
-                  <div class="ui-card" >
-                    <div style="font-weight:600; font-size:14px;">📍 North Quad Dorms (Building B) </div>
+                <div class="senior-location-chip" >
+                  <div class="loc-pin-icon">📍</div>
+                  <div class="loc-content">
+                    <div class="loc-subtext">CAMPUS DELIVERY TO</div>
+                    <div class="loc-title">North Quad Dorms (Building B)</div>
                   </div>
+                  <div class="loc-chevron">▾</div>
+                </div>
 
-                  <div class="ui-card" onclick="navigateTo('scr_search')" style='cursor:pointer;'>
-                    <div style="font-weight:600; font-size:14px;">Global Search Input </div>
-                  </div>
+            <div class="senior-search-bar" onclick="navigateTo('scr_search')" style='cursor:pointer;'>
+              <span class="search-lens">🔍</span>
+              <span class="search-placeholder">Search &#x27;noodles&#x27;, &#x27;late night&#x27;, &#x27;burritos&#x27;...</span>
+              <kbd class="search-kbd">⌘K</kbd>
+            </div>
 </div>
-                <div style="margin-bottom:8px;">
-                  <div style="font-size:12px; font-weight:600; color:#78716C; margin-bottom:8px; text-transform:uppercase;">
+                <div style="margin-bottom:6px;">
+                  <div style="font-size:11px; font-weight:700; color:#78716C; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px;">
                     Student Saver Quick Filters
                   </div>
+<div style="display:flex; gap:8px; overflow-x:auto; padding-bottom:4px;">
+            <div class="senior-filter-pill active" >
+              Under $10 💰
+            </div>
 
-                  <div class="ui-card" >
-                    <div style="font-weight:600; font-size:14px;">Under $10 💰 </div>
-                  </div>
+            <div class="senior-filter-pill " >
+              ⚡ Under 20 Mins
+            </div>
 
-                  <div class="ui-card" >
-                    <div style="font-weight:600; font-size:14px;">⚡ Under 20 Mins </div>
-                  </div>
+            <div class="senior-filter-pill " >
+              🌱 Plant-Based
+            </div>
 
-                  <div class="ui-card" >
-                    <div style="font-weight:600; font-size:14px;">🌱 Plant-Based </div>
-                  </div>
+            <div class="senior-filter-pill " >
+              Late Night 🌙
+            </div>
 
-                  <div class="ui-card" >
-                    <div style="font-weight:600; font-size:14px;">Late Night 🌙 </div>
-                  </div>
-
-                  <div class="ui-card" >
-                    <div style="font-weight:600; font-size:14px;">Top Rated ⭐ </div>
-                  </div>
-</div>
-                <div style="margin-bottom:8px;">
-                  <div style="font-size:12px; font-weight:600; color:#78716C; margin-bottom:8px; text-transform:uppercase;">
+            <div class="senior-filter-pill " >
+              Top Rated ⭐
+            </div>
+</div></div>
+                <div style="margin-bottom:6px;">
+                  <div style="font-size:11px; font-weight:700; color:#78716C; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px;">
                     Fast & Nearby Campus Favorites
                   </div>
 
-                  <div class="ui-card" onclick="navigateTo('scr_restaurant_detail')" style='cursor:pointer;'>
-                    <div style="font-weight:600; font-size:14px;">Quad Noodle Bar & Dumplings <span style='float:right; font-weight:700; color:#EA580C;'>$8.49</span><div style='font-size:12px; color:#78716C; margin-top:4px;'>⏱ 15–20 min • 4.9 (1.2k+ students)</div></div>
+            <div class="senior-restaurant-card" onclick="navigateTo('scr_restaurant_detail')" style='cursor:pointer;'>
+              <div class="rest-cover-banner">
+                <div class="rest-hero-emoji">🍜</div>
+                <div class="rest-badge-pill">Student Favorite 🔥</div>
+                <div class="rest-eta-pill">⏱ 15–20 min</div>
+              </div>
+              <div class="rest-body">
+                <div class="rest-title-row">
+                  <span class="rest-name">Quad Noodle Bar &amp; Dumplings</span>
+                  <span class="rest-rating">4.9 (1.2k+ students)</span>
+                </div>
+                <div class="rest-cuisine-row">
+                  <span>Pan-Asian • Noodles &amp; Bowls</span> • <span>FREE campus drop</span>
+                </div>
+                
+                <div class="rest-featured-dish">
+                  <span class="dish-fire">🍜</span>
+                  <div class="dish-info">
+                    <span class="dish-tag">STUDENT FAVORITE</span>
+                    <span class="dish-name">Crispy Chili Garlic Noodles with Tofu</span>
                   </div>
+                  <span class="dish-quick-price">$8.49</span>
+                </div>
 
-                  <div class="ui-card" onclick="navigateTo('scr_restaurant_detail')" style='cursor:pointer;'>
-                    <div style="font-weight:600; font-size:14px;">Varsity Burrito Co. <span style='float:right; font-weight:700; color:#EA580C;'>$9.95</span><div style='font-size:12px; color:#78716C; margin-top:4px;'>⏱ 20–25 min • 4.8 (890)</div></div>
-                  </div>
+                
+                <div class="rest-dorm-landmark">
+                  <span>📍 Drop-off: <strong>North Quad Bike Rack Locker</strong></span>
+                </div>
 
-                  <div class="ui-card" onclick="navigateTo('scr_restaurant_detail')" style='cursor:pointer;'>
-                    <div style="font-weight:600; font-size:14px;">Library Street Woodfired Pizza <span style='float:right; font-weight:700; color:#EA580C;'>$11.50</span><div style='font-size:12px; color:#78716C; margin-top:4px;'>⏱ 25–30 min • 4.7 (2.4k)</div></div>
+              </div>
+            </div>
+
+            <div class="senior-restaurant-card" onclick="navigateTo('scr_restaurant_detail')" style='cursor:pointer;'>
+              <div class="rest-cover-banner">
+                <div class="rest-hero-emoji">🌯</div>
+                <div class="rest-badge-pill">Buy 1 Get 50% Off 🌯</div>
+                <div class="rest-eta-pill">⏱ 20–25 min</div>
+              </div>
+              <div class="rest-body">
+                <div class="rest-title-row">
+                  <span class="rest-name">Varsity Burrito Co.</span>
+                  <span class="rest-rating">4.8 (890)</span>
+                </div>
+                <div class="rest-cuisine-row">
+                  <span>Mexican Grill • Bowls &amp; Tacos</span> • <span>$0.99</span>
+                </div>
+                
+                <div class="rest-featured-dish">
+                  <span class="dish-fire">🌯</span>
+                  <div class="dish-info">
+                    <span class="dish-tag">STUDENT FAVORITE</span>
+                    <span class="dish-name">Mega Carnitas Bowl + Fresh Guac</span>
                   </div>
+                  <span class="dish-quick-price">$9.95</span>
+                </div>
+
+                
+                <div class="rest-dorm-landmark">
+                  <span>📍 Drop-off: <strong>South Quad Central Arch</strong></span>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="senior-restaurant-card" onclick="navigateTo('scr_restaurant_detail')" style='cursor:pointer;'>
+              <div class="rest-cover-banner">
+                <div class="rest-hero-emoji">🍕</div>
+                <div class="rest-badge-pill">Midnight Slice Deal 🍕</div>
+                <div class="rest-eta-pill">⏱ 25–30 min</div>
+              </div>
+              <div class="rest-body">
+                <div class="rest-title-row">
+                  <span class="rest-name">Library Street Woodfired Pizza</span>
+                  <span class="rest-rating">4.7 (2.4k)</span>
+                </div>
+                <div class="rest-cuisine-row">
+                  <span>Italian • Artisanal Slices</span> • <span>FREE over $12</span>
+                </div>
+                
+                <div class="rest-featured-dish">
+                  <span class="dish-fire">🍕</span>
+                  <div class="dish-info">
+                    <span class="dish-tag">STUDENT FAVORITE</span>
+                    <span class="dish-name">Hot Honey Pepperoni Personal Pie</span>
+                  </div>
+                  <span class="dish-quick-price">$11.50</span>
+                </div>
+
+                
+                <div class="rest-dorm-landmark">
+                  <span>📍 Drop-off: <strong>Engineering Hall Entrance</strong></span>
+                </div>
+
+              </div>
+            </div>
 </div>
+              </div>
+
+              <!-- iOS Home Indicator -->
+              <div class="ios-home-indicator">
+                <div class="home-bar"></div>
               </div>
             </div>
           </div>
@@ -656,7 +2301,7 @@
             <div class="screen-header-label">
               <span>scr_search</span> • <strong>Dietary Search & Query Results</strong>
             </div>
-            <div class="screen-frame" id="scr_search">
+            <div class="screen-frame mobile-frame" id="scr_search">
               <!-- Visual Gaze Saliency Heatmap Layer -->
               <div class="heatmap-overlay">
 
@@ -677,39 +2322,67 @@
 
               </div>
 
-              <!-- Screen Native Contents -->
-              <div class="ui-header">
-                <div style="font-size:12px; font-weight:600; color:#57534E; text-transform:uppercase;">
-                  Dietary Search & Query Results
+              <!-- iOS Status Bar & Dynamic Island -->
+              <div class="ios-status-bar">
+                <span class="ios-time">9:41</span>
+                <div class="ios-dynamic-island">
+                  <div class="island-camera-dot"></div>
                 </div>
-                <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:18px; font-weight:700; margin-top:4px;">
-                  Allow granular filtering by price, prep speed...
+                <div class="ios-icons">
+                  <span class="ios-signal">📶</span>
+                  <span class="ios-wifi">5G</span>
+                  <div class="ios-battery"><div class="battery-level"></div></div>
                 </div>
               </div>
-              <div style="padding:16px; flex:1; display:flex; flex-direction:column; gap:12px;">
 
-                <div style="margin-bottom:8px;">
-                  <div style="font-size:12px; font-weight:600; color:#78716C; margin-bottom:8px; text-transform:uppercase;">
+              <!-- Scrollable Inner Content -->
+              <div class="screen-scroll-body" style="padding:16px; flex:1; display:flex; flex-direction:column; gap:10px; overflow-y:auto;">
+
+                <div style="margin-bottom:6px;">
+                  <div style="font-size:11px; font-weight:700; color:#78716C; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px;">
                     Query Input with Back Button
                   </div>
+<div style="display:flex; gap:8px; overflow-x:auto; padding-bottom:4px;">
+                <button type="button" class="senior-btn-secondary" onclick="navigateTo('scr_home')" style='cursor:pointer;'>
+                  <span>Back Arrow</span>
+                  
+                </button>
 
-                  <div class="ui-card" onclick="navigateTo('scr_home')" style='cursor:pointer;'>
-                    <div style="font-weight:600; font-size:14px;">Back Arrow </div>
-                  </div>
-
-                  <div class="ui-card" >
-                    <div style="font-weight:600; font-size:14px;">Focused Search Input </div>
-                  </div>
-</div>
-                <div style="margin-bottom:8px;">
-                  <div style="font-size:12px; font-weight:600; color:#78716C; margin-bottom:8px; text-transform:uppercase;">
+                <div class="senior-search-bar active-query" >
+                  <span class="search-lens">🔍</span>
+                  <span class="search-query-text">chili garlic noodles</span>
+                  <span class="search-clear-badge">✕</span>
+                </div>
+</div></div>
+                <div style="margin-bottom:6px;">
+                  <div style="font-size:11px; font-weight:700; color:#78716C; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px;">
                     Matched Meals Under $10
                   </div>
 
-                  <div class="ui-card" onclick="navigateTo('scr_restaurant_detail')" style='cursor:pointer;'>
-                    <div style="font-weight:600; font-size:14px;">Crispy Chili Garlic Noodles <span style='float:right; font-weight:700; color:#EA580C;'>$8.49</span></div>
-                  </div>
+            <div class="senior-dish-card" onclick="navigateTo('scr_restaurant_detail')" style='cursor:pointer;'>
+              <div class="dish-card-left">
+                <div class="dish-badge-row">
+                  <span class="dish-badge-pill">Popular 🔥</span>
+                  <span class="dish-rest-sub">Quad Noodle Bar</span>
+                </div>
+                <div class="dish-title">Crispy Chili Garlic Noodles</div>
+                <div class="dish-desc">Prepared fresh for campus pickup.</div>
+                <div class="dish-price-row">
+                  <span class="dish-price">$8.49</span>
+                  <span class="dish-eta" style="font-size:11px; color:#94A3B8;">⏱ 15 min</span>
+                </div>
+              </div>
+              <div class="dish-card-right">
+                <div class="dish-img-thumb">🍜</div>
+                <button type="button" class="dish-add-btn">+ Add</button>
+              </div>
+            </div>
 </div>
+              </div>
+
+              <!-- iOS Home Indicator -->
+              <div class="ios-home-indicator">
+                <div class="home-bar"></div>
               </div>
             </div>
           </div>
@@ -718,7 +2391,7 @@
             <div class="screen-header-label">
               <span>scr_restaurant_detail</span> • <strong>Restaurant Menu & Customizer</strong>
             </div>
-            <div class="screen-frame" id="scr_restaurant_detail">
+            <div class="screen-frame mobile-frame" id="scr_restaurant_detail">
               <!-- Visual Gaze Saliency Heatmap Layer -->
               <div class="heatmap-overlay">
 
@@ -739,42 +2412,88 @@
 
               </div>
 
-              <!-- Screen Native Contents -->
-              <div class="ui-header">
-                <div style="font-size:12px; font-weight:600; color:#57534E; text-transform:uppercase;">
-                  Restaurant Menu & Customizer
+              <!-- iOS Status Bar & Dynamic Island -->
+              <div class="ios-status-bar">
+                <span class="ios-time">9:41</span>
+                <div class="ios-dynamic-island">
+                  <div class="island-camera-dot"></div>
                 </div>
-                <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:18px; font-weight:700; margin-top:4px;">
-                  Explore restaurant menu sections and customiz...
+                <div class="ios-icons">
+                  <span class="ios-signal">📶</span>
+                  <span class="ios-wifi">5G</span>
+                  <div class="ios-battery"><div class="battery-level"></div></div>
                 </div>
               </div>
-              <div style="padding:16px; flex:1; display:flex; flex-direction:column; gap:12px;">
 
-                <div style="margin-bottom:8px;">
-                  <div style="font-size:12px; font-weight:600; color:#78716C; margin-bottom:8px; text-transform:uppercase;">
+              <!-- Scrollable Inner Content -->
+              <div class="screen-scroll-body" style="padding:16px; flex:1; display:flex; flex-direction:column; gap:10px; overflow-y:auto;">
+
+                <div style="margin-bottom:6px;">
+                  <div style="font-size:11px; font-weight:700; color:#78716C; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px;">
                     Restaurant Hero & Info
                   </div>
 
-                  <div class="ui-card" >
-                    <div style="font-weight:600; font-size:14px;">Quad Noodle Bar & Dumplings </div>
-                  </div>
+            <div class="senior-restaurant-card hero-detail-box" style="margin-bottom:12px;">
+              <div class="rest-cover-banner" style="height:110px; background:linear-gradient(135deg, #1E293B, #0F172A);">
+                <div class="rest-hero-emoji" style="font-size:48px;">🍜</div>
+                <div class="rest-badge-pill">Student Special: Free Delivery</div>
+                <div class="rest-eta-pill">🟢 Open until 1:00 AM</div>
+              </div>
+              <div class="rest-body">
+                <div class="rest-title-row">
+                  <span class="rest-name" style="font-size:17px;">Quad Noodle Bar &amp; Dumplings</span>
+                  <span class="rest-rating">⭐ 4.9 (1,240 reviews)</span>
+                </div>
+                <div class="rest-cuisine-row">
+                  <span>Pan-Asian • Hand-pulled Noodles &amp; Dumplings</span> • <span>Verified Student Partner</span>
+                </div>
+                <div style="display:flex; gap:8px; margin-top:8px;">
+                  <span class="senior-filter-pill" style="font-size:10px; padding:3px 8px;">🌱 Vegan Options</span>
+                  <span class="senior-filter-pill" style="font-size:10px; padding:3px 8px;">⚡ 15-min Dorm Drop</span>
+                  <span class="senior-filter-pill" style="font-size:10px; padding:3px 8px;">🔥 Halal Certified</span>
+                </div>
+              </div>
+            </div>
 </div>
-                <div style="margin-bottom:8px;">
-                  <div style="font-size:12px; font-weight:600; color:#78716C; margin-bottom:8px; text-transform:uppercase;">
+                <div style="margin-bottom:6px;">
+                  <div style="font-size:11px; font-weight:700; color:#78716C; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px;">
                     Popular Student Combos
                   </div>
 
-                  <div class="ui-card" >
-                    <div style="font-weight:600; font-size:14px;">Crispy Chili Garlic Noodles <span style='float:right; font-weight:700; color:#EA580C;'>$8.49</span></div>
-                  </div>
+            <div class="senior-dish-card" >
+              <div class="dish-card-left">
+                <div class="dish-badge-row">
+                  <span class="dish-badge-pill">Bestseller 🔥</span>
+                  
+                </div>
+                <div class="dish-title">Crispy Chili Garlic Noodles</div>
+                <div class="dish-desc">Hand-pulled noodles with savory chili crunch, scallions &amp; toasted peanuts</div>
+                <div class="dish-price-row">
+                  <span class="dish-price">$8.49</span>
+                  
+                </div>
+              </div>
+              <div class="dish-card-right">
+                <div class="dish-img-thumb">🍜</div>
+                <button type="button" class="dish-add-btn">+ Add</button>
+              </div>
+            </div>
 </div>
-                <div style="margin-bottom:8px;">
-                  <div style="font-size:12px; font-weight:600; color:#78716C; margin-bottom:8px; text-transform:uppercase;">
+                <div style="margin-bottom:6px;">
+                  <div style="font-size:11px; font-weight:700; color:#78716C; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px;">
                     Floating Cart Summary Bar
                   </div>
+<div style="display:flex; gap:8px; overflow-x:auto; padding-bottom:4px;">
+                <button type="button" class="senior-btn-primary" onclick="navigateTo('scr_cart')" style='cursor:pointer;'>
+                  <span>View Cart • $11.99</span>
+                  <span class="btn-counter-badge">2</span>
+                </button>
+</div></div>
+              </div>
 
-                  <button type="button" class="ui-btn-primary" onclick="navigateTo('scr_cart')" style='cursor:pointer;'>View Cart • $11.99</button>
-</div>
+              <!-- iOS Home Indicator -->
+              <div class="ios-home-indicator">
+                <div class="home-bar"></div>
               </div>
             </div>
           </div>
@@ -783,7 +2502,7 @@
             <div class="screen-header-label">
               <span>scr_cart</span> • <strong>Cart & Student Discount Review</strong>
             </div>
-            <div class="screen-frame" id="scr_cart">
+            <div class="screen-frame mobile-frame" id="scr_cart">
               <!-- Visual Gaze Saliency Heatmap Layer -->
               <div class="heatmap-overlay">
 
@@ -804,50 +2523,96 @@
 
               </div>
 
-              <!-- Screen Native Contents -->
-              <div class="ui-header">
-                <div style="font-size:12px; font-weight:600; color:#57534E; text-transform:uppercase;">
-                  Cart & Student Discount Review
+              <!-- iOS Status Bar & Dynamic Island -->
+              <div class="ios-status-bar">
+                <span class="ios-time">9:41</span>
+                <div class="ios-dynamic-island">
+                  <div class="island-camera-dot"></div>
                 </div>
-                <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:18px; font-weight:700; margin-top:4px;">
-                  Review item quantities, apply promo codes, se...
+                <div class="ios-icons">
+                  <span class="ios-signal">📶</span>
+                  <span class="ios-wifi">5G</span>
+                  <div class="ios-battery"><div class="battery-level"></div></div>
                 </div>
               </div>
-              <div style="padding:16px; flex:1; display:flex; flex-direction:column; gap:12px;">
 
-                <div style="margin-bottom:8px;">
-                  <div style="font-size:12px; font-weight:600; color:#78716C; margin-bottom:8px; text-transform:uppercase;">
+              <!-- Scrollable Inner Content -->
+              <div class="screen-scroll-body" style="padding:16px; flex:1; display:flex; flex-direction:column; gap:10px; overflow-y:auto;">
+
+                <div style="margin-bottom:6px;">
+                  <div style="font-size:11px; font-weight:700; color:#78716C; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px;">
                     Your Order from Quad Noodle Bar
                   </div>
 
-                  <div class="ui-card" >
-                    <div style="font-weight:600; font-size:14px;">Crispy Chili Garlic Noodles <span style='float:right; font-weight:700; color:#EA580C;'>$8.49</span></div>
-                  </div>
+            <div class="senior-cart-item-card">
+              <div class="cart-qty-badge">1×</div>
+              <div class="cart-item-details">
+                <div class="cart-item-title">Crispy Chili Garlic Noodles</div>
+                <div class="cart-item-opts">Spicy Level 3, Extra Scallions</div>
+              </div>
+              <div class="cart-item-price">$8.49</div>
+            </div>
 
-                  <div class="ui-card" >
-                    <div style="font-weight:600; font-size:14px;">Pan-Fried Gyoza (4 pcs) <span style='float:right; font-weight:700; color:#EA580C;'>$3.50</span></div>
-                  </div>
+            <div class="senior-cart-item-card">
+              <div class="cart-qty-badge">1×</div>
+              <div class="cart-item-details">
+                <div class="cart-item-title">Pan-Fried Gyoza (4 pcs)</div>
+                <div class="cart-item-opts">Sweet Soy Dip</div>
+              </div>
+              <div class="cart-item-price">$3.50</div>
+            </div>
 </div>
-                <div style="margin-bottom:8px;">
-                  <div style="font-size:12px; font-weight:600; color:#78716C; margin-bottom:8px; text-transform:uppercase;">
+                <div style="margin-bottom:6px;">
+                  <div style="font-size:11px; font-weight:700; color:#78716C; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px;">
                     Campus Pickup Landmark
                   </div>
 
-                  <div class="ui-card" >
-                    <div style="font-weight:600; font-size:14px;">Drop Location </div>
-                  </div>
+            <div class="senior-input-field">
+              <div class="input-field-label">DROP LOCATION</div>
+              <div class="input-field-box">
+                <span class="input-field-icon">🏛️</span>
+                <span class="input-field-value">Prentice Dorm Tower B - Ground Lobby</span>
+                <span class="input-field-action">Change</span>
+              </div>
+            </div>
 </div>
-                <div style="margin-bottom:8px;">
-                  <div style="font-size:12px; font-weight:600; color:#78716C; margin-bottom:8px; text-transform:uppercase;">
+                <div style="margin-bottom:6px;">
+                  <div style="font-size:11px; font-weight:700; color:#78716C; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px;">
                     Student Pricing Breakdown
                   </div>
 
-                  <div class="ui-card" >
-                    <div style="font-weight:600; font-size:14px;">Bill Summary Box </div>
-                  </div>
+            <div class="senior-bill-card">
+              <div class="bill-header">PRICING BREAKDOWN</div>
+              <div class="bill-line">
+                <span>Items Subtotal</span>
+                <span>$11.99</span>
+              </div>
+              <div class="bill-line discount">
+                <span>Student Promo Subsidy</span>
+                <span class="discount-pill">-$2.50 (CampusPromo2026)</span>
+              </div>
+              <div class="bill-line">
+                <span>Campus Delivery Drop</span>
+                <span class="fee-free">FREE <span class="strikethrough">$2.99</span></span>
+              </div>
+              <div class="bill-divider"></div>
+              <div class="bill-line total">
+                <span>Grand Total</span>
+                <span class="total-amount">$10.34</span>
+              </div>
+              <div class="bill-tax-note">✓ Campus student discount active • Zero hidden surge fees</div>
+            </div>
 
-                  <button type="button" class="ui-btn-primary" onclick="navigateTo('scr_checkout')" style='cursor:pointer;'>Go to Checkout • $10.34</button>
+                <button type="button" class="senior-btn-primary" onclick="navigateTo('scr_checkout')" style='cursor:pointer;'>
+                  <span>Go to Checkout • $10.34</span>
+                  <span class="btn-arrow">→</span>
+                </button>
 </div>
+              </div>
+
+              <!-- iOS Home Indicator -->
+              <div class="ios-home-indicator">
+                <div class="home-bar"></div>
               </div>
             </div>
           </div>
@@ -856,7 +2621,7 @@
             <div class="screen-header-label">
               <span>scr_checkout</span> • <strong>Frictionless Payment & Confirmation</strong>
             </div>
-            <div class="screen-frame" id="scr_checkout">
+            <div class="screen-frame mobile-frame" id="scr_checkout">
               <!-- Visual Gaze Saliency Heatmap Layer -->
               <div class="heatmap-overlay">
 
@@ -877,33 +2642,52 @@
 
               </div>
 
-              <!-- Screen Native Contents -->
-              <div class="ui-header">
-                <div style="font-size:12px; font-weight:600; color:#57534E; text-transform:uppercase;">
-                  Frictionless Payment & Confirmation
+              <!-- iOS Status Bar & Dynamic Island -->
+              <div class="ios-status-bar">
+                <span class="ios-time">9:41</span>
+                <div class="ios-dynamic-island">
+                  <div class="island-camera-dot"></div>
                 </div>
-                <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:18px; font-weight:700; margin-top:4px;">
-                  One-tap payment authorization via Apple Pay, ...
+                <div class="ios-icons">
+                  <span class="ios-signal">📶</span>
+                  <span class="ios-wifi">5G</span>
+                  <div class="ios-battery"><div class="battery-level"></div></div>
                 </div>
               </div>
-              <div style="padding:16px; flex:1; display:flex; flex-direction:column; gap:12px;">
 
-                <div style="margin-bottom:8px;">
-                  <div style="font-size:12px; font-weight:600; color:#78716C; margin-bottom:8px; text-transform:uppercase;">
+              <!-- Scrollable Inner Content -->
+              <div class="screen-scroll-body" style="padding:16px; flex:1; display:flex; flex-direction:column; gap:10px; overflow-y:auto;">
+
+                <div style="margin-bottom:6px;">
+                  <div style="font-size:11px; font-weight:700; color:#78716C; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px;">
                     Payment Method
                   </div>
 
-                  <button type="button" class="ui-btn-primary" >Pay (Default)</button>
+                <button type="button" class="senior-btn-secondary" >
+                  <span>Pay (Default)</span>
+                  <span class="btn-speed-badge">Fast</span>
+                </button>
 
-                  <button type="button" class="ui-btn-primary" >Campus Card Cash ($42.50 Balance)</button>
+                <button type="button" class="senior-btn-secondary" >
+                  <span>Campus Card Cash ($42.50 Balance)</span>
+                  
+                </button>
 </div>
-                <div style="margin-bottom:8px;">
-                  <div style="font-size:12px; font-weight:600; color:#78716C; margin-bottom:8px; text-transform:uppercase;">
+                <div style="margin-bottom:6px;">
+                  <div style="font-size:11px; font-weight:700; color:#78716C; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px;">
                     Final Authorize Order
                   </div>
 
-                  <button type="button" class="ui-btn-primary" onclick="navigateTo('scr_order_confirmation')" style='cursor:pointer;'>Confirm & Place Order • $10.34</button>
+                <button type="button" class="senior-btn-primary" onclick="navigateTo('scr_order_confirmation')" style='cursor:pointer;'>
+                  <span>Confirm &amp; Place Order • $10.34</span>
+                  <span class="btn-arrow">→</span>
+                </button>
 </div>
+              </div>
+
+              <!-- iOS Home Indicator -->
+              <div class="ios-home-indicator">
+                <div class="home-bar"></div>
               </div>
             </div>
           </div>
@@ -912,7 +2696,7 @@
             <div class="screen-header-label">
               <span>scr_order_confirmation</span> • <strong>Order Confirmed & Kitchen Ticket</strong>
             </div>
-            <div class="screen-frame" id="scr_order_confirmation">
+            <div class="screen-frame mobile-frame" id="scr_order_confirmation">
               <!-- Visual Gaze Saliency Heatmap Layer -->
               <div class="heatmap-overlay">
 
@@ -933,32 +2717,88 @@
 
               </div>
 
-              <!-- Screen Native Contents -->
-              <div class="ui-header">
-                <div style="font-size:12px; font-weight:600; color:#57534E; text-transform:uppercase;">
-                  Order Confirmed & Kitchen Ticket
+              <!-- iOS Status Bar & Dynamic Island -->
+              <div class="ios-status-bar">
+                <span class="ios-time">9:41</span>
+                <div class="ios-dynamic-island">
+                  <div class="island-camera-dot"></div>
                 </div>
-                <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:18px; font-weight:700; margin-top:4px;">
-                  Provide immediate peace of mind, order number...
+                <div class="ios-icons">
+                  <span class="ios-signal">📶</span>
+                  <span class="ios-wifi">5G</span>
+                  <div class="ios-battery"><div class="battery-level"></div></div>
                 </div>
               </div>
-              <div style="padding:16px; flex:1; display:flex; flex-direction:column; gap:12px;">
 
-                <div style="margin-bottom:8px;">
-                  <div style="font-size:12px; font-weight:600; color:#78716C; margin-bottom:8px; text-transform:uppercase;">
+              <!-- Scrollable Inner Content -->
+              <div class="screen-scroll-body" style="padding:16px; flex:1; display:flex; flex-direction:column; gap:10px; overflow-y:auto;">
+
+                <div style="margin-bottom:6px;">
+                  <div style="font-size:11px; font-weight:700; color:#78716C; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px;">
                     Success Confirmation
                   </div>
 
-                  <div class="ui-card" >
-                    <div style="font-weight:600; font-size:14px;">✅ Order #402 Placed Successfully </div>
+                <div class="senior-status-banner">
+                  <div class="status-banner-icon">✓</div>
+                  <div class="status-banner-text">
+                    <div class="status-banner-title">✅ Order #402 Placed Successfully</div>
+                    <div class="status-banner-sub">Kitchen confirmed • Live GPS courier active</div>
                   </div>
+                </div>
 
-                  <div class="ui-card" >
-                    <div style="font-weight:600; font-size:14px;">Kitchen is preparing your meal 🍜 </div>
-                  </div>
+            <div class="senior-kitchen-ticket">
+              <div class="ticket-header">
+                <div class="ticket-status-pill">🔥 KITCHEN PREPARING</div>
+                <div class="ticket-pin-badge">
+                  <span class="pin-caption">PICKUP PIN</span>
+                  <strong class="pin-code">4821</strong>
+                </div>
+              </div>
+              <div class="ticket-headline">Kitchen is preparing your meal 🍜</div>
+              <div class="ticket-eta-box">
+                <span class="eta-clock">⏱</span>
+                <div class="eta-text">
+                  <div class="eta-label">ESTIMATED ARRIVAL TIME</div>
+                  <div class="eta-val">15-20 minutes</div>
+                </div>
+              </div>
+              <div class="prep-stepper">
+                <div class="step-node done">
+                  <div class="step-circle">✓</div>
+                  <div class="step-name">Placed</div>
+                </div>
+                <div class="step-line active"></div>
+                <div class="step-node active">
+                  <div class="step-circle pulse">🔥</div>
+                  <div class="step-name">Cooking</div>
+                </div>
+                <div class="step-line"></div>
+                <div class="step-node">
+                  <div class="step-circle">🚴</div>
+                  <div class="step-name">Bicycle</div>
+                </div>
+                <div class="step-line"></div>
+                <div class="step-node">
+                  <div class="step-circle">📍</div>
+                  <div class="step-name">Dorm</div>
+                </div>
+              </div>
+              <div class="ticket-destination">
+                <span class="dest-icon">🏛️</span>
+                <span>Drop Location: <strong>Prentice Dorm Tower B - Ground Lobby</strong></span>
+              </div>
+            </div>
 
-                  <button type="button" class="ui-btn-primary" onclick="navigateTo('scr_order_tracking')" style='cursor:pointer;'>Track Delivery Live 🚴</button>
+                <button type="button" class="senior-btn-primary" onclick="navigateTo('scr_order_tracking')" style='cursor:pointer;'>
+                  <span>Track Delivery Live 🚴</span>
+                  <span class="btn-arrow">→</span>
+                </button>
 </div>
+              </div>
+
+              <!-- iOS Home Indicator -->
+              <div class="ios-home-indicator">
+                <div class="home-bar"></div>
               </div>
             </div>
           </div>
@@ -967,7 +2807,7 @@
             <div class="screen-header-label">
               <span>scr_order_tracking</span> • <strong>Live Campus Delivery Map & PIN</strong>
             </div>
-            <div class="screen-frame" id="scr_order_tracking">
+            <div class="screen-frame mobile-frame" id="scr_order_tracking">
               <!-- Visual Gaze Saliency Heatmap Layer -->
               <div class="heatmap-overlay">
 
@@ -988,28 +2828,70 @@
 
               </div>
 
-              <!-- Screen Native Contents -->
-              <div class="ui-header">
-                <div style="font-size:12px; font-weight:600; color:#57534E; text-transform:uppercase;">
-                  Live Campus Delivery Map & PIN
+              <!-- iOS Status Bar & Dynamic Island -->
+              <div class="ios-status-bar">
+                <span class="ios-time">9:41</span>
+                <div class="ios-dynamic-island">
+                  <div class="island-camera-dot"></div>
                 </div>
-                <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:18px; font-weight:700; margin-top:4px;">
-                  Display real-time GPS location of courier on ...
+                <div class="ios-icons">
+                  <span class="ios-signal">📶</span>
+                  <span class="ios-wifi">5G</span>
+                  <div class="ios-battery"><div class="battery-level"></div></div>
                 </div>
               </div>
-              <div style="padding:16px; flex:1; display:flex; flex-direction:column; gap:12px;">
 
-                <div style="margin-bottom:8px;">
-                  <div style="font-size:12px; font-weight:600; color:#78716C; margin-bottom:8px; text-transform:uppercase;">
+              <!-- Scrollable Inner Content -->
+              <div class="screen-scroll-body" style="padding:16px; flex:1; display:flex; flex-direction:column; gap:10px; overflow-y:auto;">
+
+                <div style="margin-bottom:6px;">
+                  <div style="font-size:11px; font-weight:700; color:#78716C; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px;">
                     Campus Courier Map View
                   </div>
 
-                  <div class="ui-card" onclick="navigateTo('scr_home')" style='cursor:pointer;'>
-                    <div style="font-weight:600; font-size:14px;">Live Campus Map Simulator </div>
-                  </div>
+            <div class="senior-live-map-card" onclick="navigateTo('scr_home')" style='cursor:pointer;'>
+              <div class="map-viewport">
+                <div class="map-grid-layer">
+                  <div class="map-road road-h"></div>
+                  <div class="map-road road-v"></div>
+                  <div class="map-route-line"></div>
+                </div>
+                <div class="map-pin destination-pin">
+                  <div class="pin-bubble">🏛️ Prentice Dorm Lobby</div>
+                </div>
+                <div class="map-pin courier-pin">
+                  <div class="courier-pulse-ring"></div>
+                  <div class="pin-marker">🚴</div>
+                </div>
+                <div class="map-live-badge">
+                  <span class="live-dot-green"></span>
+                  <span>LIVE GPS TELEMETRY</span>
+                </div>
+              </div>
+              <div class="courier-meta-bar">
+                <div class="courier-avatar">JP</div>
+                <div class="courier-info">
+                  <div class="courier-name">Jordan P. (Bicycle)</div>
+                  <div class="courier-status-text">Courier approaching North Quad Dorm Gate</div>
+                </div>
+                <div class="courier-eta-badge">4 mins away</div>
+              </div>
+              <div class="courier-pin-reminder">
+                <span>Handshake PIN: <strong>PIN: 4821</strong></span>
+                <span class="show-qr-link">Show QR Pass</span>
+              </div>
+            </div>
 
-                  <button type="button" class="ui-btn-primary" >💬 Message Courier: 'I am at the main door'</button>
+                <button type="button" class="senior-btn-secondary" >
+                  <span>💬 Message Courier: &#x27;I am at the main door&#x27;</span>
+                  
+                </button>
 </div>
+              </div>
+
+              <!-- iOS Home Indicator -->
+              <div class="ios-home-indicator">
+                <div class="home-bar"></div>
               </div>
             </div>
           </div>

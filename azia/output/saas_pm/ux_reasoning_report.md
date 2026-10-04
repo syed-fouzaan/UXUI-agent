@@ -2,7 +2,7 @@
 ## Product: SprintFlow Workspace
 **Category:** Developer-Centric Project Management SaaS  
 **Platform:** DESKTOP  
-**Generation ID:** `af4fc9f0-460c-4c22-9a82-b8812e57a072`  
+**Generation ID:** `8ac85b4f-16df-4ae4-8fac-f232b4a41e35`  
 **Managed By:** `autonomous-design-mcp`  
 **QA Quality Score:** 100% | **Usability Score:** 88/100  
 
@@ -20,7 +20,7 @@ Every decision in this design is grounded in explicit user motivation, task mode
 AZIA adheres to the fundamental trust principle: **never pretend to have facts when making design hypotheses**.
 
 #### Confirmed Facts (1)
-- **[User Prompt]:** Design a complete desktop SaaS sprint project management dashboard SprintFlow with Kanban boards, sprint burndown telemetry, milestone blockers, assignees, and progressive disclosure settings.
+- **[User Prompt]:** Design an enterprise agile project management desktop dashboard for software teams with sprint kanban, pull request traceability, and velocity burndown charts
 
 #### Documented Design Assumptions (2)
 - **ASM-SAAS-01 (HIGH Confidence):**  

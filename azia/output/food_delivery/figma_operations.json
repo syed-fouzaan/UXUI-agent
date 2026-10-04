@@ -1,10 +1,10 @@
 {
   "type": "AZIA_RENDER_PRODUCT",
   "metadata": {
-    "product_id": "prd_a1f4da9e",
+    "product_id": "prd_5e9522a9",
     "product_name": "CraveBite Campus",
     "category": "Campus Food Delivery & Discovery",
-    "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e",
+    "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c",
     "managed_by": "autonomous-design-mcp",
     "total_operations": 80,
     "total_screens": 7,
@@ -14,7 +14,7 @@
     "system_name": "CraveBite Campus Design Tokens",
     "platform": "mobile",
     "theme_mode": "light",
-    "style_direction": "playful",
+    "style_direction": "modern",
     "colors": {
       "primary": {
         "name": "primary",
@@ -274,21 +274,21 @@
     {
       "op_id": "op_0001",
       "op_type": "create_page",
-      "target_id": "page_prd_a1f4da9e",
+      "target_id": "page_prd_5e9522a9",
       "parent_id": null,
       "name": "\u2728 CraveBite Campus \u2022 Master Design System & Flows",
       "payload": {
-        "product_id": "prd_a1f4da9e",
+        "product_id": "prd_5e9522a9",
         "category": "Campus Food Delivery & Discovery"
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0002",
       "op_type": "create_section",
-      "target_id": "sec_ux_arch_prd_a1f4da9e",
-      "parent_id": "page_prd_a1f4da9e",
+      "target_id": "sec_ux_arch_prd_5e9522a9",
+      "parent_id": "page_prd_5e9522a9",
       "name": "1. UX Architecture & Discovery Board",
       "payload": {
         "x": 0,
@@ -297,13 +297,13 @@
         "height": 900
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0003",
       "op_type": "create_sticky_note",
       "target_id": "sticky_persona_PER-01",
-      "parent_id": "sec_ux_arch_prd_a1f4da9e",
+      "parent_id": "sec_ux_arch_prd_5e9522a9",
       "name": "Persona: Alex Rivera - Rushed Student",
       "payload": {
         "x": 50,
@@ -312,13 +312,13 @@
         "content": "\ud83d\udc64 Alex Rivera - Rushed Student\nRole: Undergraduate Biology Major\nGoal: Grab an affordable hot lunch between back-to-back lectures with under 15 minutes to spare.\nContext: Mobile smartphone, walking between campus lecture halls, spotty cellular connectivity."
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0004",
       "op_type": "create_sticky_note",
       "target_id": "sticky_persona_PER-02",
-      "parent_id": "sec_ux_arch_prd_a1f4da9e",
+      "parent_id": "sec_ux_arch_prd_5e9522a9",
       "name": "Persona: Maya Chen - Late Night Study Group Leader",
       "payload": {
         "x": 370,
@@ -327,13 +327,13 @@
         "content": "\ud83d\udc64 Maya Chen - Late Night Study Group Leader\nRole: Graduate Research Assistant\nGoal: Coordinate group food orders during midnight library cram sessions without math headaches.\nContext: Mobile or tablet in library quiet zone, ordering in low ambient light."
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0005",
       "op_type": "create_sticky_note",
       "target_id": "sticky_asm_ASM-FOOD-01",
-      "parent_id": "sec_ux_arch_prd_a1f4da9e",
+      "parent_id": "sec_ux_arch_prd_5e9522a9",
       "name": "Assumption: ASM-FOOD-01",
       "payload": {
         "x": 50,
@@ -342,13 +342,13 @@
         "content": "\ud83d\udca1 ASSUMPTION (HIGH)\nStudents frequently reorder from top 3 favorite campus spots; quick-reorder carousel improves velocity.\nValidation: Cohort re-order frequency tracking"
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0006",
       "op_type": "create_sticky_note",
       "target_id": "sticky_asm_ASM-FOOD-02",
-      "parent_id": "sec_ux_arch_prd_a1f4da9e",
+      "parent_id": "sec_ux_arch_prd_5e9522a9",
       "name": "Assumption: ASM-FOOD-02",
       "payload": {
         "x": 370,
@@ -357,13 +357,13 @@
         "content": "\ud83d\udca1 ASSUMPTION (MEDIUM)\nStudents prefer picking up orders at designated dorm landmark lockers rather than building doors.\nValidation: User interview with campus residents"
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0007",
       "op_type": "create_section",
-      "target_id": "sec_components_prd_a1f4da9e",
-      "parent_id": "page_prd_a1f4da9e",
+      "target_id": "sec_components_prd_5e9522a9",
+      "parent_id": "page_prd_5e9522a9",
       "name": "2. Design System & Master Components",
       "payload": {
         "x": 1800,
@@ -372,13 +372,13 @@
         "height": 900
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0008",
       "op_type": "create_component",
       "target_id": "cmp_btn_primary",
-      "parent_id": "sec_components_prd_a1f4da9e",
+      "parent_id": "sec_components_prd_5e9522a9",
       "name": "Primary Action Button",
       "payload": {
         "type": "BUTTON",
@@ -394,13 +394,13 @@
         "y": 100
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0009",
       "op_type": "create_component",
       "target_id": "cmp_btn_secondary",
-      "parent_id": "sec_components_prd_a1f4da9e",
+      "parent_id": "sec_components_prd_5e9522a9",
       "name": "Secondary Action Button",
       "payload": {
         "type": "BUTTON",
@@ -416,13 +416,13 @@
         "y": 188
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0010",
       "op_type": "create_component",
       "target_id": "cmp_icon_button",
-      "parent_id": "sec_components_prd_a1f4da9e",
+      "parent_id": "sec_components_prd_5e9522a9",
       "name": "Icon Button",
       "payload": {
         "type": "ICON_BUTTON",
@@ -438,13 +438,13 @@
         "y": 272
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0011",
       "op_type": "create_component",
       "target_id": "cmp_search_bar",
-      "parent_id": "sec_components_prd_a1f4da9e",
+      "parent_id": "sec_components_prd_5e9522a9",
       "name": "Search Input Bar",
       "payload": {
         "type": "SEARCH_BAR",
@@ -460,13 +460,13 @@
         "y": 352
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0012",
       "op_type": "create_component",
       "target_id": "cmp_input_field",
-      "parent_id": "sec_components_prd_a1f4da9e",
+      "parent_id": "sec_components_prd_5e9522a9",
       "name": "Text Input Field",
       "payload": {
         "type": "INPUT",
@@ -482,13 +482,13 @@
         "y": 436
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0013",
       "op_type": "create_component",
       "target_id": "cmp_entity_card",
-      "parent_id": "sec_components_prd_a1f4da9e",
+      "parent_id": "sec_components_prd_5e9522a9",
       "name": "Entity Content Card",
       "payload": {
         "type": "CARD",
@@ -504,13 +504,13 @@
         "y": 528
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0014",
       "op_type": "create_component",
       "target_id": "cmp_global_nav",
-      "parent_id": "sec_components_prd_a1f4da9e",
+      "parent_id": "sec_components_prd_5e9522a9",
       "name": "Global Navigation Container",
       "payload": {
         "type": "NAVBAR",
@@ -526,13 +526,13 @@
         "y": 748
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0015",
       "op_type": "create_component",
       "target_id": "cmp_status_badge",
-      "parent_id": "sec_components_prd_a1f4da9e",
+      "parent_id": "sec_components_prd_5e9522a9",
       "name": "Semantic Status Badge",
       "payload": {
         "type": "BADGE",
@@ -548,13 +548,13 @@
         "y": 868
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0016",
       "op_type": "create_component",
       "target_id": "cmp_user_avatar",
-      "parent_id": "sec_components_prd_a1f4da9e",
+      "parent_id": "sec_components_prd_5e9522a9",
       "name": "User Avatar",
       "payload": {
         "type": "AVATAR",
@@ -570,13 +570,13 @@
         "y": 932
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0017",
       "op_type": "create_component",
       "target_id": "cmp_overlay_container",
-      "parent_id": "sec_components_prd_a1f4da9e",
+      "parent_id": "sec_components_prd_5e9522a9",
       "name": "Focused Overlay Container",
       "payload": {
         "type": "BOTTOM_SHEET",
@@ -592,13 +592,13 @@
         "y": 1008
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0018",
       "op_type": "create_component",
       "target_id": "cmp_empty_state",
-      "parent_id": "sec_components_prd_a1f4da9e",
+      "parent_id": "sec_components_prd_5e9522a9",
       "name": "Zero-Data Empty State",
       "payload": {
         "type": "EMPTY_STATE",
@@ -614,13 +614,13 @@
         "y": 1498
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0019",
       "op_type": "create_component",
       "target_id": "cmp_error_banner",
-      "parent_id": "sec_components_prd_a1f4da9e",
+      "parent_id": "sec_components_prd_5e9522a9",
       "name": "Inline Error Recovery Banner",
       "payload": {
         "type": "ERROR_STATE",
@@ -636,13 +636,13 @@
         "y": 1738
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0020",
       "op_type": "create_section",
-      "target_id": "sec_screens_prd_a1f4da9e",
-      "parent_id": "page_prd_a1f4da9e",
+      "target_id": "sec_screens_prd_5e9522a9",
+      "parent_id": "page_prd_5e9522a9",
       "name": "3. Interactive Connected Product Screens",
       "payload": {
         "x": 3400,
@@ -651,13 +651,13 @@
         "height": 1100
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0021",
       "op_type": "create_screen",
       "target_id": "scr_home",
-      "parent_id": "sec_screens_prd_a1f4da9e",
+      "parent_id": "sec_screens_prd_5e9522a9",
       "name": "scr_home: Campus Discovery & Feed",
       "payload": {
         "x": 3500,
@@ -673,7 +673,7 @@
         "scrollable": true
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0022",
@@ -688,7 +688,7 @@
         "layout_mode": "fill"
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0023",
@@ -705,7 +705,7 @@
         "interactive_target_screen_id": null
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0024",
@@ -722,7 +722,7 @@
         "interactive_target_screen_id": "scr_search"
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0025",
@@ -737,7 +737,7 @@
         "layout_mode": "fill"
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0026",
@@ -754,7 +754,7 @@
         "interactive_target_screen_id": null
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0027",
@@ -771,7 +771,7 @@
         "interactive_target_screen_id": null
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0028",
@@ -788,7 +788,7 @@
         "interactive_target_screen_id": null
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0029",
@@ -805,7 +805,7 @@
         "interactive_target_screen_id": null
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0030",
@@ -822,7 +822,7 @@
         "interactive_target_screen_id": null
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0031",
@@ -837,7 +837,7 @@
         "layout_mode": "fill"
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0032",
@@ -863,7 +863,7 @@
         "interactive_target_screen_id": "scr_restaurant_detail"
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0033",
@@ -889,7 +889,7 @@
         "interactive_target_screen_id": "scr_restaurant_detail"
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0034",
@@ -915,13 +915,13 @@
         "interactive_target_screen_id": "scr_restaurant_detail"
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0035",
       "op_type": "create_screen",
       "target_id": "scr_search",
-      "parent_id": "sec_screens_prd_a1f4da9e",
+      "parent_id": "sec_screens_prd_5e9522a9",
       "name": "scr_search: Dietary Search & Query Results",
       "payload": {
         "x": 3973,
@@ -937,7 +937,7 @@
         "scrollable": true
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0036",
@@ -952,7 +952,7 @@
         "layout_mode": "fill"
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0037",
@@ -968,7 +968,7 @@
         "interactive_target_screen_id": "scr_home"
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0038",
@@ -985,7 +985,7 @@
         "interactive_target_screen_id": null
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0039",
@@ -1000,7 +1000,7 @@
         "layout_mode": "fill"
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0040",
@@ -1020,13 +1020,13 @@
         "interactive_target_screen_id": "scr_restaurant_detail"
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0041",
       "op_type": "create_screen",
       "target_id": "scr_restaurant_detail",
-      "parent_id": "sec_screens_prd_a1f4da9e",
+      "parent_id": "sec_screens_prd_5e9522a9",
       "name": "scr_restaurant_detail: Restaurant Menu & Customizer",
       "payload": {
         "x": 4446,
@@ -1042,7 +1042,7 @@
         "scrollable": true
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0042",
@@ -1057,7 +1057,7 @@
         "layout_mode": "fill"
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0043",
@@ -1076,7 +1076,7 @@
         "interactive_target_screen_id": null
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0044",
@@ -1091,7 +1091,7 @@
         "layout_mode": "fill"
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0045",
@@ -1110,7 +1110,7 @@
         "interactive_target_screen_id": null
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0046",
@@ -1125,7 +1125,7 @@
         "layout_mode": "fill"
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0047",
@@ -1142,13 +1142,13 @@
         "interactive_target_screen_id": "scr_cart"
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0048",
       "op_type": "create_screen",
       "target_id": "scr_cart",
-      "parent_id": "sec_screens_prd_a1f4da9e",
+      "parent_id": "sec_screens_prd_5e9522a9",
       "name": "scr_cart: Cart & Student Discount Review",
       "payload": {
         "x": 4919,
@@ -1164,7 +1164,7 @@
         "scrollable": true
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0049",
@@ -1179,7 +1179,7 @@
         "layout_mode": "fill"
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0050",
@@ -1198,7 +1198,7 @@
         "interactive_target_screen_id": null
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0051",
@@ -1217,7 +1217,7 @@
         "interactive_target_screen_id": null
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0052",
@@ -1232,7 +1232,7 @@
         "layout_mode": "fill"
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0053",
@@ -1249,7 +1249,7 @@
         "interactive_target_screen_id": null
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0054",
@@ -1264,7 +1264,7 @@
         "layout_mode": "fill"
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0055",
@@ -1283,7 +1283,7 @@
         "interactive_target_screen_id": null
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0056",
@@ -1299,13 +1299,13 @@
         "interactive_target_screen_id": "scr_checkout"
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0057",
       "op_type": "create_screen",
       "target_id": "scr_checkout",
-      "parent_id": "sec_screens_prd_a1f4da9e",
+      "parent_id": "sec_screens_prd_5e9522a9",
       "name": "scr_checkout: Frictionless Payment & Confirmation",
       "payload": {
         "x": 5392,
@@ -1321,7 +1321,7 @@
         "scrollable": true
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0058",
@@ -1336,7 +1336,7 @@
         "layout_mode": "fill"
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0059",
@@ -1353,7 +1353,7 @@
         "interactive_target_screen_id": null
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0060",
@@ -1369,7 +1369,7 @@
         "interactive_target_screen_id": null
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0061",
@@ -1384,7 +1384,7 @@
         "layout_mode": "fill"
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0062",
@@ -1400,13 +1400,13 @@
         "interactive_target_screen_id": "scr_order_confirmation"
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0063",
       "op_type": "create_screen",
       "target_id": "scr_order_confirmation",
-      "parent_id": "sec_screens_prd_a1f4da9e",
+      "parent_id": "sec_screens_prd_5e9522a9",
       "name": "scr_order_confirmation: Order Confirmed & Kitchen Ticket",
       "payload": {
         "x": 5865,
@@ -1422,7 +1422,7 @@
         "scrollable": true
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0064",
@@ -1437,7 +1437,7 @@
         "layout_mode": "fill"
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0065",
@@ -1454,7 +1454,7 @@
         "interactive_target_screen_id": null
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0066",
@@ -1473,7 +1473,7 @@
         "interactive_target_screen_id": null
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0067",
@@ -1489,13 +1489,13 @@
         "interactive_target_screen_id": "scr_order_tracking"
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0068",
       "op_type": "create_screen",
       "target_id": "scr_order_tracking",
-      "parent_id": "sec_screens_prd_a1f4da9e",
+      "parent_id": "sec_screens_prd_5e9522a9",
       "name": "scr_order_tracking: Live Campus Delivery Map & PIN",
       "payload": {
         "x": 6338,
@@ -1511,7 +1511,7 @@
         "scrollable": true
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0069",
@@ -1526,7 +1526,7 @@
         "layout_mode": "fill"
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0070",
@@ -1545,7 +1545,7 @@
         "interactive_target_screen_id": null
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0071",
@@ -1561,7 +1561,7 @@
         "interactive_target_screen_id": null
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0072",
@@ -1578,7 +1578,7 @@
         "duration_ms": 300
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0073",
@@ -1595,7 +1595,7 @@
         "duration_ms": 300
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0074",
@@ -1612,7 +1612,7 @@
         "duration_ms": 300
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0075",
@@ -1629,7 +1629,7 @@
         "duration_ms": 300
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0076",
@@ -1646,7 +1646,7 @@
         "duration_ms": 300
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0077",
@@ -1663,7 +1663,7 @@
         "duration_ms": 300
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0078",
@@ -1680,7 +1680,7 @@
         "duration_ms": 300
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0079",
@@ -1697,7 +1697,7 @@
         "duration_ms": 300
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     },
     {
       "op_id": "op_0080",
@@ -1714,7 +1714,7 @@
         "duration_ms": 300
       },
       "managed_by": "autonomous-design-mcp",
-      "generation_id": "e372f4e5-4dab-4e97-8750-b77315729c2e"
+      "generation_id": "dd8ae500-df11-4fe2-bda3-7cdeceffe03c"
     }
   ],
   "audit_findings": [
