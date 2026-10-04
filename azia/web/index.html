@@ -237,6 +237,33 @@
       line-height: 1.5;
       margin-bottom: 12px;
     }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-api-key {
+      border: 1px solid #334155;
+      padding: 6px 12px;
+      font-size: 12px;
+    }
+    .btn-api-key:hover {
+      background: #1E293B;
+    }
+    .quick-switch-col {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .btn-quick-view {
+      padding: 10px;
+      text-align: left;
+      background: #1E293B;
+      border: 1px solid #334155;
+    }
+    .btn-quick-view:hover {
+      background: #273549;
+    }
   </style>
 </head>
 <body>
@@ -252,8 +279,8 @@
       <button type="button" class="switch-btn" id="btn-saas" onclick="switchProduct('saas')">⚡ SprintFlow (Desktop SaaS)</button>
     </div>
 
-    <div style="display:flex; align-items:center; gap:10px;">
-      <button type="button" class="switch-btn" style="border:1px solid #334155; padding:6px 12px; font-size:12px;" onclick="promptApiKey()">
+    <div class="header-actions">
+      <button type="button" class="switch-btn btn-api-key" onclick="promptApiKey()">
         🔑 Set Gemini / Grok Key
       </button>
       <span class="status-hosted">● Globally Hosted</span>
@@ -295,17 +322,17 @@
       <div class="panel-box">
         <div class="panel-heading">⚡ Active Design Architecture</div>
         <p class="panel-desc">Switch preview mode directly across autonomous design modules:</p>
-        <div style="display:flex; flex-direction:column; gap:8px;">
-          <button type="button" class="btn-action" style="padding:10px; text-align:left; background:#1E293B; border:1px solid #334155;" onclick="triggerIframeView('sim')">
+        <div class="quick-switch-col">
+          <button type="button" class="btn-action btn-quick-view" onclick="triggerIframeView('sim')">
             🔬 Synthetic Simulation &amp; Heatmaps
           </button>
-          <button type="button" class="btn-action" style="padding:10px; text-align:left; background:#1E293B; border:1px solid #334155;" onclick="triggerIframeView('code')">
+          <button type="button" class="btn-action btn-quick-view" onclick="triggerIframeView('code')">
             💻 1-Click React &amp; SwiftUI Handoff
           </button>
-          <button type="button" class="btn-action" style="padding:10px; text-align:left; background:#1E293B; border:1px solid #334155;" onclick="triggerIframeView('ingest')">
+          <button type="button" class="btn-action btn-quick-view" onclick="triggerIframeView('ingest')">
             📥 Figma Design System Ingestion
           </button>
-          <button type="button" class="btn-action" style="padding:10px; text-align:left; background:#1E293B; border:1px solid #334155;" onclick="triggerIframeView('screens')">
+          <button type="button" class="btn-action btn-quick-view" onclick="triggerIframeView('screens')">
             📱 Interactive Screen Canvas
           </button>
         </div>
